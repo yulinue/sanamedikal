@@ -12,8 +12,7 @@ document.addEventListener('DOMContentLoaded', function () {
 });
 
 /* ========================
-   ГОРИЗОНТАЛЬНЫЕ ЛЕНТЫ (бренды, документы)
-   Разметка: [data-slider] > [data-slider-track] + [data-slider-prev|next]
+   ГОРИЗОНТАЛЬНЫЕ ЛЕНТЫ
 ======================== */
 function initSliders() {
     document.querySelectorAll('[data-slider]').forEach(function (root) {
@@ -606,7 +605,7 @@ function closeRequestModalIfOpen() {
 }
 
 /* ========================
-   ТАБЫ (сегментированный переключатель)
+   ТАБЫ
 ======================== */
 function initTabs() {
     var groups = document.querySelectorAll('.tabs');
@@ -631,7 +630,7 @@ function initTabs() {
 }
 
 /* ========================
-   ВАЛИДАЦИЯ ФОРМЫ «ОСТАВИТЬ ЗАЯВКУ»
+   ВАЛИДАЦИЯ ФОРМЫ
 ======================== */
 function initRequestFormValidation() {
     var form = document.getElementById('request-form');
@@ -968,7 +967,6 @@ function initHeroSlider() {
     goTo(0, { isInit: true });
 }
 
-/* Переключение содержимого табов: [data-tabs-root] содержит .tabs и панели [data-tab-panel="<data-tab>"] */
 function showTabPanel(group, tabName) {
     var root = group.closest('[data-tabs-root]');
 
@@ -982,7 +980,7 @@ function showTabPanel(group, tabName) {
 }
 
 /* ========================
-   ФУТЕР: колонки навигации — выпадающие списки на ≤700px
+   ФУТЕР
 ======================== */
 function initFooterAccordion() {
     var mq = window.matchMedia('(max-width: 700px)');
@@ -1029,7 +1027,7 @@ function initFooterAccordion() {
 }
 
 /* ========================
-   ХЕДЕР: фиксируется (header--fixed), когда hero-блок ушёл из поля зрения
+   ХЕДЕР header--fixed
 ======================== */
 function initFixedHeader() {
     var header = document.querySelector('.header');
@@ -1045,7 +1043,6 @@ function initFixedHeader() {
 
     var observer = new IntersectionObserver(function (entries) {
         var entry = entries[entries.length - 1];
-        // hero полностью выше вьюпорта (а не ещё ниже, при загрузке страницы)
         var isPassed = !entry.isIntersecting && entry.boundingClientRect.bottom <= 0;
 
         header.classList.toggle('header--fixed', isPassed);

@@ -551,7 +551,7 @@ body.is-locked .header {
     }
 }
 
-/* TABS (сегментированный переключатель) */
+/* TABS */
 .tabs {
     display: inline-flex;
     border-radius: 30px;
@@ -1484,12 +1484,10 @@ body.is-locked .header {
     flex-direction: column;
     gap: 38px;
     padding: clamp(24px, 2.9vw, 50px);
-    /* min-height: clamp(240px, 18.6vw, 324px); */
     overflow: hidden;
     transition: background-color .3s ease;
 }
 
-/* голубое свечение, проявляется при ховере */
 .category-card::before{
     content: '';
     position: absolute;
@@ -1662,7 +1660,6 @@ body.is-locked .header {
     --about-icon: clamp(64px, 7.13vw, 124px);
     --about-gap: clamp(20px, 2.471vw, 43px);
     display: grid;
-    /* заголовок | иконка | текст; иконка заканчивается ровно на середине ряда */
     grid-template-columns: minmax(0, calc(50% - var(--about-icon) - var(--about-gap))) auto minmax(0, 1fr);
     padding-block: clamp(24px, 2.184vw, 38px);
     border-top: 1px solid rgba(255, 255, 255, 0.2);
@@ -1884,7 +1881,6 @@ body.is-locked .header {
     max-width: 9em;
 }
 
-/* голубая линия, тающая вправо, между заголовком и описанием */
 .tender-feature__text::before{
     content: '';
     display: block;
@@ -2018,7 +2014,6 @@ body.is-locked .header {
 
 .footer__info{
     display: grid;
-    /* 1-я колонка по ширине телефона, 2-я по ширине почты; расстояние между контактами — column-gap (94px на макете) */
     grid-template-columns: max-content max-content minmax(0, 1fr);
     row-gap: 80px;
     column-gap: clamp(24px, 5.4vw, 94px);
@@ -2026,7 +2021,6 @@ body.is-locked .header {
     padding-top: 6px;
 }
 
-/* контакты и навигация делят колонки .footer__info, поэтому 2-я колонка навигации стоит ровно под вторым контактом */
 .footer__contacts,
 .footer__nav{
     display: grid;
@@ -2034,7 +2028,6 @@ body.is-locked .header {
     grid-template-columns: subgrid;
 }
 
-/* 1-я колонка навигации не влияет на ширину общей колонки — её задаёт только телефон */
 .footer__nav .footer__col:first-child{
     contain: inline-size;
 }
@@ -2864,7 +2857,6 @@ body.is-locked .header {
     }
 }
 
-/* ФУТЕР: кнопка-заголовок колонки. На десктопе выглядит как обычный заголовок */
 .footer__col-toggle{
     display: inline-flex;
     align-items: center;
@@ -2880,7 +2872,6 @@ body.is-locked .header {
     display: none;
 }
 
-/* ФУТЕР на ≤700px: колонки навигации — выпадающие списки */
 @media(max-width: 700px){
     .footer__nav{
         grid-template-columns: minmax(0, 1fr);
@@ -2918,7 +2909,6 @@ body.is-locked .header {
         transform: rotate(180deg);
     }
 
-    /* 0fr -> 1fr даёт плавное раскрытие без известной высоты */
     .footer__col-body{
         display: grid;
         grid-template-rows: 0fr;
