@@ -1,0 +1,88 @@
+:root {
+    /* --- Шрифт --- */
+    --font-main: "Nunito Sans", sans-serif;
+    --font-heading: "Geologica", sans-serif;
+
+    /* --- Цвета: базовые --- */
+    --white: #ffffff;
+    --black: #000000;
+
+    --bg-primary: #ffffff;
+    --bg-secondary: #F2F8FA;
+
+    --text-primary: #222E59;
+    --text-secondary: #737373;
+    --text-tertiary: #9B9FB0;
+    --text-on-accent: #ffffff;
+
+    --border: rgba(107, 114, 128, 0.16);
+    --border-hover: rgba(82, 82, 82, 0.32);
+
+    --white-subtle: rgba(255, 255, 255, 0.07);
+    --white-subtle-hover: rgba(255, 255, 255, 0.12);
+
+    /* --- Цвета: акцент --- */
+    --accent: #60B9DE;
+    --accent-hover: #56AFD4;
+    --accent-subtle: rgba(112, 134, 252, 0.12);
+
+    /* --- Цвета: статусы --- */
+    --success: #22c55e;
+    --warning: #f59e0b;
+    --danger: #DC2B47;
+    --danger-subtle: rgba(239, 68, 68, 0.12);
+
+    /* --- Цвета: нейтральные контролы (фон кнопок/инпутов) --- */
+    --control: #F2F8FA;
+    --control-hover: #E8F2F6;
+
+    /* --- Прозрачность состояний --- */
+    --opacity-active: 0.8;
+    --opacity-disabled: 0.4;
+
+    /* --- Контейнер --- */
+    --container-width: 1700px;
+    --container-padding: 20px;
+
+    /* --- Высоты контролов (кнопки, инпуты) --- */
+    --control-height-s: 28px;
+    --control-height-m: 40px;
+    --control-height-l: 50px;
+    --control-height-xl: 60px;
+
+    /* --- Радиусы --- */
+    --radius-s: 8px;
+    --radius-m: 12px;
+    --radius-l: 16px;
+    --radius-xl: 30px;
+    --radius-full: 999px;
+
+    /* --- Типографика: заголовки --- */
+    --fs-h1: 60px;
+    --fs-h2: 48px;
+    --fs-h3: 32px;
+    --fs-h4: 26px;
+    --fs-h5: 20px;
+
+    /* --- Типографика: текст --- */
+    --fs-body-l: 18px;
+    --fs-body-m: 16px;
+    --fs-body-s: 14px;
+    --fs-caption: 12px;
+
+    /* --- Тени --- */
+    --shadow-s: 0 2px 8px rgba(17, 24, 39, 0.06);
+    --shadow-m: 0 4px 24px rgba(17, 24, 39, 0.08);
+    --shadow-l: 0 8px 40px rgba(17, 24, 39, 0.12);
+}
+
+@media (max-width: 991px) {
+    :root {
+        --container-padding: 16px;
+    }
+}
+@media (max-width: 600px) {
+    :root {
+        --container-padding: 10px;
+    }
+}
