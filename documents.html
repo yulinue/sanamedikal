@@ -1,0 +1,496 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Документы — Санамедикал</title>
+
+    <link rel="stylesheet" href="local/templates/sanamedikal/css/main.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,opsz,wght@0,6..12,200..1000;1,6..12,200..1000&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Geologica:wght,CRSV@100..900,0&display=swap" rel="stylesheet">
+    <script>if (!/(?:^|; )pro_access=1/.test(document.cookie)) { document.documentElement.classList.add('pro-gate-pending'); }</script>
+</head>
+<body class="page-hero-dark">
+    <header class="header">
+        <div class="container">
+            <div class="header-wrapper flex">
+                <a href="/" class="header__logo-container">
+                    <img class="header__logo" src="local/templates/sanamedikal/images/logo/logo.svg" alt="Логотип Санамедикал">
+                </a>
+
+                <ul class="header__menu flex">
+                    <li><a href="/" class="btn btn--link">Продукция</a></li>
+                    <li><a href="/brands/" class="btn btn--link">Производители</a></li>
+                    <li><a href="/about/" class="btn btn--link">Компания</a></li>
+                    <li><a href="/documents/" class="btn btn--link" aria-current="page">Документы</a></li>
+                    <li><a href="/cooperation/" class="btn btn--link">Сотрудничество</a></li>
+                    <li><a href="/contacts/" class="btn btn--link">Новости</a></li>
+                    <li><a href="/contacts/" class="btn btn--link">Контакты</a></li>
+                </ul>
+
+                <div class="header__actions flex gap-20 items-center">
+                    <button class="btn btn--neutral btn--round" id="search-btn" aria-expanded="false" aria-controls="search-bar" aria-label="Открыть поиск">
+                        <svg class="btn__icon" width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M9.96863 17.1875C13.9554 17.1875 17.1874 13.9556 17.1874 9.96875C17.1874 5.98194 13.9554 2.75 9.96863 2.75C5.98182 2.75 2.74988 5.98194 2.74988 9.96875C2.74988 13.9556 5.98182 17.1875 9.96863 17.1875Z" stroke="white" stroke-linecap="round" stroke-linejoin="round" />
+                            <path d="M15.0728 15.0735L19.2494 19.2501" stroke="white" stroke-linecap="round" stroke-linejoin="round" />
+                        </svg>
+                    </button>
+
+                    <button type="button" class="btn btn--secondary js-request-btn">Оставить заявку</button>
+
+                    <a href="/cart/" class="header-actions__cart flex">
+                        <button class="btn btn--neutral">Корзина</button>
+                        <button class="btn btn--neutral btn--round">
+                            <svg class="btn__icon" width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M15.125 8.9375H4.46875L3.60264 2.62702C3.57384 2.46861 3.49035 2.32533 3.36674 2.22217C3.24313 2.11901 3.08723 2.0625 2.92623 2.0625H1.375" stroke="white" stroke-linecap="round" stroke-linejoin="round" />
+                                <path d="M6.875 19.25C7.82424 19.25 8.59375 18.4805 8.59375 17.5312C8.59375 16.582 7.82424 15.8125 6.875 15.8125C5.92576 15.8125 5.15625 16.582 5.15625 17.5312C5.15625 18.4805 5.92576 19.25 6.875 19.25Z" stroke="white" stroke-linecap="round" stroke-linejoin="round" />
+                                <path d="M15.8125 19.25C16.7617 19.25 17.5312 18.4805 17.5312 17.5312C17.5312 16.582 16.7617 15.8125 15.8125 15.8125C14.8633 15.8125 14.0938 16.582 14.0938 17.5312C14.0938 18.4805 14.8633 19.25 15.8125 19.25Z" stroke="white" stroke-linecap="round" stroke-linejoin="round" />
+                                <path d="M5.375 12.375H16.165C16.487 12.375 16.7988 12.262 17.046 12.0557C17.2932 11.8493 17.4602 11.5628 17.5178 11.246L18.5625 5.5H4.125" stroke="white" stroke-linecap="round" stroke-linejoin="round" />
+                            </svg>
+                        </button>
+                        <span class="header-actions__count" aria-label="Товаров в корзине: 59">59</span>
+                    </a>
+
+                    <button class="btn btn--neutral btn--round" id="burger-btn" aria-expanded="false" aria-controls="mobile-menu" aria-label="Открыть меню">
+                        <svg class="btn__icon burger-icon" width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <line class="burger-icon__line burger-icon__line--top" x1="3" y1="5.78" x2="19" y2="5.78" stroke="white" stroke-width="1.6" stroke-linecap="round" />
+                            <line class="burger-icon__line burger-icon__line--middle" x1="3" y1="11" x2="19" y2="11" stroke="white" stroke-width="1.6" stroke-linecap="round" />
+                            <line class="burger-icon__line burger-icon__line--bottom" x1="3" y1="16.22" x2="19" y2="16.22" stroke="white" stroke-width="1.6" stroke-linecap="round" />
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <div class="mobile-menu-overlay" id="mobile-menu-overlay"></div>
+
+    <div class="mobile-menu" id="mobile-menu" role="dialog" aria-modal="true" aria-label="Меню">
+        <div class="mobile-menu__header">
+            <span class="mobile-menu__title">Меню</span>
+            <button class="btn btn--neutral btn--round" id="mobile-menu-close" aria-label="Закрыть меню">
+                <svg class="btn__icon" width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M12.5 3.5L3.5 12.5" stroke="#222E59" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                    <path d="M3.5 3.5L12.5 12.5" stroke="#222E59" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                </svg>
+            </button>
+        </div>
+
+        <nav class="mobile-menu__nav">
+            <ul class="mobile-menu__list">
+                <li><a href="/" class="btn btn--link mobile-menu__link">Продукция</a></li>
+                <li><a href="/brands/" class="btn btn--link mobile-menu__link">Производители</a></li>
+                <li><a href="/about/" class="btn btn--link mobile-menu__link">Компания</a></li>
+                <li><a href="/documents/" class="btn btn--link mobile-menu__link" aria-current="page">Документы</a></li>
+                <li><a href="/cooperation/" class="btn btn--link mobile-menu__link">Сотрудничество</a></li>
+                <li><a href="/contacts/" class="btn btn--link mobile-menu__link">Новости</a></li>
+                <li><a href="/contacts/" class="btn btn--link mobile-menu__link">Контакты</a></li>
+            </ul>
+        </nav>
+
+        <div class="mobile-menu__footer">
+            <button type="button" class="btn btn--primary btn--block-mobile js-request-btn">Оставить заявку</button>
+        </div>
+    </div>
+
+    <div class="search" id="search-bar" role="search">
+        <div class="search__bar">
+            <svg class="search__bar-icon" width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M9.96875 17.1875C13.9556 17.1875 17.1875 13.9556 17.1875 9.96875C17.1875 5.98194 13.9556 2.75 9.96875 2.75C5.98194 2.75 2.75 5.98194 2.75 9.96875C2.75 13.9556 5.98194 17.1875 9.96875 17.1875Z" stroke="#222E59" stroke-linecap="round" stroke-linejoin="round" />
+                <path d="M15.0742 15.0735L19.2508 19.2501" stroke="#222E59" stroke-linecap="round" stroke-linejoin="round" />
+            </svg>
+
+            <input type="text" class="search__input" id="search-input" name="q" placeholder="Найти..." autocomplete="off">
+
+            <a href="/search/" class="btn btn--primary search__submit" id="search-submit">Найти</a>
+
+            <button type="button" class="btn btn--link search__clear" id="search-clear" aria-label="Очистить поле">
+                <svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M17.1875 4.8125L4.8125 17.1875" stroke="#9B9FB0" stroke-linecap="round" stroke-linejoin="round" />
+                    <path d="M17.1875 17.1875L4.8125 4.8125" stroke="#9B9FB0" stroke-linecap="round" stroke-linejoin="round" />
+                </svg>
+            </button>
+        </div>
+
+        <div class="select__dropdown search__dropdown" id="search-dropdown">
+            <ul class="search__results" id="search-results"></ul>
+        </div>
+    </div>
+
+    <div class="modal" id="request-modal" role="dialog" aria-modal="true" aria-label="Оставить заявку">
+        <div class="modal__header">
+            <h2 class="modal__title">Оставить заявку</h2>
+
+            <button type="button" class="modal__close js-close-request-modal" aria-label="Закрыть">
+                <svg width="34" height="34" viewBox="0 0 34 34" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M26.5625 7.4375L7.4375 26.5625" stroke="#222E59" stroke-linecap="round" stroke-linejoin="round" />
+                    <path d="M26.5625 26.5625L7.4375 7.4375" stroke="#222E59" stroke-linecap="round" stroke-linejoin="round" />
+                </svg>
+            </button>
+
+            <button type="button" class="btn btn--neutral btn--round modal__close-mobile js-close-request-modal" aria-label="Закрыть">
+                <svg class="btn__icon" width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M12.5 3.5L3.5 12.5" stroke="#222E59" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                    <path d="M3.5 3.5L12.5 12.5" stroke="#222E59" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                </svg>
+            </button>
+        </div>
+
+        <div class="modal__body">
+            <div class="tabs" role="tablist">
+                <button type="button" class="tabs__item is-active" role="tab" aria-selected="true" data-tab="question">Задать вопрос</button>
+                <button type="button" class="tabs__item" role="tab" aria-selected="false" data-tab="partnership">Заявка на сотрудничество</button>
+            </div>
+
+            <form class="modal__form" id="request-form" novalidate>
+                <div class="field">
+                    <label class="field__label" for="request-comment">Ваш комментарий</label>
+                    <input type="text" class="input" id="request-comment" name="comment" placeholder="Необходимо...">
+                    <span class="field__line"></span>
+                </div>
+
+                <div class="field">
+                    <label class="field__label" for="request-name">ФИО контактного лица</label>
+                    <input type="text" class="input" id="request-name" name="name" autocomplete="name" placeholder="Иванов Иван Иванович" required data-validate="name">
+                    <span class="field__line"></span>
+                </div>
+
+                <div class="modal__row">
+                    <div class="field">
+                        <label class="field__label" for="request-org">Название организации</label>
+                        <input type="text" class="input" id="request-org" name="org" placeholder="ООО..." required>
+                        <span class="field__line"></span>
+                    </div>
+
+                    <div class="field">
+                        <label class="field__label" for="request-inn">ИНН организации</label>
+                        <input type="text" class="input" id="request-inn" name="inn" inputmode="numeric" placeholder="4392004106" required data-validate="inn">
+                        <span class="field__line"></span>
+                    </div>
+                </div>
+
+                <div class="modal__row">
+                    <div class="field">
+                        <label class="field__label" for="request-phone">Номер телефона</label>
+                        <input type="tel" class="input" id="request-phone" name="phone" autocomplete="tel" placeholder="+7" required data-validate="phone">
+                        <span class="field__line"></span>
+                    </div>
+
+                    <div class="field">
+                        <label class="field__label" for="request-email">Электронная почта</label>
+                        <input type="email" class="input" id="request-email" name="email" autocomplete="email" placeholder="company@mail.ru" required data-validate="email">
+                        <span class="field__line"></span>
+                    </div>
+                </div>
+
+                <div class="checkbox-row">
+                    <input type="checkbox" class="checkbox" id="request-agree" name="agree" required>
+                    <label class="checkbox-label" for="request-agree">
+                        <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M6.75 16.5H11.25C15 16.5 16.5 15 16.5 11.25V6.75C16.5 3 15 1.5 11.25 1.5H6.75C3 1.5 1.5 3 1.5 6.75V11.25C1.5 15 3 16.5 6.75 16.5Z" fill="#222E59" />
+                            <path d="M6.75 16.5H11.25C15 16.5 16.5 15 16.5 11.25V6.75C16.5 3 15 1.5 11.25 1.5H6.75C3 1.5 1.5 3 1.5 6.75V11.25C1.5 15 3 16.5 6.75 16.5Z" stroke="#9B9FB0" stroke-linecap="round" stroke-linejoin="round" />
+                        </svg>
+                        <svg width="8" height="6" viewBox="0 0 8 6" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M0.75 2.8725L2.8725 4.995L7.125 0.75" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                        </svg>
+                    </label>
+                    <div class="checkbox-text">Принимаю <a href="/policy/">условия обработки</a> персональных данных</div>
+                </div>
+            </form>
+        </div>
+
+        <div class="modal__footer">
+            <button type="submit" form="request-form" class="btn btn--primary modal__submit">Отправить заявку</button>
+        </div>
+    </div>
+
+    <main>
+        <section class="page-hero" data-header-trigger>
+            <div class="container">
+                <nav class="breadcrumbs breadcrumbs--light" aria-label="Хлебные крошки">
+                    <ol class="breadcrumbs__list">
+                        <li class="breadcrumbs__item">
+                            <a href="/" class="breadcrumbs__link">главная</a>
+                            <svg class="breadcrumbs__sep" width="10" height="10" aria-hidden="true"><use href="#icon-chevron-right"></use></svg>
+                        </li>
+                        <li class="breadcrumbs__item" aria-current="page">документы</li>
+                    </ol>
+                </nav>
+
+                <h1 class="h1 page-hero__title">Документы</h1>
+                <p class="page-hero__text">Проверенные документы, выписки и&nbsp;статусы</p>
+            </div>
+        </section>
+
+        <section class="docs" aria-label="Список документов">
+            <div class="container">
+                <div class="docs__toolbar">
+                    <div class="tabs tabs--filter" role="tablist">
+                        <button type="button" class="tabs__item is-active" role="tab" aria-selected="true" data-filter="all">Все документы</button>
+                        <button type="button" class="tabs__item" role="tab" aria-selected="false" data-filter="certificates">Сертификаты</button>
+                        <button type="button" class="tabs__item" role="tab" aria-selected="false" data-filter="organization">Организация</button>
+                        <button type="button" class="tabs__item" role="tab" aria-selected="false" data-filter="catalogs">Каталоги</button>
+                        <button type="button" class="tabs__item" role="tab" aria-selected="false" data-filter="instructions">Инструкции</button>
+                    </div>
+
+                    <div class="docs-search">
+                        <svg class="docs-search__icon" width="22" height="22" viewBox="0 0 22 22" fill="none" aria-hidden="true">
+                            <path d="M9.96863 17.1875C13.9554 17.1875 17.1874 13.9556 17.1874 9.96875C17.1874 5.98194 13.9554 2.75 9.96863 2.75C5.98182 2.75 2.74988 5.98194 2.74988 9.96875C2.74988 13.9556 5.98182 17.1875 9.96863 17.1875Z" stroke-linecap="round" stroke-linejoin="round" />
+                            <path d="M15.0728 15.0735L19.2494 19.2501" stroke-linecap="round" stroke-linejoin="round" />
+                        </svg>
+                        <input type="text" class="docs-search__input" placeholder="Поиск по названию и бренду" aria-label="Поиск по названию и бренду" autocomplete="off">
+
+                        <button type="button" class="btn btn--link docs-search__clear" aria-label="Очистить поле" data-docs-search-clear>
+                            <svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M17.1875 4.8125L4.8125 17.1875" stroke="#9B9FB0" stroke-linecap="round" stroke-linejoin="round" />
+                                <path d="M17.1875 17.1875L4.8125 4.8125" stroke="#9B9FB0" stroke-linecap="round" stroke-linejoin="round" />
+                            </svg>
+                        </button>
+                    </div>
+                </div>
+
+                <div class="docs__list">
+                        <a href="/upload/documents/document-1.pdf" class="docs-item" data-category="instructions" download>
+                            <img src="local/templates/sanamedikal/images/docs/docsIcon.svg" alt="" class="docs-item__icon" width="50" height="50">
+                            <div class="docs-item__body">
+                                <span class="docs-item__title">Инструкция – Управляемый микропроводник Boston Scientific Transend</span>
+                                <span class="docs-item__meta">Файл PDF от 13 сен 2025 · 3,54 mb</span>
+                            </div>
+                        </a>
+                        <a href="/upload/documents/document-2.pdf" class="docs-item" data-category="certificates" download>
+                            <img src="local/templates/sanamedikal/images/docs/docsIcon.svg" alt="" class="docs-item__icon" width="50" height="50">
+                            <div class="docs-item__body">
+                                <span class="docs-item__title">Регистрационное удостоверение – Управляемый микропроводник Boston Scientific Transend</span>
+                                <span class="docs-item__meta">Файл PDF от 13 сен 2025 · 3,54 mb</span>
+                            </div>
+                        </a>
+                        <a href="/upload/documents/document-3.pdf" class="docs-item" data-category="organization" download>
+                            <img src="local/templates/sanamedikal/images/docs/docsIcon.svg" alt="" class="docs-item__icon" width="50" height="50">
+                            <div class="docs-item__body">
+                                <span class="docs-item__title">Дистрибьюторское соглашение с Boston Scientific</span>
+                                <span class="docs-item__meta">Файл PDF от 13 сен 2025 · 3,54 mb</span>
+                            </div>
+                        </a>
+                        <a href="/upload/documents/document-4.pdf" class="docs-item" data-category="instructions" download>
+                            <img src="local/templates/sanamedikal/images/docs/docsIcon.svg" alt="" class="docs-item__icon" width="50" height="50">
+                            <div class="docs-item__body">
+                                <span class="docs-item__title">Инструкция – Управляемый микропроводник Boston Scientific Transend</span>
+                                <span class="docs-item__meta">Файл PDF от 13 сен 2025 · 3,54 mb</span>
+                            </div>
+                        </a>
+                        <a href="/upload/documents/document-5.pdf" class="docs-item" data-category="certificates" download>
+                            <img src="local/templates/sanamedikal/images/docs/docsIcon.svg" alt="" class="docs-item__icon" width="50" height="50">
+                            <div class="docs-item__body">
+                                <span class="docs-item__title">Регистрационное удостоверение – Управляемый микропроводник Boston Scientific Transend</span>
+                                <span class="docs-item__meta">Файл PDF от 13 сен 2025 · 3,54 mb</span>
+                            </div>
+                        </a>
+                        <a href="/upload/documents/document-6.pdf" class="docs-item" data-category="organization" download>
+                            <img src="local/templates/sanamedikal/images/docs/docsIcon.svg" alt="" class="docs-item__icon" width="50" height="50">
+                            <div class="docs-item__body">
+                                <span class="docs-item__title">Дистрибьюторское соглашение с Boston Scientific</span>
+                                <span class="docs-item__meta">Файл PDF от 13 сен 2025 · 3,54 mb</span>
+                            </div>
+                        </a>
+                        <a href="/upload/documents/document-7.pdf" class="docs-item" data-category="instructions" download>
+                            <img src="local/templates/sanamedikal/images/docs/docsIcon.svg" alt="" class="docs-item__icon" width="50" height="50">
+                            <div class="docs-item__body">
+                                <span class="docs-item__title">Инструкция – Управляемый микропроводник Boston Scientific Transend</span>
+                                <span class="docs-item__meta">Файл PDF от 13 сен 2025 · 3,54 mb</span>
+                            </div>
+                        </a>
+                        <a href="/upload/documents/document-8.pdf" class="docs-item" data-category="certificates" download>
+                            <img src="local/templates/sanamedikal/images/docs/docsIcon.svg" alt="" class="docs-item__icon" width="50" height="50">
+                            <div class="docs-item__body">
+                                <span class="docs-item__title">Регистрационное удостоверение – Управляемый микропроводник Boston Scientific Transend</span>
+                                <span class="docs-item__meta">Файл PDF от 13 сен 2025 · 3,54 mb</span>
+                            </div>
+                        </a>
+                        <a href="/upload/documents/document-9.pdf" class="docs-item" data-category="organization" download>
+                            <img src="local/templates/sanamedikal/images/docs/docsIcon.svg" alt="" class="docs-item__icon" width="50" height="50">
+                            <div class="docs-item__body">
+                                <span class="docs-item__title">Дистрибьюторское соглашение с Boston Scientific</span>
+                                <span class="docs-item__meta">Файл PDF от 13 сен 2025 · 3,54 mb</span>
+                            </div>
+                        </a>
+                </div>
+                <p class="docs__empty" hidden>Ничего не найдено</p>
+
+                <button type="button" class="btn btn--secondary btn--xl docs__more">Показать еще</button>
+
+                <nav class="pagination" aria-label="Страницы">
+                    <a href="?page=1" class="pagination__arrow pagination__arrow--prev" aria-label="Предыдущая страница"><svg aria-hidden="true"><use href="#icon-page-arrow"></use></svg></a>
+                    <a href="?page=1" class="pagination__item is-active" aria-current="page">1</a>
+                    <a href="?page=2" class="pagination__item">2</a>
+                    <a href="?page=3" class="pagination__item">3</a>
+                    <span class="pagination__dots" aria-hidden="true">· · ·</span>
+                    <a href="?page=25" class="pagination__item">25</a>
+                    <a href="?page=26" class="pagination__item">26</a>
+                    <a href="?page=27" class="pagination__item">27</a>
+                    <a href="?page=2" class="pagination__arrow pagination__arrow--next" aria-label="Следующая страница"><svg aria-hidden="true"><use href="#icon-page-arrow"></use></svg></a>
+                </nav>
+            </div>
+        </section>
+
+        <!-- ЗАПРОС ИНФОРМАЦИИ -->
+        <section class="cta-banner cta-banner--flush">
+            <div class="container">
+                <div class="cta-banner__content">
+                    <h2 class="h2 cta-banner__title">Хотите уточнить информацию <br>по заказу продукции?</h2>
+                    <p class="cta-banner__text">Свяжитесь с&nbsp;нами&nbsp;— подготовим информацию <br>по&nbsp;всем актуальным моделям и&nbsp;условиям поставки</p>
+                    <div class="btn-group">
+                        <button type="button" class="btn btn--primary js-request-btn">Оставить заявку</button>
+                        <button type="button" class="btn btn--primary btn--round js-request-btn" aria-label="Оставить заявку">
+                            <svg class="btn__icon" width="22" height="22" aria-hidden="true"><use href="#icon-arrow"></use></svg>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer__top">
+                <div class="footer__cta">
+                    <h2 class="h2 footer__title">Получите консультацию специалиста</h2>
+                    <img class="footer__icon" src="local/templates/sanamedikal/images/footer/footerIcon.svg" width="59" height="39" alt="" aria-hidden="true">
+                    <p class="footer__text">Ответим на все ваши вопросы по выбору продукции, произведем расчет стоимости</p>
+                    <div class="btn-group">
+                        <button type="button" class="btn btn--primary js-request-btn">Оставить заявку</button>
+                        <button type="button" class="btn btn--primary btn--round js-request-btn" aria-label="Оставить заявку">
+                            <svg class="btn__icon" width="22" height="22" aria-hidden="true"><use href="#icon-arrow"></use></svg>
+                        </button>
+                    </div>
+                </div>
+
+                <div class="footer__info">
+                    <div class="footer__contacts">
+                        <div class="footer__contact">
+                            <a href="tel:88003347447" class="footer__phone">8 800 334-74-47</a>
+                            <span class="footer__label">Отдел закупок</span>
+                        </div>
+                        <div class="footer__contact">
+                            <a href="mailto:info@sanamedical.ru" class="footer__email">info@sanamedical.ru</a>
+                            <span class="footer__label">Электронная почта</span>
+                        </div>
+                    </div>
+
+                    <nav class="footer__nav" aria-label="Навигация по сайту">
+                        <div class="footer__col">
+                            <h3 class="footer__col-title">
+                                <button type="button" class="footer__col-toggle" aria-controls="footer-col-catalog">
+                                    <span>Каталог</span>
+                                    <svg class="footer__col-arrow" width="22" height="22" aria-hidden="true"><use href="#icon-chevron"></use></svg>
+                                </button>
+                            </h3>
+                            <div class="footer__col-body" id="footer-col-catalog">
+                            <ul>
+                                <li><a href="/catalog/thrombectomy/" class="btn btn--link btn--link--secondary">Тромбэктомия и аспирация</a></li>
+                                <li><a href="/catalog/electrophysiology/" class="btn btn--link btn--link--secondary">Электрофизиология и абляция</a></li>
+                                <li><a href="/catalog/implantable/" class="btn btn--link btn--link--secondary">Имплантируемые устройства</a></li>
+                                <li><a href="/catalog/interventional-cardiology/" class="btn btn--link btn--link--secondary">Интервенционная кардиология</a></li>
+                                <li><a href="/catalog/angiography/" class="btn btn--link btn--link--secondary">Ангиография и визуализация</a></li>
+                                <li><a href="/catalog/drainage/" class="btn btn--link btn--link--secondary">Дренаж и биопсия</a></li>
+                                <li><a href="/catalog/arrhythmology/" class="btn btn--link btn--link--secondary">Интервенционная аритмология</a></li>
+                            </ul>
+                            </div>
+                        </div>
+                        <div class="footer__col">
+                            <h3 class="footer__col-title">
+                                <button type="button" class="footer__col-toggle" aria-controls="footer-col-brands">
+                                    <span>Производители</span>
+                                    <svg class="footer__col-arrow" width="22" height="22" aria-hidden="true"><use href="#icon-chevron"></use></svg>
+                                </button>
+                            </h3>
+                            <div class="footer__col-body" id="footer-col-brands">
+                            <ul>
+                                <li><a href="/brands/medtronic/" class="btn btn--link btn--link--secondary">Medtronic</a></li>
+                                <li><a href="/brands/abbott/" class="btn btn--link btn--link--secondary">Abbott Laboratories</a></li>
+                                <li><a href="/brands/boston/" class="btn btn--link btn--link--secondary">Boston Scientific</a></li>
+                                <li><a href="/brands/edwards/" class="btn btn--link btn--link--secondary">Edwards Lifesciences</a></li>
+                                <li><a href="/brands/terumo/" class="btn btn--link btn--link--secondary">Terumo Corporation</a></li>
+                                <li><a href="/brands/biotronik/" class="btn btn--link btn--link--secondary">Biotronik</a></li>
+                                <li><a href="/brands/" class="btn btn--link btn--link--secondary">Все</a></li>
+                            </ul>
+                            </div>
+                        </div>
+                        <div class="footer__col">
+                            <h3 class="footer__col-title">
+                                <button type="button" class="footer__col-toggle" aria-controls="footer-col-company">
+                                    <span>Санамедикал</span>
+                                    <svg class="footer__col-arrow" width="22" height="22" aria-hidden="true"><use href="#icon-chevron"></use></svg>
+                                </button>
+                            </h3>
+                            <div class="footer__col-body" id="footer-col-company">
+                            <ul>
+                                <li><a href="/company/" class="btn btn--link btn--link--secondary">О компании</a></li>
+                                <li><a href="/cooperation/" class="btn btn--link btn--link--secondary">Сотрудничество</a></li>
+                                <li><a href="/news/" class="btn btn--link btn--link--secondary">Новости и статьи</a></li>
+                                <li><a href="/documents/" class="btn btn--link btn--link--secondary">Документы</a></li>
+                                <li><a href="/contacts/" class="btn btn--link btn--link--secondary">Контакты</a></li>
+                            </ul>
+                            </div>
+                        </div>
+                    </nav>
+                </div>
+            </div>
+
+            <div class="footer__bottom">
+                <span class="footer__copy">© 2026 ООО «Санамедикал» ИНН 16123456789</span>
+                <a href="/policy/" class="btn btn--link btn--link--secondary">Политика конфиденциальности</a>
+                <a href="/agreement/" class="btn btn--link btn--link--secondary">Политика обработки данных</a>
+                <a href="https://every-tech.ru/" class="btn btn--link btn--link--secondary footer__dev" target="_blank" rel="noopener">Разработка и продвижение <img class="footer__dev-logo" src="local/templates/sanamedikal/images/footer/evritech.svg" width="105" height="12" alt="ЭВРИТЭЧ"></a>
+            </div>
+        </div>
+    </footer>
+
+    <svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+        <symbol id="icon-page-arrow" viewBox="0 0 24 24" fill="none">
+            <path d="M14.9998 19.9201L8.47984 13.4001C7.70984 12.6301 7.70984 11.3701 8.47984 10.6001L14.9998 4.08008" stroke="currentColor" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round" />
+        </symbol>
+        <symbol id="icon-arrow" viewBox="0 0 22 22" fill="none">
+            <path d="M13.2266 5.43579L18.7907 11L13.2266 16.5641" stroke="currentColor" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round" />
+            <path d="M3.20703 11H18.6345" stroke="currentColor" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round" />
+        </symbol>
+        <symbol id="icon-chevron" viewBox="0 0 22 22" fill="none">
+            <path d="M5.5 8.25L11 13.75L16.5 8.25" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" />
+        </symbol>
+        <symbol id="icon-check" viewBox="0 0 28 28" fill="none">
+            <circle cx="14" cy="14" r="11.5" stroke="currentColor" />
+            <path d="M9 14.5l3.5 3.5L19 10.5" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" />
+        </symbol>
+        <symbol id="icon-chevron-right" viewBox="0 0 10 10" fill="none">
+            <path d="M4 2.25L6.75 5.5L4 8.75" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" />
+        </symbol>
+        <symbol id="icon-max" viewBox="0 0 16 16" fill="currentColor">
+            <path d="M8.17 15.95C6.6 15.95 5.87 15.72 4.6 14.8C3.8 15.84 1.26 16.65 1.15 15.26C1.15 14.22 0.92 13.35 0.66 12.39C0.35 11.2 0 9.89 0 7.98C0 3.43 3.72 0 8.13 0C12.54 0 16 3.6 16 8.02C16.01 10.12 15.19 12.13 13.72 13.62C12.25 15.1 10.26 15.94 8.17 15.95ZM8.24 3.94C6.09 3.83 4.42 5.32 4.05 7.66C3.74 9.6 4.28 11.96 4.75 12.08C4.97 12.13 5.52 11.68 5.87 11.33C6.45 11.73 7.12 11.97 7.81 12.03C8.88 12.08 9.93 11.71 10.73 10.99C11.53 10.27 12.02 9.27 12.09 8.2C12.13 7.12 11.75 6.08 11.03 5.28C10.31 4.48 9.31 4 8.24 3.94L8.24 3.94Z" fill-rule="evenodd" clip-rule="evenodd" />
+        </symbol>
+        <symbol id="icon-telegram" viewBox="0 0 16 16" fill="currentColor">
+            <path d="M8 0C12.42 0 16 3.58 16 8C16 12.42 12.42 16 8 16C3.58 16 0 12.42 0 8C0 3.58 3.58 0 8 0ZM11.27 4.82C10.97 4.82 10.51 4.98 8.29 5.91C7.51 6.23 5.95 6.9 3.62 7.92C3.24 8.07 3.04 8.21 3.03 8.36C2.99 8.63 3.39 8.72 3.89 8.88C4.3 9.02 4.85 9.17 5.13 9.18C5.39 9.18 5.68 9.08 6 8.86C8.18 7.39 9.3 6.64 9.38 6.63C9.43 6.62 9.49 6.6 9.54 6.64C9.59 6.68 9.58 6.76 9.58 6.78C9.54 6.95 7.49 8.81 7.38 8.94C6.92 9.4 6.41 9.69 7.2 10.21C7.88 10.66 8.28 10.95 8.99 11.41C9.44 11.71 9.79 12.05 10.26 12.01C10.47 11.99 10.69 11.79 10.8 11.19C11.07 9.78 11.59 6.71 11.71 5.44C11.72 5.33 11.71 5.19 11.69 5.13C11.68 5.06 11.66 4.97 11.58 4.91C11.48 4.83 11.34 4.82 11.27 4.82Z" />
+        </symbol>
+        <symbol id="icon-whatsapp" viewBox="0 0 16 16" fill="currentColor">
+            <path d="M0 16C0.17 15.37 0.34 14.77 0.5 14.18C0.69 13.46 0.89 12.74 1.08 12.01C1.1 11.94 1.09 11.85 1.06 11.78C0.29 10.39 -0.04 8.89 0.09 7.31C0.28 5.05 1.28 3.19 3.03 1.75C4.01 0.95 5.17 0.4 6.41 0.16C10.12 -0.58 13.69 1.32 15.22 4.66C15.79 5.91 16.01 7.22 15.9 8.58C15.64 12.01 13.1 14.92 9.75 15.67C7.86 16.09 6.05 15.84 4.32 14.97C4.25 14.93 4.16 14.92 4.08 14.94C2.78 15.28 1.49 15.61 0.2 15.95C0.15 15.97 0.09 15.98 0 16ZM1.92 14.11C1.99 14.09 2.05 14.08 2.11 14.06C2.81 13.88 3.51 13.7 4.21 13.51C4.35 13.47 4.46 13.49 4.58 13.56C6.11 14.47 7.75 14.74 9.48 14.35C13.19 13.51 15.43 9.6 14.29 5.98C13.25 2.68 9.95 0.77 6.57 1.51C3.77 2.12 1.56 4.56 1.42 7.65C1.36 8.93 1.64 10.14 2.31 11.23C2.52 11.57 2.56 11.86 2.43 12.24C2.23 12.84 2.09 13.47 1.92 14.11L1.92 14.11Z" />
+            <path d="M3.95 6.15C3.97 5.48 4.22 4.94 4.69 4.48C4.76 4.41 4.84 4.36 4.93 4.32C5.02 4.28 5.12 4.27 5.22 4.27C5.33 4.27 5.44 4.28 5.55 4.27C5.78 4.25 5.92 4.36 6 4.56C6.22 5.09 6.45 5.61 6.65 6.14C6.69 6.24 6.66 6.4 6.61 6.49C6.46 6.72 6.29 6.94 6.12 7.15C6.01 7.28 6 7.4 6.09 7.55C6.73 8.63 7.63 9.42 8.81 9.89C8.97 9.95 9.1 9.93 9.21 9.79C9.41 9.54 9.61 9.3 9.8 9.05C9.91 8.9 10.04 8.85 10.21 8.92C10.77 9.19 11.34 9.46 11.9 9.74C11.96 9.77 12.01 9.86 12.01 9.93C12.04 10.52 11.86 11.02 11.34 11.36C10.69 11.79 10 11.83 9.27 11.62C7.4 11.09 6.01 9.92 4.89 8.38C4.52 7.87 4.18 7.34 4.04 6.72C4 6.53 3.98 6.34 3.95 6.15Z" />
+        </symbol>
+    </svg>
+    <!-- Обязательное предупреждение для медицинских и фармацевтических работников -->
+    <div class="pro-gate" id="pro-gate" role="alertdialog" aria-modal="true" aria-labelledby="pro-gate-title" aria-describedby="pro-gate-text">
+        <div class="pro-gate__dialog">
+            <h2 class="pro-gate__title" id="pro-gate-title">Внимание!</h2>
+            <p class="pro-gate__text" id="pro-gate-text">Материалы, размещенные на данном сайте, предназначены исключительно для медицинских и фармацевтических работников. В соответствии с действующим законодательством РФ, доступ к профессиональной информации о лекарственных препаратах, медицинских изделиях и методах лечения ограничен для широкого круга потребителей.</p>
+            <p class="pro-gate__question">Вы подтверждаете, что являетесь дипломированным медицинским или фармацевтическим специалистом?</p>
+            <div class="pro-gate__actions">
+                <button type="button" class="btn btn--neutral btn--xl" data-pro-gate-confirm>Да, подтверждаю</button>
+                <a href="https://yandex.ru" class="btn btn--neutral btn--xl" rel="noopener">Нет, покинуть сайт</a>
+            </div>
+        </div>
+    </div>
+
+
+    <script src="local/templates/sanamedikal/js/main.js"></script>
+</body>
+</html>

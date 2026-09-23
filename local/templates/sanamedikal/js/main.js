@@ -9,6 +9,16 @@ document.addEventListener('DOMContentLoaded', function () {
     initSliders();
     initFooterAccordion();
     initFixedHeader();
+    initDocsFilter();
+    initDocsPagination();
+    initCatalogSearch();
+    initProGate();
+    initFilterCategories();
+    initFilterGroups();
+    initRangeSliders();
+    initCatalogQuickSearch();
+    initCatalogFiltersModal();
+    initCustomScrollbars();
 });
 
 /* ========================
@@ -538,6 +548,7 @@ function initRequestModal() {
             closeMobileMenuIfOpen();
             closeSearchIfOpen();
             openRequestModal(modal, overlay);
+            setRequestModalTab(modal, btn.dataset.requestTab || 'question');
         });
     });
 
@@ -556,6 +567,22 @@ function initRequestModal() {
             closeRequestModal(modal, overlay);
         }
     });
+}
+
+function setRequestModalTab(modal, tabName) {
+    var group = modal.querySelector('.tabs');
+
+    if (!group) {
+        return;
+    }
+
+    group.querySelectorAll('.tabs__item').forEach(function (item) {
+        var isActive = item.dataset.tab === tabName;
+        item.classList.toggle('is-active', isActive);
+        item.setAttribute('aria-selected', isActive ? 'true' : 'false');
+    });
+
+    showTabPanel(group, tabName);
 }
 
 function openRequestModal(modal, overlay) {
@@ -633,12 +660,10 @@ function initTabs() {
    ВАЛИДАЦИЯ ФОРМЫ
 ======================== */
 function initRequestFormValidation() {
-    var form = document.getElementById('request-form');
+    document.querySelectorAll('#request-form, .js-validate-form').forEach(initFormValidation);
+}
 
-    if (!form) {
-        return;
-    }
-
+function initFormValidation(form) {
     var maskedFields = form.querySelectorAll('[data-validate]');
     maskedFields.forEach(function (input) {
         input.addEventListener('input', function () {
@@ -1031,7 +1056,8 @@ function initFooterAccordion() {
 ======================== */
 function initFixedHeader() {
     var header = document.querySelector('.header');
-    var hero = document.querySelector('.hero-section');
+    // на главной следим за hero, на внутренних страницах — за невидимым маркером [data-header-trigger]
+    var hero = document.querySelector('.hero-section, [data-header-trigger]');
 
     if (!header || !hero) {
         return;
@@ -1041,12 +1067,533 @@ function initFixedHeader() {
         return;
     }
 
+    var hideTimer = null;
+
+    // при возврате к hero хедер сначала «закатывается» вверх (header--hiding), и только потом становится обычным
+    function finishHiding() {
+        clearTimeout(hideTimer);
+        header.classList.remove('header--fixed', 'header--hiding');
+    }
+
+    header.addEventListener('animationend', function (e) {
+        if (e.animationName === 'header-slide-up' && header.classList.contains('header--hiding')) {
+            finishHiding();
+        }
+    });
+
+    function setFixed(isPassed) {
+        if (isPassed) {
+            clearTimeout(hideTimer);
+            header.classList.remove('header--hiding');
+            header.classList.add('header--fixed');
+            return;
+        }
+
+        if (header.classList.contains('header--fixed') && !header.classList.contains('header--hiding')) {
+            header.classList.add('header--hiding');
+            // запасной выход, если animationend не придёт (вкладка в фоне и т.п.)
+            hideTimer = setTimeout(finishHiding, 600);
+        }
+    }
+
     var observer = new IntersectionObserver(function (entries) {
         var entry = entries[entries.length - 1];
         var isPassed = !entry.isIntersecting && entry.boundingClientRect.bottom <= 0;
 
-        header.classList.toggle('header--fixed', isPassed);
+        setFixed(isPassed);
     });
 
     observer.observe(hero);
+}
+
+/* ========================
+   КАТАЛОГ: поле поиска. Выдача — на отдельной странице (/search/), форма уходит обычным GET-запросом;
+   здесь только показ кнопок «Найти» и «очистить», когда в поле что-то введено
+======================== */
+function initCatalogSearch() {
+    var input = document.querySelector('[data-catalog-search]');
+
+    if (!input) {
+        return;
+    }
+
+    var form = input.closest('[data-catalog-search-form]') || input.parentElement;
+    var clearBtn = form.querySelector('[data-catalog-search-clear]');
+
+    function sync() {
+        form.classList.toggle('has-value', input.value.trim() !== '');
+    }
+
+    input.addEventListener('input', sync);
+
+    // пустой запрос не отправляем
+    form.addEventListener('submit', function (e) {
+        if (input.value.trim() === '') {
+            e.preventDefault();
+            input.focus();
+        }
+    });
+
+    if (clearBtn) {
+        clearBtn.addEventListener('click', function () {
+            input.value = '';
+            sync();
+            input.focus();
+        });
+    }
+
+    sync();
+}
+
+/* ========================
+   ПРЕДУПРЕЖДЕНИЕ ДЛЯ МЕДИЦИНСКИХ РАБОТНИКОВ
+   Закрыть можно только подтверждением (cookie pro_access на год); Escape и клик по фону не закрывают.
+======================== */
+function initProGate() {
+    var gate = document.getElementById('pro-gate');
+
+    if (!gate) {
+        return;
+    }
+
+    var confirmBtn = gate.querySelector('[data-pro-gate-confirm]');
+    var focusables = gate.querySelectorAll('button, a[href]');
+
+    function isPending() {
+        return document.documentElement.classList.contains('pro-gate-pending');
+    }
+
+    if (confirmBtn) {
+        confirmBtn.addEventListener('click', function () {
+            document.cookie = 'pro_access=1; max-age=31536000; path=/; SameSite=Lax';
+            document.documentElement.classList.remove('pro-gate-pending');
+        });
+    }
+
+    // фокус не уходит за пределы окна
+    document.addEventListener('keydown', function (e) {
+        if (!isPending() || e.key !== 'Tab' || !focusables.length) {
+            return;
+        }
+
+        var first = focusables[0];
+        var last = focusables[focusables.length - 1];
+
+        if (e.shiftKey && document.activeElement === first) {
+            e.preventDefault();
+            last.focus();
+        } else if (!e.shiftKey && document.activeElement === last) {
+            e.preventDefault();
+            first.focus();
+        } else if (!gate.contains(document.activeElement)) {
+            e.preventDefault();
+            first.focus();
+        }
+    });
+}
+
+/* ========================
+   ДОКУМЕНТЫ: фильтр по типу + поиск по названию
+   (клиентская фильтрация уже выведенного списка; когда список станет строиться в Bitrix,
+   можно заменить на серверную фильтрацию/пагинацию без изменения разметки)
+======================== */
+function initDocsFilter() {
+    var list = document.querySelector('.docs__list');
+    var tabs = document.querySelector('.tabs--filter');
+    var input = document.querySelector('.docs-search__input');
+    var empty = document.querySelector('.docs__empty');
+
+    if (!list || !tabs || !input) {
+        return;
+    }
+
+    var searchBox = input.closest('.docs-search');
+    var clearBtn = searchBox ? searchBox.querySelector('[data-docs-search-clear]') : null;
+    var items = list.querySelectorAll('.docs-item');
+    var currentFilter = 'all';
+
+    function apply() {
+        var query = input.value.trim().toLowerCase();
+        var visible = 0;
+
+        if (searchBox) {
+            searchBox.classList.toggle('has-value', query !== '');
+        }
+
+        items.forEach(function (item) {
+            var title = item.querySelector('.docs-item__title').textContent.toLowerCase();
+            var matchType = currentFilter === 'all' || item.dataset.category === currentFilter;
+            var matchText = !query || title.indexOf(query) !== -1;
+            var show = matchType && matchText;
+
+            item.hidden = !show;
+
+            if (show) {
+                visible++;
+            }
+        });
+
+        if (empty) {
+            empty.hidden = visible !== 0;
+        }
+    }
+
+    tabs.querySelectorAll('.tabs__item').forEach(function (tab) {
+        tab.addEventListener('click', function () {
+            currentFilter = tab.dataset.filter || 'all';
+            apply();
+        });
+    });
+
+    input.addEventListener('input', apply);
+
+    if (clearBtn) {
+        clearBtn.addEventListener('click', function () {
+            input.value = '';
+            apply();
+            input.focus();
+        });
+    }
+}
+
+/* ========================
+   ДОКУМЕНТЫ: активная страница в пагинации — подсвечиваем по параметру ?page= из адреса
+======================== */
+function initDocsPagination() {
+    var nav = document.querySelector('.docs .pagination');
+
+    if (!nav) {
+        return;
+    }
+
+    var items = nav.querySelectorAll('.pagination__item');
+    var prev = nav.querySelector('.pagination__arrow--prev');
+    var next = nav.querySelector('.pagination__arrow--next');
+    var last = Math.max.apply(null, Array.prototype.map.call(items, function (item) {
+        return parseInt(item.textContent, 10) || 1;
+    }));
+    var current = Math.min(last, Math.max(1, parseInt(new URLSearchParams(location.search).get('page'), 10) || 1));
+
+    items.forEach(function (item) {
+        var isActive = parseInt(item.textContent, 10) === current;
+        item.classList.toggle('is-active', isActive);
+
+        if (isActive) {
+            item.setAttribute('aria-current', 'page');
+        } else {
+            item.removeAttribute('aria-current');
+        }
+    });
+
+    if (prev) {
+        prev.href = '?page=' + Math.max(1, current - 1);
+        prev.classList.toggle('is-disabled', current <= 1);
+    }
+
+    if (next) {
+        next.href = '?page=' + Math.min(last, current + 1);
+        next.classList.toggle('is-disabled', current >= last);
+    }
+}
+
+/* ========================
+   КАТАЛОГ (СТРАНИЦА КАТЕГОРИИ): сворачиваемые группы фильтра + «ещё N»
+======================== */
+/* ========================
+   КАТАЛОГ (СТРАНИЦА КАТЕГОРИИ): переключение подкатегорий в сайдбаре
+   (пока только верстка — переключает активный пункт без перехода/перезагрузки списка)
+======================== */
+function initFilterCategories() {
+    var items = document.querySelectorAll('.filter-categories__item');
+
+    items.forEach(function (item) {
+        item.addEventListener('click', function (e) {
+            e.preventDefault();
+
+            items.forEach(function (el) {
+                el.classList.remove('is-active');
+                el.removeAttribute('aria-current');
+            });
+
+            item.classList.add('is-active');
+            item.setAttribute('aria-current', 'page');
+        });
+    });
+}
+
+function initFilterGroups() {
+    // на мобильном (модалка фильтров) все группы по умолчанию свёрнуты;
+    // на десктопе остаются в том состоянии, что задано в разметке
+    if (window.matchMedia('(max-width: 991px)').matches) {
+        document.querySelectorAll('[data-filter-group]').forEach(function (group) {
+            group.classList.remove('is-open');
+        });
+    }
+
+    document.querySelectorAll('[data-filter-group]').forEach(function (group) {
+        var toggle = group.querySelector('[data-filter-toggle]');
+
+        if (!toggle) {
+            return;
+        }
+
+        toggle.addEventListener('click', function () {
+            group.classList.toggle('is-open');
+        });
+    });
+
+    document.querySelectorAll('[data-filter-more]').forEach(function (btn) {
+        var extra = document.getElementById(btn.getAttribute('aria-controls'));
+
+        if (!extra) {
+            return;
+        }
+
+        btn.addEventListener('click', function () {
+            var isOpen = btn.classList.toggle('is-open');
+            extra.hidden = !isOpen;
+            btn.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+        });
+    });
+}
+
+/* ========================
+   КАТАЛОГ (СТРАНИЦА КАТЕГОРИИ): диапазонный слайдер (диаметр и т.п.)
+======================== */
+function initRangeSliders() {
+    document.querySelectorAll('[data-range-slider]').forEach(function (root) {
+        var minInput = root.querySelector('[data-range-input="min"]');
+        var maxInput = root.querySelector('[data-range-input="max"]');
+        var fill = root.querySelector('[data-range-fill]');
+        var outMin = root.querySelector('[data-range-out="min"]');
+        var outMax = root.querySelector('[data-range-out="max"]');
+        var unit = root.dataset.unit || '';
+
+        if (!minInput || !maxInput) {
+            return;
+        }
+
+        function update() {
+            var min = parseFloat(minInput.min);
+            var max = parseFloat(minInput.max);
+            var lo = parseFloat(minInput.value);
+            var hi = parseFloat(maxInput.value);
+            var loPct = (lo - min) / (max - min) * 100;
+            var hiPct = (hi - min) / (max - min) * 100;
+
+            if (fill) {
+                fill.style.left = loPct + '%';
+                fill.style.right = (100 - hiPct) + '%';
+            }
+
+            if (outMin) {
+                outMin.textContent = 'от ' + lo.toFixed(1) + ' ' + unit;
+                outMin.classList.toggle('is-limit', lo <= min);
+            }
+
+            if (outMax) {
+                outMax.textContent = 'до ' + hi.toFixed(1) + ' ' + unit;
+                outMax.classList.toggle('is-limit', hi >= max);
+            }
+        }
+
+        minInput.addEventListener('input', function () {
+            if (parseFloat(minInput.value) > parseFloat(maxInput.value)) {
+                minInput.value = maxInput.value;
+            }
+            update();
+        });
+
+        maxInput.addEventListener('input', function () {
+            if (parseFloat(maxInput.value) < parseFloat(minInput.value)) {
+                maxInput.value = minInput.value;
+            }
+            update();
+        });
+
+        update();
+    });
+}
+
+/* ========================
+   КАТАЛОГ (СТРАНИЦА КАТЕГОРИИ): быстрый поиск по категории (только показ кнопки «очистить»)
+======================== */
+function initCatalogQuickSearch() {
+    document.querySelectorAll('.catalog-quicksearch').forEach(function (box) {
+        var input = box.querySelector('.docs-search__input');
+        var clearBtn = box.querySelector('[data-docs-search-clear]');
+
+        if (!input) {
+            return;
+        }
+
+        function sync() {
+            box.classList.toggle('has-value', input.value.trim() !== '');
+        }
+
+        input.addEventListener('input', sync);
+
+        if (clearBtn) {
+            clearBtn.addEventListener('click', function () {
+                input.value = '';
+                sync();
+                input.focus();
+            });
+        }
+
+        sync();
+    });
+}
+
+/* ========================
+   КАТАЛОГ (СТРАНИЦА КАТЕГОРИИ): модалка фильтров на мобильном (по стилям как .mobile-menu,
+   но во весь экран) — открывается кнопкой «Фильтры» из тулбара
+======================== */
+function initCatalogFiltersModal() {
+    var trigger = document.getElementById('catalog-filters-btn');
+    var closeBtn = document.getElementById('catalog-filters-close');
+    var overlay = document.getElementById('mobile-menu-overlay');
+    var panel = document.getElementById('catalog-filters');
+
+    if (!trigger || !panel || !overlay) {
+        return;
+    }
+
+    // на десктопе панель — обычный grid-элемент сайдбара; при открытии модалки на мобильном
+    // переносим её в конец body, чтобы её z-index не был заперт стек-контекстом .container
+    var anchor = document.createComment('catalog-filters-anchor');
+    panel.parentNode.insertBefore(anchor, panel);
+    var restoreTimeout = null;
+
+    function open() {
+        closeMobileMenuIfOpen();
+        closeSearchIfOpen();
+        closeRequestModalIfOpen();
+
+        if (restoreTimeout !== null) {
+            clearTimeout(restoreTimeout);
+            restoreTimeout = null;
+        }
+
+        document.body.appendChild(panel);
+        lockBodyScroll();
+        panel.classList.add('is-open');
+        overlay.dataset.for = 'filters';
+        overlay.classList.add('is-open');
+        trigger.setAttribute('aria-expanded', 'true');
+    }
+
+    function close() {
+        if (!panel.classList.contains('is-open')) {
+            return;
+        }
+
+        panel.classList.remove('is-open');
+        overlay.classList.remove('is-open');
+        trigger.setAttribute('aria-expanded', 'false');
+        unlockBodyScroll();
+
+        restoreTimeout = setTimeout(function () {
+            anchor.parentNode.insertBefore(panel, anchor.nextSibling);
+        }, 320);
+    }
+
+    trigger.addEventListener('click', open);
+
+    if (closeBtn) {
+        closeBtn.addEventListener('click', close);
+    }
+
+    overlay.addEventListener('click', close);
+
+    document.addEventListener('keydown', function (e) {
+        if (e.key === 'Escape') {
+            close();
+        }
+    });
+
+    document.querySelectorAll('.catalog-filters__apply').forEach(function (btn) {
+        btn.addEventListener('click', close);
+    });
+}
+
+/* ========================
+   КАСТОМНЫЙ СКРОЛЛБАР (списки фильтров): нативный прячем, рисуем дорожку и бегунок,
+   чтобы полоса выглядела одинаково во всех браузерах и была видна всегда
+======================== */
+function initCustomScrollbars() {
+    document.querySelectorAll('.filter-checklist--scroll').forEach(initCustomScrollbar);
+}
+
+function initCustomScrollbar(area) {
+    if (area.closest('.custom-scroll')) {
+        return;
+    }
+
+    var wrap = document.createElement('div');
+    wrap.className = 'custom-scroll';
+    area.parentNode.insertBefore(wrap, area);
+    wrap.appendChild(area);
+
+    var track = document.createElement('span');
+    track.className = 'custom-scroll__track';
+    var thumb = document.createElement('span');
+    thumb.className = 'custom-scroll__thumb';
+    track.appendChild(thumb);
+    wrap.appendChild(track);
+
+    var MIN_THUMB = 20;
+
+    function update() {
+        var visible = area.clientHeight;
+        var total = area.scrollHeight;
+
+        if (total <= visible + 1) {
+            track.style.display = 'none';
+            return;
+        }
+
+        track.style.display = '';
+
+        var height = Math.max(MIN_THUMB, Math.round(visible * visible / total));
+        var maxOffset = visible - height;
+        var progress = area.scrollTop / (total - visible);
+
+        thumb.style.height = height + 'px';
+        thumb.style.transform = 'translateY(' + Math.round(maxOffset * progress) + 'px)';
+    }
+
+    area.addEventListener('scroll', update, { passive: true });
+    window.addEventListener('resize', update);
+
+    if (typeof ResizeObserver === 'function') {
+        new ResizeObserver(update).observe(area);
+    }
+
+    // перетаскивание бегунка
+    thumb.addEventListener('pointerdown', function (e) {
+        e.preventDefault();
+        thumb.setPointerCapture(e.pointerId);
+
+        var startY = e.clientY;
+        var startTop = area.scrollTop;
+        var visible = area.clientHeight;
+        var total = area.scrollHeight;
+        var maxOffset = visible - Math.max(MIN_THUMB, Math.round(visible * visible / total));
+
+        function move(ev) {
+            area.scrollTop = startTop + (ev.clientY - startY) * (total - visible) / maxOffset;
+        }
+
+        function up(ev) {
+            thumb.releasePointerCapture(ev.pointerId);
+            thumb.removeEventListener('pointermove', move);
+            thumb.removeEventListener('pointerup', up);
+        }
+
+        thumb.addEventListener('pointermove', move);
+        thumb.addEventListener('pointerup', up);
+    });
+
+    update();
 }

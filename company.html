@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Санамедикал</title>
+    <title>О компании — Санамедикал</title>
 
     <link rel="stylesheet" href="local/templates/sanamedikal/css/main.css">
 
@@ -13,7 +13,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Geologica:wght,CRSV@100..900,0&display=swap" rel="stylesheet">
     <script>if (!/(?:^|; )pro_access=1/.test(document.cookie)) { document.documentElement.classList.add('pro-gate-pending'); }</script>
 </head>
-<body>
+<body class="page-hero-dark page-company">
     <header class="header">
         <div class="container">
             <div class="header-wrapper flex">
@@ -24,7 +24,7 @@
                 <ul class="header__menu flex">
                     <li><a href="/" class="btn btn--link">Продукция</a></li>
                     <li><a href="/brands/" class="btn btn--link">Производители</a></li>
-                    <li><a href="/about/" class="btn btn--link">Компания</a></li>
+                    <li><a href="/about/" class="btn btn--link" aria-current="page">Компания</a></li>
                     <li><a href="/documents/" class="btn btn--link">Документы</a></li>
                     <li><a href="/cooperation/" class="btn btn--link">Сотрудничество</a></li>
                     <li><a href="/contacts/" class="btn btn--link">Новости</a></li>
@@ -51,6 +51,7 @@
                                 <path d="M5.375 12.375H16.165C16.487 12.375 16.7988 12.262 17.046 12.0557C17.2932 11.8493 17.4602 11.5628 17.5178 11.246L18.5625 5.5H4.125" stroke="white" stroke-linecap="round" stroke-linejoin="round" />
                             </svg>
                         </button>
+                        <span class="header-actions__count" aria-label="Товаров в корзине: 59">59</span>
                     </a>
 
                     <button class="btn btn--neutral btn--round" id="burger-btn" aria-expanded="false" aria-controls="mobile-menu" aria-label="Открыть меню">
@@ -82,7 +83,7 @@
             <ul class="mobile-menu__list">
                 <li><a href="/" class="btn btn--link mobile-menu__link">Продукция</a></li>
                 <li><a href="/brands/" class="btn btn--link mobile-menu__link">Производители</a></li>
-                <li><a href="/about/" class="btn btn--link mobile-menu__link">Компания</a></li>
+                <li><a href="/about/" class="btn btn--link mobile-menu__link" aria-current="page">Компания</a></li>
                 <li><a href="/documents/" class="btn btn--link mobile-menu__link">Документы</a></li>
                 <li><a href="/cooperation/" class="btn btn--link mobile-menu__link">Сотрудничество</a></li>
                 <li><a href="/contacts/" class="btn btn--link mobile-menu__link">Новости</a></li>
@@ -207,159 +208,27 @@
     </div>
 
     <main>
-        <section class="hero-section">
+        <section class="page-hero" data-header-trigger>
             <div class="container">
-                <div class="hero-slider">
-                    <div class="hero-slide hero-slide--video">
-                        <div class="hero-slide__media">
-                            <video class="hero-slide__video" src="local/templates/sanamedikal/assets/videos/5378413_Coll_wavebreak_Doctor_1280x720.mp4" autoplay muted loop playsinline></video>
-                        </div>
+                <nav class="breadcrumbs breadcrumbs--light" aria-label="Хлебные крошки">
+                    <ol class="breadcrumbs__list">
+                        <li class="breadcrumbs__item">
+                            <a href="/" class="breadcrumbs__link">главная</a>
+                            <svg class="breadcrumbs__sep" width="10" height="10" aria-hidden="true"><use href="#icon-chevron-right"></use></svg>
+                        </li>
+                        <li class="breadcrumbs__item" aria-current="page">о компании</li>
+                    </ol>
+                </nav>
 
-                        <div class="hero-slide__bottom-blur">
-                            <span class="hero-slide__blur-layer hero-slide__blur-layer--1"></span>
-                            <span class="hero-slide__blur-layer hero-slide__blur-layer--2"></span>
-                            <span class="hero-slide__blur-layer hero-slide__blur-layer--3"></span>
-                            <span class="hero-slide__blur-layer hero-slide__blur-layer--4"></span>
-                        </div>
-
-                        <div class="hero__image-block"></div>
-
-                        <div class="hero__main-block">
-                            <div class="pagination">
-                                <div class="pagination-item"></div>
-                                <div class="pagination-item"></div>
-                                <div class="pagination-item"></div>
-                                <div class="pagination-item"></div>
-                            </div>
-
-                            <div class="hero-slide__text">
-                                <h1 class="h1 hero-title">Медицинские изделия для кардиологии и сосудистой хирургии</h1>
-                                <h2 class="h5 hero-subtitle">Решения для интервенционной кардиологии и структурных патологий сердца</h2>
-                            </div>
-
-                            <a href="" class="btn-group">
-                                <button class="btn btn--primary">Подобрать продукцию</button>
-                                <button class="btn btn--primary btn--round">
-                                    <svg class="btn__icon" width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                        <path d="M13.2266 5.43579L18.7907 11L13.2266 16.5641" stroke="white" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round" />
-                                        <path d="M3.20703 11H18.6345" stroke="white" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round" />
-                                    </svg>
-                                </button>
-                            </a>
-                        </div>
-
-                        <div class="hero__slide-decoration">
-                            <img src="local/templates/sanamedikal/images/hero/slideDecoration.svg" alt="Декоративный элемент">
-                        </div>
-                    </div>
-
-                    <div class="hero-slide">
-                        <div class="hero__image-block">
-                            <img class="hero-image" src="local/templates/sanamedikal/images/hero/heroItem.png" alt="Нейромониторинговые расходники">
-                        </div>
-
-                        <div class="hero__main-block">
-                            <div class="pagination">
-                                <div class="pagination-item"></div>
-                                <div class="pagination-item"></div>
-                                <div class="pagination-item"></div>
-                                <div class="pagination-item"></div>
-                            </div>
-
-                            <div class="hero-slide__text">
-                                <h1 class="h1 hero-title">Управляемый микропроводник Boston Scientific Тransend</h1>
-                                <h2 class="h5 hero-subtitle">Микропроводник Transend для периферической эмболизации</h2>
-                            </div>
-
-                            <a href="" class="btn-group">
-                                <button class="btn btn--primary">Подробнее</button>
-                                <button class="btn btn--primary btn--round">
-                                    <svg class="btn__icon" width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                        <path d="M13.2266 5.43579L18.7907 11L13.2266 16.5641" stroke="white" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round" />
-                                        <path d="M3.20703 11H18.6345" stroke="white" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round" />
-                                    </svg>
-                                </button>
-                            </a>
-                        </div>
-
-                        <div class="hero__slide-decoration">
-                            <img src="local/templates/sanamedikal/images/hero/slideDecoration.svg" alt="Декоративный элемент">
-                        </div>
-                    </div>
-
-                    <div class="hero-slide">
-                        <div class="hero__image-block">
-                            <img class="hero-image" src="local/templates/sanamedikal/images/hero/heroItem.png" alt="Инфузионные системы">
-                        </div>
-
-                        <div class="hero__main-block">
-                            <div class="pagination">
-                                <div class="pagination-item"></div>
-                                <div class="pagination-item"></div>
-                                <div class="pagination-item"></div>
-                                <div class="pagination-item"></div>
-                            </div>
-
-                            <div class="hero-slide__text">
-                                <h1 class="h1 hero-title">Нейропротекционные инфузионные системы</h1>
-                                <h2 class="h5 hero-subtitle">Надёжные растворы и системы для защиты нервной ткани во время операции</h2>
-                            </div>
-
-                            <a href="" class="btn-group">
-                                <button class="btn btn--primary">Подробнее</button>
-                                <button class="btn btn--primary btn--round">
-                                    <svg class="btn__icon" width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                        <path d="M13.2266 5.43579L18.7907 11L13.2266 16.5641" stroke="white" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round" />
-                                        <path d="M3.20703 11H18.6345" stroke="white" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round" />
-                                    </svg>
-                                </button>
-                            </a>
-                        </div>
-
-                        <div class="hero__slide-decoration">
-                            <img src="local/templates/sanamedikal/images/hero/slideDecoration.svg" alt="Декоративный элемент">
-                        </div>
-                    </div>
-
-                    <div class="hero-slide">
-                        <div class="hero__image-block">
-                            <img class="hero-image" src="local/templates/sanamedikal/images/hero/heroItem.png" alt="Нейростимуляционные материалы">
-                        </div>
-
-                        <div class="hero__main-block">
-                            <div class="pagination">
-                                <div class="pagination-item"></div>
-                                <div class="pagination-item"></div>
-                                <div class="pagination-item"></div>
-                                <div class="pagination-item"></div>
-                            </div>
-
-                            <div class="hero-slide__text">
-                                <h1 class="h1 hero-title">Нейростимуляционные материалы нового поколения</h1>
-                                <h2 class="h5 hero-subtitle">Сертифицированные материалы для нейростимуляции от ведущих производителей</h2>
-                            </div>
-
-                            <a href="" class="btn-group">
-                                <button class="btn btn--primary">Подробнее</button>
-                                <button class="btn btn--primary btn--round">
-                                    <svg class="btn__icon" width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                        <path d="M13.2266 5.43579L18.7907 11L13.2266 16.5641" stroke="white" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round" />
-                                        <path d="M3.20703 11H18.6345" stroke="white" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round" />
-                                    </svg>
-                                </button>
-                            </a>
-                        </div>
-
-                        <div class="hero__slide-decoration">
-                            <img src="local/templates/sanamedikal/images/hero/slideDecoration.svg" alt="Декоративный элемент">
-                        </div>
-                    </div>
-                </div>
+                <h1 class="h1 page-hero__title">О компании</h1>
+                <p class="page-hero__text">Санамедикал — это интервенционная кардиология от первого <br>
+                                            проводника до окклюдера ушка предсердия. Мы предлагаем полную линейку инструментов Boston Scientific и других ведущих производителей<br>
+                                            для чрескожных коронарных вмешательств, физиологической навигации<br>
+                                            и коррекции структурных патологий сердца.</p>
             </div>
         </section>
 
-        <!-- ПРЕИМУЩЕСТВА -->
-        <section class="benefits-section">
+        <section class="company-stats">
             <div class="container">
                 <div class="benefits-section__wrapper">
    
@@ -370,22 +239,15 @@
                         </div>
 
                         <div class="benefit-card">
-                            <h2 class="h1 benefit-card__title">28 000+</h2>
-                            <div class="benefit-card__divider"></div>
-                            <h3 class="h5 benefit-card__subtitle">Продукции для кардиологии, периферической хирургии и расходных материалов</h3>
-                        </div>
-
-                        <div class="benefit-info-card">
-                            <img src="local/templates/sanamedikal/images/hero/benefitDec.png" alt="Декоративный элемент" class="benefit-info__dec">
-
-                            <h2 class="h2 benefit-info__title">Санамедикал — оснащение медицинских учреждений</h2>
-                            <h3 class="h5 benefit-info__subtitle">Полная линейка инструментов для чрескожных коронарных вмешательств, физиологической навигации и коррекции структурных патологий сердца — в одном каталоге.</h3>
-                        </div>
-
-                        <div class="benefit-card">
                             <img src="local/templates/sanamedikal/images/hero/benefitIcon.svg" alt="Помогаем быстро получать коммерческие предложения по нужному ассортименту" class="benefit-card__image">
                             <div class="benefit-card__divider"></div>
                             <h3 class="h5 benefit-card__subtitle">Помогаем быстро получать коммерческие предложения по нужному ассортименту</h3>
+                        </div>
+
+                        <div class="benefit-card">
+                            <h2 class="h1 benefit-card__title">28 000+</h2>
+                            <div class="benefit-card__divider"></div>
+                            <h3 class="h5 benefit-card__subtitle">Продукции для кардиологии, периферической хирургии и расходных материалов</h3>
                         </div>
 
                         <div class="benefit-card">
@@ -393,312 +255,111 @@
                             <div class="benefit-card__divider"></div>
                             <h3 class="h5 benefit-card__subtitle">Обеспечиваем полный комплекс подготовки документации и проектной деятельности</h3>
                         </div>
-
-                        <div class="benefit-info-card">
-                            <img src="local/templates/sanamedikal/images/hero/benefitsPicture.png" alt="Фоновое изображение" class="benefit-info__bg">
-
-                            <a href="/company" class="btn-group">
-                                <button class="btn btn--primary btn--white">О компании</button>
-                                <button class="btn btn--primary btn--white btn--round">
-                                    <svg class="btn__icon" width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                        <path d="M13.2275 5.43579L18.7917 11L13.2275 16.5641" stroke="#222E59" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round" />
-                                        <path d="M3.20837 11H18.6359" stroke="#222E59" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round" />
-                                    </svg>
-                                </button>
-                            </a>
-                        </div>
-
                 </div>
             </div>
         </section>
 
-        <!-- ПРОИЗВОДИТЕЛИ -->
-        <section class="brands-section section">
-            <div class="container" data-slider>
-                <div class="section-head">
-                    <h2 class="h2 section-head__title">Продукция ведущих производителей</h2>
-
-                    <div class="section-head__actions">
-                        <a href="/brands/" class="btn btn--secondary btn--xl">Все производители</a>
-                        <div class="slider-nav">
-                            <button type="button" class="btn btn--primary btn--round btn--xl" data-slider-prev aria-label="Назад">
-                                <svg class="btn__icon icon-flip" width="22" height="22" aria-hidden="true"><use href="#icon-arrow"></use></svg>
-                            </button>
-                            <button type="button" class="btn btn--primary btn--round btn--xl" data-slider-next aria-label="Вперёд">
-                                <svg class="btn__icon" width="22" height="22" aria-hidden="true"><use href="#icon-arrow"></use></svg>
-                            </button>
-                        </div>
-                    </div>
-                </div>
-
-                <ul class="slider__track brands-slider" data-slider-track>
-                    <li class="slider__item"><a href="/brands/quotient/" class="brand-logo"><img class="brand-logo__img" src="local/templates/sanamedikal/images/brands/quotient.png" alt="Quotient" loading="lazy"></a></li>
-                    <li class="slider__item"><a href="/brands/sisyphus/" class="brand-logo"><img class="brand-logo__img" src="local/templates/sanamedikal/images/brands/sisyphus.png" alt="Sisyphus" loading="lazy"></a></li>
-                    <li class="slider__item"><a href="/brands/catalog/" class="brand-logo"><img class="brand-logo__img" src="local/templates/sanamedikal/images/brands/catalog.png" alt="Catalog" loading="lazy"></a></li>
-                    <li class="slider__item"><a href="/brands/hourglass/" class="brand-logo"><img class="brand-logo__img" src="local/templates/sanamedikal/images/brands/hourglass.png" alt="Hourglass" loading="lazy"></a></li>
-                    <li class="slider__item"><a href="/brands/circooles/" class="brand-logo"><img class="brand-logo__img" src="local/templates/sanamedikal/images/brands/circooles.png" alt="Circooles" loading="lazy"></a></li>
-                    <li class="slider__item"><a href="/brands/layers/" class="brand-logo"><img class="brand-logo__img" src="local/templates/sanamedikal/images/brands/layers.png" alt="Layers" loading="lazy"></a></li>
-                    <li class="slider__item"><a href="/brands/quotient/" class="brand-logo"><img class="brand-logo__img" src="local/templates/sanamedikal/images/brands/quotient.png" alt="Quotient" loading="lazy"></a></li>
-                    <li class="slider__item"><a href="/brands/sisyphus/" class="brand-logo"><img class="brand-logo__img" src="local/templates/sanamedikal/images/brands/sisyphus.png" alt="Sisyphus" loading="lazy"></a></li>
-                </ul>
-            </div>
-        </section>
-
-        <!-- КАТАЛОГ -->
-        <section class="catalog-section section" data-tabs-root>
+        <section class="company-intro">
             <div class="container">
-                <div class="catalog-grid">
-                    <div class="catalog-grid__head">
-                        <h2 class="h2">Каталог <br>продукции</h2>
-
-                        <div class="tabs" role="tablist">
-                            <button type="button" class="tabs__item is-active" role="tab" aria-selected="true" data-tab="categories">По категориям</button>
-                            <button type="button" class="tabs__item" role="tab" aria-selected="false" data-tab="brands">По производителям</button>
+                <div class="company-intro__grid">
+                    <div>
+                        <h2 class="h2">Комплексное оснащение медицинских учреждений</h2>
+                        <div class="company-intro__text">
+                            <p>Наша задача — обеспечить клиники, медицинские центры и государственные учреждения качественными расходными материалами и оборудованием <br>с полным комплексом сопроводительной документации.</p>
+                            <p>Полная линейка инструментов для чрескожных коронарных вмешательств, физиологической навигации и коррекции структурных патологий сердца <br>— в одном каталоге.</p>
+                            <p>Более 10 лет работаем на рынке медицинских изделий и специализируемся <br>на решениях для интервенционной кардиологии и периферической хирургии.</p>
                         </div>
                     </div>
 
-                    <div class="catalog-grid__panel" data-tab-panel="categories">
-                    <article class="category-card">
-                        <div class="category-card__top">
-                            <h3 class="category-card__title"><a href="/catalog/thrombectomy/">Тромбэктомия <br>и аспирация</a></h3>
-                            <a href="/catalog/thrombectomy/" class="btn btn--primary btn--round" aria-label="Перейти в категорию">
-                                <svg class="btn__icon" width="22" height="22" aria-hidden="true"><use href="#icon-arrow"></use></svg>
-                            </a>
-                        </div>
-                        <ul class="category-card__list">
-                            <li><a href="/catalog/thrombectomy/aspiration-catheters/">Аспирационные катетеры</a></li>
-                            <li><a href="/catalog/thrombectomy/reperfusion/">Реперфузионные системы</a></li>
-                            <li><a href="/catalog/thrombectomy/ultrasound/">Ультразвуковые системы</a></li>
-                        </ul>
-                    </article>
-
-                    <article class="category-card">
-                        <div class="category-card__top">
-                            <h3 class="category-card__title"><a href="/catalog/electrophysiology/">Электрофизиология и абляция</a></h3>
-                            <a href="/catalog/electrophysiology/" class="btn btn--primary btn--round" aria-label="Перейти в категорию">
-                                <svg class="btn__icon" width="22" height="22" aria-hidden="true"><use href="#icon-arrow"></use></svg>
-                            </a>
-                        </div>
-                        <ul class="category-card__list">
-                            <li><a href="/catalog/electrophysiology/mapping/">Катетеры для картирования</a></li>
-                            <li><a href="/catalog/electrophysiology/ablation/">Катетеры для абляции</a></li>
-                            <li><a href="/catalog/electrophysiology/introducers/">Расширяемые интродьюсеры для абляции</a></li>
-                        </ul>
-                    </article>
-
-                    <article class="category-card">
-                        <div class="category-card__top">
-                            <h3 class="category-card__title"><a href="/catalog/implantable/">Имплантируемые устройства</a></h3>
-                            <a href="/catalog/implantable/" class="btn btn--primary btn--round" aria-label="Перейти в категорию">
-                                <svg class="btn__icon" width="22" height="22" aria-hidden="true"><use href="#icon-arrow"></use></svg>
-                            </a>
-                        </div>
-                        <ul class="category-card__list">
-                            <li><a href="/catalog/implantable/pacemakers/">Электрокардиостимуляторы</a></li>
-                            <li><a href="/catalog/implantable/icd/">Кардиовертеры-дефибрилляторы</a></li>
-                            <li><a href="/catalog/implantable/leads/">Электроды и отведения</a></li>
-                            <li><a href="/catalog/implantable/" class="category-card__more">Смотреть все</a></li>
-                        </ul>
-                    </article>
-
-                    <article class="category-card category-card--wide">
-                        <img class="category-card__decoration" src="local/templates/sanamedikal/images/catalog/whiteCardDec.svg" alt="" aria-hidden="true">
-
-                        <div class="category-card__top">
-                            <h3 class="category-card__title"><a href="/catalog/interventional-cardiology/">Интервенционная кардиология</a></h3>
-                            <a href="/catalog/interventional-cardiology/" class="btn btn--primary btn--round" aria-label="Перейти в категорию">
-                                <svg class="btn__icon" width="22" height="22" aria-hidden="true"><use href="#icon-arrow"></use></svg>
-                            </a>
-                        </div>
-                        <ul class="category-card__list">
-                            <li><a href="/catalog/interventional-cardiology/balloons/">Баллонные катетеры</a></li>
-                            <li><a href="/catalog/interventional-cardiology/guiding/">Проводниковые катетеры</a></li>
-                            <li><a href="/catalog/interventional-cardiology/micro/">Микрокатетеры и проводники</a></li>
-                            <li><a href="/catalog/interventional-cardiology/" class="category-card__more">Смотреть все</a></li>
-                        </ul>
-                    </article>
-
-                    <article class="category-card">
-                        <div class="category-card__top">
-                            <h3 class="category-card__title"><a href="/catalog/angiography/">Ангиография <br>и визуализация</a></h3>
-                            <a href="/catalog/angiography/" class="btn btn--primary btn--round" aria-label="Перейти в категорию">
-                                <svg class="btn__icon" width="22" height="22" aria-hidden="true"><use href="#icon-arrow"></use></svg>
-                            </a>
-                        </div>
-                        <ul class="category-card__list">
-                            <li><a href="/catalog/angiography/catheters/">Ангиографические катетеры</a></li>
-                            <li><a href="/catalog/angiography/ultrasound/">Системы и датчики УЗ-визуализации</a></li>
-                        </ul>
-                    </article>
-
-                    <article class="category-card">
-                        <div class="category-card__top">
-                            <h3 class="category-card__title"><a href="/catalog/drainage/">Дренаж<br> и биопсия</a></h3>
-                            <a href="/catalog/drainage/" class="btn btn--primary btn--round" aria-label="Перейти в категорию">
-                                <svg class="btn__icon" width="22" height="22" aria-hidden="true"><use href="#icon-arrow"></use></svg>
-                            </a>
-                        </div>
-                        <ul class="category-card__list">
-                            <li><a href="/catalog/drainage/catheters/">Дренажные катетеры</a></li>
-                            <li><a href="/catalog/drainage/needles/">Иглы для биопсии</a></li>
-                        </ul>
-                    </article>
-
-                    <article class="category-card">
-                        <div class="category-card__top">
-                            <h3 class="category-card__title"><a href="/catalog/arrhythmology/">Интервенционная аритмология</a></h3>
-                            <a href="/catalog/arrhythmology/" class="btn btn--primary btn--round" aria-label="Перейти в категорию">
-                                <svg class="btn__icon" width="22" height="22" aria-hidden="true"><use href="#icon-arrow"></use></svg>
-                            </a>
-                        </div>
-                        <ul class="category-card__list">
-                            <li><a href="/catalog/arrhythmology/navigation/">Системы навигации</a></li>
-                            <li><a href="/catalog/arrhythmology/catheters/">Катетеры и датчики</a></li>
-                        </ul>
-                    </article>
+                    <div class="company-intro__media">
+                        <img src="local/templates/sanamedikal/images/company/companyImage.png" alt="" loading="lazy">
                     </div>
-
-                    <div class="catalog-grid__panel" data-tab-panel="brands" hidden>
-                        <article class="category-card">
-                            <div class="category-card__top">
-                                <h3 class="category-card__title"><a href="/brands/quotient/">Quotient</a></h3>
-                                <a href="/brands/quotient/" class="btn btn--primary btn--round" aria-label="Перейти к бренду">
-                                    <svg class="btn__icon" width="22" height="22" aria-hidden="true"><use href="#icon-arrow"></use></svg>
-                                </a>
-                            </div>
-                            <ul class="category-card__list">
-                                <li><a href="/brands/quotient/thrombectomy/">Тромбэктомия и аспирация</a></li>
-                                <li><a href="/brands/quotient/electrophysiology/">Электрофизиология и абляция</a></li>
-                                <li><a href="/brands/quotient/implantable/">Имплантируемые устройства</a></li>
-                            </ul>
-                        </article>
-
-                        <article class="category-card">
-                            <div class="category-card__top">
-                                <h3 class="category-card__title"><a href="/brands/sisyphus/">Sisyphus</a></h3>
-                                <a href="/brands/sisyphus/" class="btn btn--primary btn--round" aria-label="Перейти к бренду">
-                                    <svg class="btn__icon" width="22" height="22" aria-hidden="true"><use href="#icon-arrow"></use></svg>
-                                </a>
-                            </div>
-                            <ul class="category-card__list">
-                                <li><a href="/brands/sisyphus/interventional-cardiology/">Интервенционная кардиология</a></li>
-                                <li><a href="/brands/sisyphus/angiography/">Ангиография и визуализация</a></li>
-                                <li><a href="/brands/sisyphus/drainage/">Дренаж и биопсия</a></li>
-                            </ul>
-                        </article>
-
-                        <article class="category-card">
-                            <div class="category-card__top">
-                                <h3 class="category-card__title"><a href="/brands/catalog/">Catalog</a></h3>
-                                <a href="/brands/catalog/" class="btn btn--primary btn--round" aria-label="Перейти к бренду">
-                                    <svg class="btn__icon" width="22" height="22" aria-hidden="true"><use href="#icon-arrow"></use></svg>
-                                </a>
-                            </div>
-                            <ul class="category-card__list">
-                                <li><a href="/brands/catalog/arrhythmology/">Интервенционная аритмология</a></li>
-                                <li><a href="/brands/catalog/implantable/">Имплантируемые устройства</a></li>
-                                <li><a href="/brands/catalog/electrophysiology/">Электрофизиология и абляция</a></li>
-                                <li><a href="/brands/catalog/" class="category-card__more">Смотреть все</a></li>
-                            </ul>
-                        </article>
-
-                        <article class="category-card category-card--wide">
-                            <img class="category-card__decoration" src="local/templates/sanamedikal/images/catalog/whiteCardDec.svg" alt="" aria-hidden="true">
-                            <div class="category-card__top">
-                                <h3 class="category-card__title"><a href="/brands/hourglass/">Hourglass</a></h3>
-                                <a href="/brands/hourglass/" class="btn btn--primary btn--round" aria-label="Перейти к бренду">
-                                    <svg class="btn__icon" width="22" height="22" aria-hidden="true"><use href="#icon-arrow"></use></svg>
-                                </a>
-                            </div>
-                            <ul class="category-card__list">
-                                <li><a href="/brands/hourglass/angiography/">Ангиография и визуализация</a></li>
-                                <li><a href="/brands/hourglass/drainage/">Дренаж и биопсия</a></li>
-                                <li><a href="/brands/hourglass/interventional-cardiology/">Интервенционная кардиология</a></li>
-                                <li><a href="/brands/hourglass/" class="category-card__more">Смотреть все</a></li>
-                            </ul>
-                        </article>
-
-                        <article class="category-card">
-                            <div class="category-card__top">
-                                <h3 class="category-card__title"><a href="/brands/circooles/">Circooles</a></h3>
-                                <a href="/brands/circooles/" class="btn btn--primary btn--round" aria-label="Перейти к бренду">
-                                    <svg class="btn__icon" width="22" height="22" aria-hidden="true"><use href="#icon-arrow"></use></svg>
-                                </a>
-                            </div>
-                            <ul class="category-card__list">
-                                <li><a href="/brands/circooles/thrombectomy/">Тромбэктомия и аспирация</a></li>
-                                <li><a href="/brands/circooles/interventional-cardiology/">Интервенционная кардиология</a></li>
-                                <li><a href="/brands/circooles/electrophysiology/">Электрофизиология и абляция</a></li>
-                            </ul>
-                        </article>
-
-                        <article class="category-card">
-                            <div class="category-card__top">
-                                <h3 class="category-card__title"><a href="/brands/layers/">Layers</a></h3>
-                                <a href="/brands/layers/" class="btn btn--primary btn--round" aria-label="Перейти к бренду">
-                                    <svg class="btn__icon" width="22" height="22" aria-hidden="true"><use href="#icon-arrow"></use></svg>
-                                </a>
-                            </div>
-                            <ul class="category-card__list">
-                                <li><a href="/brands/layers/implantable/">Имплантируемые устройства</a></li>
-                                <li><a href="/brands/layers/arrhythmology/">Интервенционная аритмология</a></li>
-                            </ul>
-                        </article>
-
-                        <article class="category-card">
-                            <div class="category-card__top">
-                                <h3 class="category-card__title"><a href="/brands/boston/">Boston Scientific</a></h3>
-                                <a href="/brands/boston/" class="btn btn--primary btn--round" aria-label="Перейти к бренду">
-                                    <svg class="btn__icon" width="22" height="22" aria-hidden="true"><use href="#icon-arrow"></use></svg>
-                                </a>
-                            </div>
-                            <ul class="category-card__list">
-                                <li><a href="/brands/boston/interventional-cardiology/">Интервенционная кардиология</a></li>
-                                <li><a href="/brands/boston/angiography/">Ангиография и визуализация</a></li>
-                                <li><a href="/brands/boston/drainage/">Дренаж и биопсия</a></li>
-                            </ul>
-                        </article>
-
-                    </div>
-
                 </div>
-
-                <a href="/catalog/" class="btn btn--secondary btn--xl catalog-section__all" data-tab-panel="categories">Смотреть все категории</a>
-                <a href="/brands/" class="btn btn--secondary btn--xl catalog-section__all" data-tab-panel="brands" hidden>Смотреть всех производителей</a>
             </div>
         </section>
 
-        <!-- О КОМПАНИИ -->
-        <section class="about-section section">
+        <section class="producers-section">
             <div class="container">
-                <div class="about-section__wrapper">
-                    <div class="about-section__text">
-                        <h2 class="h2 about-section__title">О компании</h2>
-                        <p class="about-section__lead">Санамедикал – это интервенционная кардиология от первого проводника до окклюдера ушка предсердия. <br><br> Полная линейка инструментов Boston Scientific для чрескожных коронарных вмешательств, физиологической навигации и коррекции структурных патологий сердца в одном каталоге.</p>
-                        <a href="/company/" class="btn btn--secondary btn--xl about-section__btn">О компании</a>
-                    </div>
+                <h2 class="h2">Мы представители крупнейших <br>мировых производителей</h2>
 
-                    <ul class="about-features">
-                        <li class="about-feature">
-                            <h3 class="about-feature__title">Сертифицированная продукция</h3>
-                            <p class="about-feature__text h5">Поставляем только оригинальную продукцию мировых лидеров <br>с полным пакетом сертификатов</p>
-                            <img class="about-feature__icon" src="local/templates/sanamedikal/images/company/aboutIcon1.svg" width="124" height="124" alt="" aria-hidden="true">
-                        </li>
-                        <li class="about-feature">
-                            <h3 class="about-feature__title">Оперативная <br>доставка по России</h3>
-                            <p class="about-feature__text h5">Обеспечиваем поставку критически важной продукции в течение <br>24-48 часов по стране</p>
-                            <img class="about-feature__icon" src="local/templates/sanamedikal/images/company/aboutIcon2.svg" width="124" height="124" alt="" aria-hidden="true">
-                        </li>
-                        <li class="about-feature">
-                            <h3 class="about-feature__title">Индивидуальные условия закупок</h3>
-                            <p class="about-feature__text h5">Поэтапная оплата и консигнационные схемы для государственных <br>и частных клиник любого масштаба</p>
-                            <img class="about-feature__icon" src="local/templates/sanamedikal/images/company/aboutIcon3.svg" width="124" height="124" alt="" aria-hidden="true">
-                        </li>
-                    </ul>
+                <div class="producers-grid">
+                    <article class="producer-card">
+                        <div class="producer-card__body">
+                            <a href="/brands/boston/" class="btn btn--primary btn--round producer-card__arrow" aria-label="Подробнее о производителе Boston Scientific">
+                                <svg class="btn__icon" width="22" height="22" aria-hidden="true"><use href="#icon-arrow"></use></svg>
+                            </a>
+                            <p class="producer-card__name">Boston Scientific</p>
+                            <div class="producer-card__logo-wrap">
+                                <img class="producer-card__logo" src="local/templates/sanamedikal/images/company/boston-logo.png" alt="Boston Scientific">
+                            </div>
+                            <div class="producer-card__text">
+                                <p>Специализируется на интервенционной медицине и малоинвазивных процедурах.</p>
+                                <p>Разрабатывает стенты, катетеры, эндоскопическое оборудование, кардиостимуляторы и системы для электрофизиологии и структурных патологий сердца.</p>
+                            </div>
+                        </div>
+                        <div class="producer-card__media">
+                            <img src="local/templates/sanamedikal/images/company/boston-building.jpg" alt="Boston Scientific" loading="lazy">
+                        </div>
+                    </article>
+                    <article class="producer-card">
+                        <div class="producer-card__body">
+                            <a href="/brands/abbott/" class="btn btn--primary btn--round producer-card__arrow" aria-label="Подробнее о производителе Abbott">
+                                <svg class="btn__icon" width="22" height="22" aria-hidden="true"><use href="#icon-arrow"></use></svg>
+                            </a>
+                            <p class="producer-card__name">Abbott</p>
+                            <div class="producer-card__logo-wrap">
+                                <img class="producer-card__logo" src="local/templates/sanamedikal/images/company/abbott-logo.png" alt="Abbott">
+                            </div>
+                            <div class="producer-card__text">
+                                <p>Лидер в кардиологических устройствах, диагностике и решениях лечения диабета.</p>
+                                <p>Производит системы непрерывного мониторинга глюкозы, сердечные клапаны, коронарные стенты и экспресс-тесты для лабораторной диагностики.</p>
+                            </div>
+                        </div>
+                        <div class="producer-card__media">
+                            <img src="local/templates/sanamedikal/images/company/abbott-building.jpg" alt="Abbott" loading="lazy">
+                        </div>
+                    </article>
+                    <article class="producer-card">
+                        <div class="producer-card__body">
+                            <a href="/brands/boston/" class="btn btn--primary btn--round producer-card__arrow" aria-label="Подробнее о производителе Boston Scientific">
+                                <svg class="btn__icon" width="22" height="22" aria-hidden="true"><use href="#icon-arrow"></use></svg>
+                            </a>
+                            <p class="producer-card__name">Boston Scientific</p>
+                            <div class="producer-card__logo-wrap">
+                                <img class="producer-card__logo" src="local/templates/sanamedikal/images/company/boston-logo.png" alt="Boston Scientific">
+                            </div>
+                            <div class="producer-card__text">
+                                <p>Специализируется на интервенционной медицине и малоинвазивных процедурах.</p>
+                                <p>Разрабатывает стенты, катетеры, эндоскопическое оборудование, кардиостимуляторы и системы для электрофизиологии и структурных патологий сердца.</p>
+                            </div>
+                        </div>
+                        <div class="producer-card__media">
+                            <img src="local/templates/sanamedikal/images/company/boston-building.jpg" alt="Boston Scientific" loading="lazy">
+                        </div>
+                    </article>
+                    <article class="producer-card">
+                        <div class="producer-card__body">
+                            <a href="/brands/abbott/" class="btn btn--primary btn--round producer-card__arrow" aria-label="Подробнее о производителе Abbott">
+                                <svg class="btn__icon" width="22" height="22" aria-hidden="true"><use href="#icon-arrow"></use></svg>
+                            </a>
+                            <p class="producer-card__name">Abbott</p>
+                            <div class="producer-card__logo-wrap">
+                                <img class="producer-card__logo" src="local/templates/sanamedikal/images/company/abbott-logo.png" alt="Abbott">
+                            </div>
+                            <div class="producer-card__text">
+                                <p>Лидер в кардиологических устройствах, диагностике и решениях лечения диабета.</p>
+                                <p>Производит системы непрерывного мониторинга глюкозы, сердечные клапаны, коронарные стенты и экспресс-тесты для лабораторной диагностики.</p>
+                            </div>
+                        </div>
+                        <div class="producer-card__media">
+                            <img src="local/templates/sanamedikal/images/company/abbott-building.jpg" alt="Abbott" loading="lazy">
+                        </div>
+                    </article>
                 </div>
+
+                <button type="button" class="btn btn--secondary btn--xl btn--more">Загрузить больше</button>
             </div>
         </section>
-
 
         <!-- ДОКУМЕНТЫ -->
         <section class="documents-section section">
@@ -766,45 +427,6 @@
                         </article>
                     </li>
                 </ul>
-            </div>
-        </section>
-
-        <!-- ГОСЗАКУПКИ -->
-        <section class="tender-section section">
-            <div class="container">
-                <div class="tender-section__wrapper">
-                    <div class="tender-card">
-                        <h2 class="h2 tender-card__title">Поставки по 44-ФЗ и 223-ФЗ</h2>
-                        <p class="tender-card__text">Поставляем медицинское оборудование госучреждениям по всем требованиям 44-ФЗ и 223-ФЗ с полным документальным сопровождением.</p>
-                        <div class="btn-group">
-                            <button type="button" class="btn btn--primary js-request-btn">Оставить заявку</button>
-                            <button type="button" class="btn btn--primary btn--round js-request-btn" aria-label="Оставить заявку">
-                                <svg class="btn__icon" width="22" height="22" aria-hidden="true"><use href="#icon-arrow"></use></svg>
-                            </button>
-                        </div>
-                    </div>
-
-                    <ul class="tender-features">
-                        <li class="tender-feature">
-                            <img class="tender-feature__icon" src="local/templates/sanamedikal/images/tenders/tenderIcon.svg" width="49" height="49" alt="" aria-hidden="true">
-                            <span class="tender-feature__num">01</span>
-                            <h3 class="tender-feature__title">Экспертный подбор</h3>
-                            <p class="tender-feature__text">Точное соответствие продукции техническому заданию заказчика.</p>
-                        </li>
-                        <li class="tender-feature">
-                            <img class="tender-feature__icon" src="local/templates/sanamedikal/images/tenders/tenderIcon.svg" width="49" height="49" alt="" aria-hidden="true">
-                            <span class="tender-feature__num">02</span>
-                            <h3 class="tender-feature__title">Юридическая чистота</h3>
-                            <p class="tender-feature__text">Полный комплект закрывающих документов.</p>
-                        </li>
-                        <li class="tender-feature">
-                            <img class="tender-feature__icon" src="local/templates/sanamedikal/images/tenders/tenderIcon.svg" width="49" height="49" alt="" aria-hidden="true">
-                            <span class="tender-feature__num">03</span>
-                            <h3 class="tender-feature__title">Соблюдение регламентов</h3>
-                            <p class="tender-feature__text">Сопровождение сделок на всех этапах контроля.</p>
-                        </li>
-                    </ul>
-                </div>
             </div>
         </section>
 
@@ -883,6 +505,22 @@
                         </a>
                     </li>
                 </ul>
+            </div>
+        </section>
+
+        <!-- ЗАПРОС ИНФОРМАЦИИ -->
+        <section class="cta-banner cta-banner--flush">
+            <div class="container">
+                <div class="cta-banner__content">
+                    <h2 class="h2 cta-banner__title">Хотите уточнить информацию <br>по заказу продукции?</h2>
+                    <p class="cta-banner__text">Свяжитесь с&nbsp;нами&nbsp;— подготовим информацию <br>по&nbsp;всем актуальным моделям и&nbsp;условиям поставки</p>
+                    <div class="btn-group">
+                        <button type="button" class="btn btn--primary js-request-btn">Оставить заявку</button>
+                        <button type="button" class="btn btn--primary btn--round js-request-btn" aria-label="Оставить заявку">
+                            <svg class="btn__icon" width="22" height="22" aria-hidden="true"><use href="#icon-arrow"></use></svg>
+                        </button>
+                    </div>
+                </div>
             </div>
         </section>
     </main>
@@ -984,6 +622,10 @@
     </footer>
 
     <svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+        <symbol id="icon-check-circle" viewBox="0 0 30 30" fill="none">
+            <path d="M20.625 11.25L13.125 18.75L9.375 15" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" />
+            <path d="M26.1556 16.4672C25.8651 18.673 24.927 20.7431 23.46 22.4158C21.9931 24.0885 20.0631 25.2887 17.914 25.8646C15.765 26.4405 13.4935 26.3663 11.3867 25.6513C9.27985 24.9364 7.43232 23.6127 6.07768 21.8478C4.72303 20.0829 3.92212 17.956 3.77618 15.736C3.63025 13.5159 4.14586 11.3024 5.25782 9.3754C6.36978 7.44836 8.02815 5.89429 10.0233 4.90969C12.0184 3.92508 14.2606 3.55415 16.4666 3.8438" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" />
+        </symbol>
         <symbol id="icon-arrow" viewBox="0 0 22 22" fill="none">
             <path d="M13.2266 5.43579L18.7907 11L13.2266 16.5641" stroke="currentColor" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round" />
             <path d="M3.20703 11H18.6345" stroke="currentColor" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round" />
@@ -994,6 +636,25 @@
         <symbol id="icon-check" viewBox="0 0 28 28" fill="none">
             <circle cx="14" cy="14" r="11.5" stroke="currentColor" />
             <path d="M9 14.5l3.5 3.5L19 10.5" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" />
+        </symbol>
+        <symbol id="icon-chevron-right" viewBox="0 0 10 10" fill="none">
+            <path d="M4 2.25L6.75 5.5L4 8.75" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" />
+        </symbol>
+        <symbol id="icon-max" viewBox="0 0 16 16" fill="currentColor">
+            <path d="M8.17 15.95C6.6 15.95 5.87 15.72 4.6 14.8C3.8 15.84 1.26 16.65 1.15 15.26C1.15 14.22 0.92 13.35 0.66 12.39C0.35 11.2 0 9.89 0 7.98C0 3.43 3.72 0 8.13 0C12.54 0 16 3.6 16 8.02C16.01 10.12 15.19 12.13 13.72 13.62C12.25 15.1 10.26 15.94 8.17 15.95ZM8.24 3.94C6.09 3.83 4.42 5.32 4.05 7.66C3.74 9.6 4.28 11.96 4.75 12.08C4.97 12.13 5.52 11.68 5.87 11.33C6.45 11.73 7.12 11.97 7.81 12.03C8.88 12.08 9.93 11.71 10.73 10.99C11.53 10.27 12.02 9.27 12.09 8.2C12.13 7.12 11.75 6.08 11.03 5.28C10.31 4.48 9.31 4 8.24 3.94L8.24 3.94Z" fill-rule="evenodd" clip-rule="evenodd" />
+        </symbol>
+        <symbol id="icon-telegram" viewBox="0 0 16 16" fill="currentColor">
+            <path d="M8 0C12.42 0 16 3.58 16 8C16 12.42 12.42 16 8 16C3.58 16 0 12.42 0 8C0 3.58 3.58 0 8 0ZM11.27 4.82C10.97 4.82 10.51 4.98 8.29 5.91C7.51 6.23 5.95 6.9 3.62 7.92C3.24 8.07 3.04 8.21 3.03 8.36C2.99 8.63 3.39 8.72 3.89 8.88C4.3 9.02 4.85 9.17 5.13 9.18C5.39 9.18 5.68 9.08 6 8.86C8.18 7.39 9.3 6.64 9.38 6.63C9.43 6.62 9.49 6.6 9.54 6.64C9.59 6.68 9.58 6.76 9.58 6.78C9.54 6.95 7.49 8.81 7.38 8.94C6.92 9.4 6.41 9.69 7.2 10.21C7.88 10.66 8.28 10.95 8.99 11.41C9.44 11.71 9.79 12.05 10.26 12.01C10.47 11.99 10.69 11.79 10.8 11.19C11.07 9.78 11.59 6.71 11.71 5.44C11.72 5.33 11.71 5.19 11.69 5.13C11.68 5.06 11.66 4.97 11.58 4.91C11.48 4.83 11.34 4.82 11.27 4.82Z" />
+        </symbol>
+        <symbol id="icon-whatsapp" viewBox="0 0 16 16" fill="currentColor">
+            <path d="M0 16C0.17 15.37 0.34 14.77 0.5 14.18C0.69 13.46 0.89 12.74 1.08 12.01C1.1 11.94 1.09 11.85 1.06 11.78C0.29 10.39 -0.04 8.89 0.09 7.31C0.28 5.05 1.28 3.19 3.03 1.75C4.01 0.95 5.17 0.4 6.41 0.16C10.12 -0.58 13.69 1.32 15.22 4.66C15.79 5.91 16.01 7.22 15.9 8.58C15.64 12.01 13.1 14.92 9.75 15.67C7.86 16.09 6.05 15.84 4.32 14.97C4.25 14.93 4.16 14.92 4.08 14.94C2.78 15.28 1.49 15.61 0.2 15.95C0.15 15.97 0.09 15.98 0 16ZM1.92 14.11C1.99 14.09 2.05 14.08 2.11 14.06C2.81 13.88 3.51 13.7 4.21 13.51C4.35 13.47 4.46 13.49 4.58 13.56C6.11 14.47 7.75 14.74 9.48 14.35C13.19 13.51 15.43 9.6 14.29 5.98C13.25 2.68 9.95 0.77 6.57 1.51C3.77 2.12 1.56 4.56 1.42 7.65C1.36 8.93 1.64 10.14 2.31 11.23C2.52 11.57 2.56 11.86 2.43 12.24C2.23 12.84 2.09 13.47 1.92 14.11L1.92 14.11Z" />
+            <path d="M3.95 6.15C3.97 5.48 4.22 4.94 4.69 4.48C4.76 4.41 4.84 4.36 4.93 4.32C5.02 4.28 5.12 4.27 5.22 4.27C5.33 4.27 5.44 4.28 5.55 4.27C5.78 4.25 5.92 4.36 6 4.56C6.22 5.09 6.45 5.61 6.65 6.14C6.69 6.24 6.66 6.4 6.61 6.49C6.46 6.72 6.29 6.94 6.12 7.15C6.01 7.28 6 7.4 6.09 7.55C6.73 8.63 7.63 9.42 8.81 9.89C8.97 9.95 9.1 9.93 9.21 9.79C9.41 9.54 9.61 9.3 9.8 9.05C9.91 8.9 10.04 8.85 10.21 8.92C10.77 9.19 11.34 9.46 11.9 9.74C11.96 9.77 12.01 9.86 12.01 9.93C12.04 10.52 11.86 11.02 11.34 11.36C10.69 11.79 10 11.83 9.27 11.62C7.4 11.09 6.01 9.92 4.89 8.38C4.52 7.87 4.18 7.34 4.04 6.72C4 6.53 3.98 6.34 3.95 6.15Z" />
+        </symbol>
+        <symbol id="icon-doc-file" viewBox="0 0 50 50" fill="none">
+            <rect x="1" y="1" width="48" height="48" rx="6" fill="#F2F8FA"/>
+            <path d="M17 14H27L34 21V36C34 37.1046 33.1046 38 32 38H17C15.8954 38 15 37.1046 15 36V16C15 14.8954 15.8954 14 17 14Z" stroke="#60B9DE" stroke-width="1.6" stroke-linejoin="round"/>
+            <path d="M27 14V21H34" stroke="#60B9DE" stroke-width="1.6" stroke-linejoin="round"/>
+            <path d="M19.5 26H29.5M19.5 30H29.5M19.5 34H25" stroke="#222E59" stroke-width="1.6" stroke-linecap="round"/>
         </symbol>
     </svg>
     <!-- Обязательное предупреждение для медицинских и фармацевтических работников -->
