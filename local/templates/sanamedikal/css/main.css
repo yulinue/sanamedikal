@@ -5597,12 +5597,6 @@ a.pagination__item:hover:not(.is-active){
     }
 }
 
-@media(max-width: 480px){
-    .product-grid{
-        grid-template-columns: minmax(0, 1fr);
-    }
-}
-
 @media(max-width: 375px){
     .catalog-section.catalog-list.section + .cta-banner .h2.cta-banner__title{
         font-size: 26px;
