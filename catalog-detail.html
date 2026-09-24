@@ -1,0 +1,1078 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Управляемый микропроводник Boston Scientific Transend — Санамедикал</title>
+
+    <link rel="stylesheet" href="local/templates/sanamedikal/css/main.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,opsz,wght@0,6..12,200..1000;1,6..12,200..1000&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Geologica:wght,CRSV@100..900,0&display=swap" rel="stylesheet">
+    <script>if (!/(?:^|; )pro_access=1/.test(document.cookie)) { document.documentElement.classList.add('pro-gate-pending'); }</script>
+</head>
+<body class="page-inner page-product">
+    <header class="header header--light">
+        <div class="container">
+            <div class="header-wrapper flex">
+                <a href="/" class="header__logo-container">
+                    <img class="header__logo" src="local/templates/sanamedikal/images/logo/logo.svg" alt="Логотип Санамедикал">
+                </a>
+
+                <ul class="header__menu flex">
+                    <li><a href="/" class="btn btn--link" aria-current="page">Продукция</a></li>
+                    <li><a href="/brands/" class="btn btn--link">Производители</a></li>
+                    <li><a href="/about/" class="btn btn--link">Компания</a></li>
+                    <li><a href="/documents/" class="btn btn--link">Документы</a></li>
+                    <li><a href="/cooperation/" class="btn btn--link">Сотрудничество</a></li>
+                    <li><a href="/news/" class="btn btn--link">Новости</a></li>
+                    <li><a href="/contacts/" class="btn btn--link">Контакты</a></li>
+                </ul>
+
+                <div class="header__actions flex gap-20 items-center">
+                    <button class="btn btn--neutral btn--round" id="search-btn" aria-expanded="false" aria-controls="search-bar" aria-label="Открыть поиск">
+                        <svg class="btn__icon" width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M9.96863 17.1875C13.9554 17.1875 17.1874 13.9556 17.1874 9.96875C17.1874 5.98194 13.9554 2.75 9.96863 2.75C5.98182 2.75 2.74988 5.98194 2.74988 9.96875C2.74988 13.9556 5.98182 17.1875 9.96863 17.1875Z" stroke="white" stroke-linecap="round" stroke-linejoin="round" />
+                            <path d="M15.0728 15.0735L19.2494 19.2501" stroke="white" stroke-linecap="round" stroke-linejoin="round" />
+                        </svg>
+                    </button>
+
+                    <button type="button" class="btn btn--secondary js-request-btn">Оставить заявку</button>
+
+                    <a href="#" class="header-actions__cart flex" id="cart-open-btn" aria-haspopup="dialog" aria-controls="cart-panel">
+                        <button class="btn btn--neutral">Корзина</button>
+                        <button class="btn btn--neutral btn--round">
+                            <svg class="btn__icon" width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M15.125 8.9375H4.46875L3.60264 2.62702C3.57384 2.46861 3.49035 2.32533 3.36674 2.22217C3.24313 2.11901 3.08723 2.0625 2.92623 2.0625H1.375" stroke="white" stroke-linecap="round" stroke-linejoin="round" />
+                                <path d="M6.875 19.25C7.82424 19.25 8.59375 18.4805 8.59375 17.5312C8.59375 16.582 7.82424 15.8125 6.875 15.8125C5.92576 15.8125 5.15625 16.582 5.15625 17.5312C5.15625 18.4805 5.92576 19.25 6.875 19.25Z" stroke="white" stroke-linecap="round" stroke-linejoin="round" />
+                                <path d="M15.8125 19.25C16.7617 19.25 17.5312 18.4805 17.5312 17.5312C17.5312 16.582 16.7617 15.8125 15.8125 15.8125C14.8633 15.8125 14.0938 16.582 14.0938 17.5312C14.0938 18.4805 14.8633 19.25 15.8125 19.25Z" stroke="white" stroke-linecap="round" stroke-linejoin="round" />
+                                <path d="M5.375 12.375H16.165C16.487 12.375 16.7988 12.262 17.046 12.0557C17.2932 11.8493 17.4602 11.5628 17.5178 11.246L18.5625 5.5H4.125" stroke="white" stroke-linecap="round" stroke-linejoin="round" />
+                            </svg>
+                        </button>
+                        <span class="header-actions__count" id="cart-count" aria-label="Товаров в корзине: 75">75</span>
+                    </a>
+
+                    <button class="btn btn--neutral btn--round" id="burger-btn" aria-expanded="false" aria-controls="mobile-menu" aria-label="Открыть меню">
+                        <svg class="btn__icon burger-icon" width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <line class="burger-icon__line burger-icon__line--top" x1="3" y1="5.78" x2="19" y2="5.78" stroke="white" stroke-width="1.6" stroke-linecap="round" />
+                            <line class="burger-icon__line burger-icon__line--middle" x1="3" y1="11" x2="19" y2="11" stroke="white" stroke-width="1.6" stroke-linecap="round" />
+                            <line class="burger-icon__line burger-icon__line--bottom" x1="3" y1="16.22" x2="19" y2="16.22" stroke="white" stroke-width="1.6" stroke-linecap="round" />
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <div class="mobile-menu-overlay" id="mobile-menu-overlay"></div>
+    <div class="cart-panel" id="cart-panel" data-cart-view="items" role="dialog" aria-modal="true" aria-label="Корзина">
+        <div class="cart-panel__view cart-panel__view--empty" data-cart-view-panel="empty">
+            <div class="cart-panel__bar">
+                <h2 class="h2 cart-panel__empty-title">В вашей корзине <br>пока ничего нет</h2>
+                <button type="button" class="btn btn--neutral btn--round cart-panel__close js-close-cart" aria-label="Закрыть">
+                    <svg class="btn__icon" width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M21.875 6.125L6.125 21.875" stroke="#222E59" stroke-linecap="round" stroke-linejoin="round" />
+                        <path d="M21.875 21.875L6.125 6.125" stroke="#222E59" stroke-linecap="round" stroke-linejoin="round" />
+                    </svg>
+                </button>
+            </div>
+
+            <img class="cart-panel__dec" src="local/templates/sanamedikal/images/cart/cartDec.png" alt="" aria-hidden="true">
+
+            <div class="cart-panel__empty">
+                <p class="cart-panel__empty-text">Добавьте одну или несколько позиций, чтобы перейти к оформлению заказа</p>
+
+                <div class="btn-group">
+                    <a href="/catalog/" class="btn btn--primary btn--xl">Перейти в каталог</a>
+                    <a href="/catalog/" class="btn btn--primary btn--round btn--xl" aria-label="Перейти в каталог">
+                        <svg class="btn__icon" width="22" height="22" aria-hidden="true"><use href="#icon-arrow"></use></svg>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <div class="cart-panel__view cart-panel__view--items" data-cart-view-panel="items">
+            <div class="cart-panel__header">
+                <h2 class="cart-panel__title">Корзина · <span data-cart-count>75</span></h2>
+                <div class="cart-panel__header-actions">
+                    <button type="button" class="btn btn--link cart-panel__clear" data-cart-clear>
+                        Очистить корзину
+                        <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M14 3.98667C11.78 3.76667 9.54667 3.65334 7.32 3.65334C6 3.65334 4.68 3.72 3.36 3.85334L2 3.98667" stroke="#9B9FB0" stroke-linecap="round" stroke-linejoin="round" />
+                            <path d="M5.66663 3.31334L5.81329 2.44C5.91996 1.80667 5.99996 1.33334 7.12663 1.33334H8.87329C9.99996 1.33334 10.0866 1.83334 10.1866 2.44667L10.3333 3.31334" stroke="#9B9FB0" stroke-linecap="round" stroke-linejoin="round" />
+                            <path d="M12.5667 6.09333L12.1334 12.8067C12.06 13.8533 12 14.6667 10.14 14.6667H5.86002C4.00002 14.6667 3.94002 13.8533 3.86668 12.8067L3.43335 6.09333" stroke="#9B9FB0" stroke-linecap="round" stroke-linejoin="round" />
+                            <path d="M6.88672 11H9.10672" stroke="#9B9FB0" stroke-linecap="round" stroke-linejoin="round" />
+                            <path d="M6.33337 8.33334H9.66671" stroke="#9B9FB0" stroke-linecap="round" stroke-linejoin="round" />
+                        </svg>
+                    </button>
+                    <button type="button" class="btn btn--neutral btn--round cart-panel__close js-close-cart" aria-label="Закрыть">
+                        <svg class="btn__icon" width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M21.875 6.125L6.125 21.875" stroke="#222E59" stroke-linecap="round" stroke-linejoin="round" />
+                            <path d="M21.875 21.875L6.125 6.125" stroke="#222E59" stroke-linecap="round" stroke-linejoin="round" />
+                        </svg>
+                    </button>
+                </div>
+            </div>
+
+            <div class="cart-panel__body">
+                <ul class="cart-list" data-cart-list>
+                <li class="cart-item" data-cart-item data-qty="30">
+                    <img class="cart-item__media" src="local/templates/sanamedikal/images/catalog/catalogItem3.png" alt="Спирали для эмболизации Terumo Hyper 3D Soft">
+                    <div class="cart-item__body">
+                        <p class="cart-item__brand">Terumo</p>
+                        <p class="cart-item__title">Спирали для эмболизации Terumo Hyper 3D Soft</p>
+                        <span class="cart-item__model">Model: Transend™ - <span class="cart-item__model-code">M001468010</span></span>
+                    </div>
+                    <div class="cart-item__qty">
+                        <button type="button" class="cart-item__qty-btn cart-item__qty-btn--minus" data-qty-minus aria-label="Уменьшить количество"><svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M2.8125 9H15.1875" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" /></svg></button>
+                        <span class="cart-item__qty-value" data-qty-value>30 шт</span>
+                        <button type="button" class="cart-item__qty-btn cart-item__qty-btn--plus" data-qty-plus aria-label="Увеличить количество"><svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M2.8125 9H15.1875" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" /><path d="M9 2.8125V15.1875" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" /></svg></button>
+                    </div>
+                    <button type="button" class="cart-item__remove" data-cart-remove aria-label="Удалить товар">
+                        <svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M17.1875 4.8125L4.8125 17.1875" stroke="#9B9FB0" stroke-linecap="round" stroke-linejoin="round" />
+                            <path d="M17.1875 17.1875L4.8125 4.8125" stroke="#9B9FB0" stroke-linecap="round" stroke-linejoin="round" />
+                        </svg>
+                    </button>
+                </li>
+                <li class="cart-item" data-cart-item data-qty="14">
+                    <img class="cart-item__media" src="local/templates/sanamedikal/images/catalog/catalogItem2.png" alt="Микрокатетеры управляемые высокопоточные Renegade Hi Flo и Renegade">
+                    <div class="cart-item__body">
+                        <p class="cart-item__brand">Boston Scientific</p>
+                        <p class="cart-item__title">Микрокатетеры управляемые высокопоточные Renegade Hi Flo и Renegade</p>
+                        <span class="cart-item__model">Model: Renegade - <span class="cart-item__model-code">L438899042</span></span>
+                    </div>
+                    <div class="cart-item__qty">
+                        <button type="button" class="cart-item__qty-btn cart-item__qty-btn--minus" data-qty-minus aria-label="Уменьшить количество"><svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M2.8125 9H15.1875" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" /></svg></button>
+                        <span class="cart-item__qty-value" data-qty-value>14 шт</span>
+                        <button type="button" class="cart-item__qty-btn cart-item__qty-btn--plus" data-qty-plus aria-label="Увеличить количество"><svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M2.8125 9H15.1875" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" /><path d="M9 2.8125V15.1875" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" /></svg></button>
+                    </div>
+                    <button type="button" class="cart-item__remove" data-cart-remove aria-label="Удалить товар">
+                        <svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M17.1875 4.8125L4.8125 17.1875" stroke="#9B9FB0" stroke-linecap="round" stroke-linejoin="round" />
+                            <path d="M17.1875 17.1875L4.8125 4.8125" stroke="#9B9FB0" stroke-linecap="round" stroke-linejoin="round" />
+                        </svg>
+                    </button>
+                </li>
+                <li class="cart-item cart-item--locked" data-cart-item data-qty="1">
+                    <img class="cart-item__media" src="local/templates/sanamedikal/images/catalog/catalogItem4.png" alt="Баллонный катетер Abbot (MINI) TREK">
+                    <div class="cart-item__body">
+                        <p class="cart-item__brand">Abbot</p>
+                        <p class="cart-item__title">Баллонный катетер Abbot (MINI) TREK</p>
+                        <span class="cart-item__model">Модификацию уточним при подготовке КП</span>
+                    </div>
+                    <div class="cart-item__qty">
+                        <button type="button" class="cart-item__qty-btn cart-item__qty-btn--minus" data-qty-minus aria-label="Уменьшить количество" disabled><svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M2.8125 9H15.1875" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" /></svg></button>
+                        <span class="cart-item__qty-value" data-qty-value>1 шт</span>
+                        <button type="button" class="cart-item__qty-btn cart-item__qty-btn--plus" data-qty-plus aria-label="Увеличить количество" disabled><svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M2.8125 9H15.1875" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" /><path d="M9 2.8125V15.1875" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" /></svg></button>
+                    </div>
+                    <button type="button" class="cart-item__remove" data-cart-remove aria-label="Удалить товар">
+                        <svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M17.1875 4.8125L4.8125 17.1875" stroke="#9B9FB0" stroke-linecap="round" stroke-linejoin="round" />
+                            <path d="M17.1875 17.1875L4.8125 4.8125" stroke="#9B9FB0" stroke-linecap="round" stroke-linejoin="round" />
+                        </svg>
+                    </button>
+                </li>
+                <li class="cart-item" data-cart-item data-qty="30">
+                    <img class="cart-item__media" src="local/templates/sanamedikal/images/catalog/catalogItem1.png" alt="Спирали с волокнами для эмболизации с Interlock-35">
+                    <div class="cart-item__body">
+                        <p class="cart-item__brand">Boston Scientific</p>
+                        <p class="cart-item__title">Спирали с волокнами для эмболизации с Interlock-35</p>
+                        <span class="cart-item__model">Model: Transend™ - <span class="cart-item__model-code">M001468010</span></span>
+                    </div>
+                    <div class="cart-item__qty">
+                        <button type="button" class="cart-item__qty-btn cart-item__qty-btn--minus" data-qty-minus aria-label="Уменьшить количество"><svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M2.8125 9H15.1875" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" /></svg></button>
+                        <span class="cart-item__qty-value" data-qty-value>30 шт</span>
+                        <button type="button" class="cart-item__qty-btn cart-item__qty-btn--plus" data-qty-plus aria-label="Увеличить количество"><svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M2.8125 9H15.1875" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" /><path d="M9 2.8125V15.1875" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" /></svg></button>
+                    </div>
+                    <button type="button" class="cart-item__remove" data-cart-remove aria-label="Удалить товар">
+                        <svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M17.1875 4.8125L4.8125 17.1875" stroke="#9B9FB0" stroke-linecap="round" stroke-linejoin="round" />
+                            <path d="M17.1875 17.1875L4.8125 4.8125" stroke="#9B9FB0" stroke-linecap="round" stroke-linejoin="round" />
+                        </svg>
+                    </button>
+                </li>
+            </ul>
+
+            </div>
+
+            <div class="cart-panel__footer">
+                <button type="button" class="btn btn--primary cart-panel__submit" data-cart-checkout>Оформить заказ</button>
+            </div>
+        </div>
+
+        <div class="cart-panel__view cart-panel__view--checkout" data-cart-view-panel="checkout">
+            <div class="cart-panel__header">
+                <h2 class="cart-panel__title">Оформить заказ</h2>
+                <button type="button" class="btn btn--neutral btn--round cart-panel__close js-close-cart" aria-label="Закрыть">
+                    <svg class="btn__icon" width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M21.875 6.125L6.125 21.875" stroke="#222E59" stroke-linecap="round" stroke-linejoin="round" />
+                        <path d="M21.875 21.875L6.125 6.125" stroke="#222E59" stroke-linecap="round" stroke-linejoin="round" />
+                    </svg>
+                </button>
+            </div>
+
+            <div class="cart-panel__body">
+
+                <div class="tabs" role="tablist">
+                <button type="button" class="tabs__item is-active" role="tab" aria-selected="true" data-tab="price">Запрос цены</button>
+                <button type="button" class="tabs__item" role="tab" aria-selected="false" data-tab="stock">Запрос наличия</button>
+                <button type="button" class="tabs__item" role="tab" aria-selected="false" data-tab="offer">Запросить КП</button>
+            </div>
+
+            <form class="modal__form cart-panel__form js-validate-form" id="cart-checkout-form" novalidate>
+                <div class="modal__row">
+                    <div class="field">
+                        <label class="field__label" for="cart-org">Название организации</label>
+                        <input type="text" class="input" id="cart-org" name="org" placeholder="ООО..." required>
+                        <span class="field__line"></span>
+                    </div>
+
+                    <div class="field">
+                        <label class="field__label" for="cart-inn">ИНН организации</label>
+                        <input type="text" class="input" id="cart-inn" name="inn" inputmode="numeric" placeholder="4392004106" required data-validate="inn">
+                        <span class="field__line"></span>
+                    </div>
+                </div>
+
+                <div class="field">
+                    <label class="field__label" for="cart-name">ФИО контактного лица</label>
+                    <input type="text" class="input" id="cart-name" name="name" autocomplete="name" placeholder="Иванов Иван Иванович" required data-validate="name">
+                    <span class="field__line"></span>
+                </div>
+
+                <div class="field">
+                    <label class="field__label" for="cart-hospital">Название ЛПУ и города</label>
+                    <input type="text" class="input" id="cart-hospital" name="hospital" placeholder="ГБУЗ «Морозовская ДГКБ ДЗМ», Москва" required>
+                    <span class="field__line"></span>
+                </div>
+
+                <div class="modal__row">
+                    <div class="field">
+                        <label class="field__label" for="cart-phone">Номер телефона</label>
+                        <input type="tel" class="input" id="cart-phone" name="phone" autocomplete="tel" placeholder="+7" required data-validate="phone">
+                        <span class="field__line"></span>
+                    </div>
+
+                    <div class="field">
+                        <label class="field__label" for="cart-email">Электронная почта</label>
+                        <input type="email" class="input" id="cart-email" name="email" autocomplete="email" placeholder="company@mail.ru" required data-validate="email">
+                        <span class="field__line"></span>
+                    </div>
+                </div>
+
+                <div class="field">
+                    <label class="field__label" for="cart-comment">Ваш комментарий</label>
+                    <input type="text" class="input" id="cart-comment" name="comment" placeholder="Необходимо...">
+                    <span class="field__line"></span>
+                </div>
+
+                <div class="checkbox-row">
+                    <input type="checkbox" class="checkbox" id="cart-agree" name="agree" required>
+                    <label class="checkbox-label" for="cart-agree">
+                        <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M6.75 16.5H11.25C15 16.5 16.5 15 16.5 11.25V6.75C16.5 3 15 1.5 11.25 1.5H6.75C3 1.5 1.5 3 1.5 6.75V11.25C1.5 15 3 16.5 6.75 16.5Z" fill="#222E59" />
+                            <path d="M6.75 16.5H11.25C15 16.5 16.5 15 16.5 11.25V6.75C16.5 3 15 1.5 11.25 1.5H6.75C3 1.5 1.5 3 1.5 6.75V11.25C1.5 15 3 16.5 6.75 16.5Z" stroke="#9B9FB0" stroke-linecap="round" stroke-linejoin="round" />
+                        </svg>
+                        <svg width="8" height="6" viewBox="0 0 8 6" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M0.75 2.8725L2.8725 4.995L7.125 0.75" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                        </svg>
+                    </label>
+                    <div class="checkbox-text">Принимаю <a href="/policy/">условия обработки</a> персональных данных</div>
+                </div>
+            </form>
+            </div>
+
+            <div class="cart-panel__footer">
+                <button type="submit" form="cart-checkout-form" class="btn btn--primary cart-panel__submit">Оформить заказ</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="mobile-menu" id="mobile-menu" role="dialog" aria-modal="true" aria-label="Меню">
+        <div class="mobile-menu__header">
+            <span class="mobile-menu__title">Меню</span>
+            <button class="btn btn--neutral btn--round" id="mobile-menu-close" aria-label="Закрыть меню">
+                <svg class="btn__icon" width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M12.5 3.5L3.5 12.5" stroke="#222E59" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                    <path d="M3.5 3.5L12.5 12.5" stroke="#222E59" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                </svg>
+            </button>
+        </div>
+
+        <nav class="mobile-menu__nav">
+            <ul class="mobile-menu__list">
+                <li><a href="/" class="btn btn--link mobile-menu__link" aria-current="page">Продукция</a></li>
+                <li><a href="/brands/" class="btn btn--link mobile-menu__link">Производители</a></li>
+                <li><a href="/about/" class="btn btn--link mobile-menu__link">Компания</a></li>
+                <li><a href="/documents/" class="btn btn--link mobile-menu__link">Документы</a></li>
+                <li><a href="/cooperation/" class="btn btn--link mobile-menu__link">Сотрудничество</a></li>
+                <li><a href="/news/" class="btn btn--link mobile-menu__link">Новости</a></li>
+                <li><a href="/contacts/" class="btn btn--link mobile-menu__link">Контакты</a></li>
+            </ul>
+        </nav>
+
+        <div class="mobile-menu__footer">
+            <button type="button" class="btn btn--primary btn--block-mobile js-request-btn">Оставить заявку</button>
+        </div>
+    </div>
+
+    <div class="search" id="search-bar" role="search">
+        <div class="search__bar">
+            <svg class="search__bar-icon" width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M9.96875 17.1875C13.9556 17.1875 17.1875 13.9556 17.1875 9.96875C17.1875 5.98194 13.9556 2.75 9.96875 2.75C5.98194 2.75 2.75 5.98194 2.75 9.96875C2.75 13.9556 5.98194 17.1875 9.96875 17.1875Z" stroke="#222E59" stroke-linecap="round" stroke-linejoin="round" />
+                <path d="M15.0742 15.0735L19.2508 19.2501" stroke="#222E59" stroke-linecap="round" stroke-linejoin="round" />
+            </svg>
+
+            <input type="text" class="search__input" id="search-input" name="q" placeholder="Найти..." autocomplete="off">
+
+            <a href="/search/" class="btn btn--primary search__submit" id="search-submit">Найти</a>
+
+            <button type="button" class="btn btn--link search__clear" id="search-clear" aria-label="Очистить поле">
+                <svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M17.1875 4.8125L4.8125 17.1875" stroke="#9B9FB0" stroke-linecap="round" stroke-linejoin="round" />
+                    <path d="M17.1875 17.1875L4.8125 4.8125" stroke="#9B9FB0" stroke-linecap="round" stroke-linejoin="round" />
+                </svg>
+            </button>
+        </div>
+
+        <div class="select__dropdown search__dropdown" id="search-dropdown">
+            <ul class="search__results" id="search-results"></ul>
+        </div>
+    </div>
+
+    <div class="modal" id="request-modal" role="dialog" aria-modal="true" aria-label="Оставить заявку">
+        <div class="modal__header">
+            <h2 class="modal__title">Оставить заявку</h2>
+
+            <button type="button" class="modal__close js-close-request-modal" aria-label="Закрыть">
+                <svg width="34" height="34" viewBox="0 0 34 34" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M26.5625 7.4375L7.4375 26.5625" stroke="#222E59" stroke-linecap="round" stroke-linejoin="round" />
+                    <path d="M26.5625 26.5625L7.4375 7.4375" stroke="#222E59" stroke-linecap="round" stroke-linejoin="round" />
+                </svg>
+            </button>
+
+            <button type="button" class="btn btn--neutral btn--round modal__close-mobile js-close-request-modal" aria-label="Закрыть">
+                <svg class="btn__icon" width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M12.5 3.5L3.5 12.5" stroke="#222E59" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                    <path d="M3.5 3.5L12.5 12.5" stroke="#222E59" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                </svg>
+            </button>
+        </div>
+
+        <div class="modal__body">
+            <div class="tabs" role="tablist">
+                <button type="button" class="tabs__item is-active" role="tab" aria-selected="true" data-tab="question">Задать вопрос</button>
+                <button type="button" class="tabs__item" role="tab" aria-selected="false" data-tab="partnership">Заявка на сотрудничество</button>
+            </div>
+
+            <form class="modal__form" id="request-form" novalidate>
+                <div class="field">
+                    <label class="field__label" for="request-comment">Ваш комментарий</label>
+                    <input type="text" class="input" id="request-comment" name="comment" placeholder="Необходимо...">
+                    <span class="field__line"></span>
+                </div>
+
+                <div class="field">
+                    <label class="field__label" for="request-name">ФИО контактного лица</label>
+                    <input type="text" class="input" id="request-name" name="name" autocomplete="name" placeholder="Иванов Иван Иванович" required data-validate="name">
+                    <span class="field__line"></span>
+                </div>
+
+                <div class="modal__row">
+                    <div class="field">
+                        <label class="field__label" for="request-org">Название организации</label>
+                        <input type="text" class="input" id="request-org" name="org" placeholder="ООО..." required>
+                        <span class="field__line"></span>
+                    </div>
+
+                    <div class="field">
+                        <label class="field__label" for="request-inn">ИНН организации</label>
+                        <input type="text" class="input" id="request-inn" name="inn" inputmode="numeric" placeholder="4392004106" required data-validate="inn">
+                        <span class="field__line"></span>
+                    </div>
+                </div>
+
+                <div class="modal__row">
+                    <div class="field">
+                        <label class="field__label" for="request-phone">Номер телефона</label>
+                        <input type="tel" class="input" id="request-phone" name="phone" autocomplete="tel" placeholder="+7" required data-validate="phone">
+                        <span class="field__line"></span>
+                    </div>
+
+                    <div class="field">
+                        <label class="field__label" for="request-email">Электронная почта</label>
+                        <input type="email" class="input" id="request-email" name="email" autocomplete="email" placeholder="company@mail.ru" required data-validate="email">
+                        <span class="field__line"></span>
+                    </div>
+                </div>
+
+                <div class="checkbox-row">
+                    <input type="checkbox" class="checkbox" id="request-agree" name="agree" required>
+                    <label class="checkbox-label" for="request-agree">
+                        <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M6.75 16.5H11.25C15 16.5 16.5 15 16.5 11.25V6.75C16.5 3 15 1.5 11.25 1.5H6.75C3 1.5 1.5 3 1.5 6.75V11.25C1.5 15 3 16.5 6.75 16.5Z" fill="#222E59" />
+                            <path d="M6.75 16.5H11.25C15 16.5 16.5 15 16.5 11.25V6.75C16.5 3 15 1.5 11.25 1.5H6.75C3 1.5 1.5 3 1.5 6.75V11.25C1.5 15 3 16.5 6.75 16.5Z" stroke="#9B9FB0" stroke-linecap="round" stroke-linejoin="round" />
+                        </svg>
+                        <svg width="8" height="6" viewBox="0 0 8 6" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M0.75 2.8725L2.8725 4.995L7.125 0.75" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                        </svg>
+                    </label>
+                    <div class="checkbox-text">Принимаю <a href="/policy/">условия обработки</a> персональных данных</div>
+                </div>
+            </form>
+        </div>
+
+        <div class="modal__footer">
+            <button type="submit" form="request-form" class="btn btn--primary modal__submit">Отправить заявку</button>
+        </div>
+    </div>
+
+    <main>
+        <div class="header-trigger" data-header-trigger aria-hidden="true"></div>
+
+        <section class="product">
+            <div class="container product__container">
+                <nav class="breadcrumbs" aria-label="Хлебные крошки">
+                    <ol class="breadcrumbs__list">
+                        <li class="breadcrumbs__item">
+                            <a href="/" class="breadcrumbs__link">главная</a>
+                            <svg class="breadcrumbs__sep" width="10" height="10" aria-hidden="true"><use href="#icon-chevron-right"></use></svg>
+                        </li>
+                        <li class="breadcrumbs__item">
+                            <a href="/catalog/" class="breadcrumbs__link">продукция</a>
+                            <svg class="breadcrumbs__sep" width="10" height="10" aria-hidden="true"><use href="#icon-chevron-right"></use></svg>
+                        </li>
+                        <li class="breadcrumbs__item">
+                            <a href="/catalog/neuroradiology/" class="breadcrumbs__link">интервенционная нейрорадиология</a>
+                            <svg class="breadcrumbs__sep" width="10" height="10" aria-hidden="true"><use href="#icon-chevron-right"></use></svg>
+                        </li>
+                        <li class="breadcrumbs__item" aria-current="page">управляемый микропроводник Boston Scientific Transend</li>
+                    </ol>
+                </nav>
+
+                <!-- ВЕРХНИЙ БЛОК: галерея, описание, покупка -->
+                <div class="product-top">
+                    <div class="product-gallery" data-product-gallery>
+                        <ul class="product-gallery__thumbs" aria-label="Фотографии товара">
+                            <li>
+                                <button type="button" class="product-gallery__thumb is-active" data-gallery-thumb aria-label="Фото 1" aria-current="true">
+                                    <img src="local/templates/sanamedikal/images/product/product1.jpg" alt="">
+                                </button>
+                            </li>
+                            <li>
+                                <button type="button" class="product-gallery__thumb" data-gallery-thumb aria-label="Фото 2">
+                                    <img src="local/templates/sanamedikal/images/product/product2.jpg" alt="" loading="lazy">
+                                </button>
+                            </li>
+                            <li>
+                                <button type="button" class="product-gallery__thumb" data-gallery-thumb aria-label="Фото 3">
+                                    <img src="local/templates/sanamedikal/images/product/product3.jpg" alt="" loading="lazy">
+                                </button>
+                            </li>
+                            <li>
+                                <button type="button" class="product-gallery__thumb" data-gallery-thumb aria-label="Фото 4">
+                                    <img src="local/templates/sanamedikal/images/product/product4.jpg" alt="" loading="lazy">
+                                </button>
+                            </li>
+                        </ul>
+
+                        <div class="product-gallery__main">
+                            <div class="product-gallery__viewport" data-gallery-viewport>
+                                <ul class="product-gallery__track" data-gallery-track>
+                                    <li class="product-gallery__slide"><img src="local/templates/sanamedikal/images/product/product1.jpg" alt="Управляемый микропроводник Boston Scientific Transend — фото 1"></li>
+                                    <li class="product-gallery__slide"><img src="local/templates/sanamedikal/images/product/product2.jpg" alt="Управляемый микропроводник Boston Scientific Transend — фото 2" loading="lazy"></li>
+                                    <li class="product-gallery__slide"><img src="local/templates/sanamedikal/images/product/product3.jpg" alt="Управляемый микропроводник Boston Scientific Transend — фото 3" loading="lazy"></li>
+                                    <li class="product-gallery__slide"><img src="local/templates/sanamedikal/images/product/product4.jpg" alt="Управляемый микропроводник Boston Scientific Transend — фото 4" loading="lazy"></li>
+                                </ul>
+                            </div>
+
+                            <button type="button" class="btn btn--neutral btn--round btn--xl product-gallery__arrow product-gallery__arrow--prev" data-gallery-prev aria-label="Предыдущее фото">
+                                <svg class="btn__icon icon-flip" width="22" height="22" aria-hidden="true"><use href="#icon-arrow"></use></svg>
+                            </button>
+                            <button type="button" class="btn btn--neutral btn--round btn--xl product-gallery__arrow product-gallery__arrow--next" data-gallery-next aria-label="Следующее фото">
+                                <svg class="btn__icon" width="22" height="22" aria-hidden="true"><use href="#icon-arrow"></use></svg>
+                            </button>
+
+                            <div class="product-gallery__dots" aria-hidden="true">
+                                <span class="product-gallery__dot is-active" data-gallery-dot></span>
+                                <span class="product-gallery__dot" data-gallery-dot></span>
+                                <span class="product-gallery__dot" data-gallery-dot></span>
+                                <span class="product-gallery__dot" data-gallery-dot></span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="product-info">
+                        <a href="/catalog/neuroradiology/" class="product-info__category">
+                            <svg width="12" height="12" aria-hidden="true"><use href="#icon-category"></use></svg>
+                            Интервенционная нейрорадиология
+                        </a>
+
+                        <div class="product-info__tags">
+                            <span class="product-info__tag product-info__tag--new">новинка</span>
+                            <span class="product-info__tag">Model: Transend™</span>
+                        </div>
+
+                        <h1 class="product-info__title">Управляемый микропроводник Boston Scientific Transend</h1>
+
+                        <p class="product-info__text">Микропроводник Transend&nbsp;— это высокотехнологичное решение для выполнения сложных интервенционных процедур, требующих максимальной точности и&nbsp;контроля. Благодаря уникальной конструкции с&nbsp;платиновым наконечником и&nbsp;оптимизированной управляемости, он обеспечивает исключительную поддержку и&nbsp;плавность проведения.</p>
+
+                        <nav class="product-info__anchors" aria-label="Разделы товара">
+                            <a href="#product-description" class="product-anchor">
+                                <svg width="16" height="16" aria-hidden="true"><use href="#icon-arrow-down"></use></svg>
+                                Описание
+                            </a>
+                            <a href="#product-specs" class="product-anchor">
+                                <svg width="16" height="16" aria-hidden="true"><use href="#icon-arrow-down"></use></svg>
+                                Характеристики
+                            </a>
+                            <a href="#product-docs" class="product-anchor">
+                                <svg width="16" height="16" aria-hidden="true"><use href="#icon-arrow-down"></use></svg>
+                                Документы
+                            </a>
+                        </nav>
+                    </div>
+
+                    <aside class="product-buy" aria-label="Заказ товара">
+                        <a href="/brands/boston/" class="product-buy__brand">
+                            <span class="product-buy__brand-logo">
+                                <img src="local/templates/sanamedikal/images/brands/boston-scientific.png" alt="" width="71" height="28">
+                            </span>
+                            <span class="product-buy__brand-body">
+                                <span class="product-buy__brand-name">Boston Scientific</span>
+                                <span class="product-buy__brand-link">Перейти в каталог</span>
+                            </span>
+                        </a>
+
+                        <p class="product-buy__note">Доступны размеры внутреннего просвета катетера 0,021&nbsp;дюйма / 0,53&nbsp;мм и&nbsp;0,027&nbsp;дюйма / 0,69&nbsp;мм</p>
+
+                        <ul class="product-buy__features">
+                            <li class="product-buy__feature">
+                                <svg class="product-buy__feature-icon" aria-hidden="true"><use href="#icon-check-circle"></use></svg>
+                                <span><strong>Цена&nbsp;— по запросу.</strong> Оформите заявку в&nbsp;корзине, и&nbsp;мы пришлём актуальную стоимость</span>
+                            </li>
+                            <li class="product-buy__feature">
+                                <svg class="product-buy__feature-icon" aria-hidden="true"><use href="#icon-layers"></use></svg>
+                                <span><strong>Чтобы оформить заказ</strong>&nbsp;— выберите модификацию и&nbsp;добавьте её в&nbsp;корзину в&nbsp;нужном количестве</span>
+                            </li>
+                        </ul>
+
+                        <div class="product-buy__actions">
+                            <div class="btn-group product-buy__cart" data-product-add>
+                                <button type="button" class="btn btn--xl btn--glass product-buy__cart-btn" data-product-add-label>Добавить в корзину</button>
+                                <button type="button" class="btn btn--xl btn--glass btn--round" aria-label="Добавить в корзину">
+                                    <svg class="btn__icon" width="22" height="22" aria-hidden="true"><use href="#icon-cart"></use></svg>
+                                </button>
+                            </div>
+                            <a href="#product-mods" class="btn btn--primary btn--xl product-buy__select">Выбрать модификацию</a>
+                        </div>
+                    </aside>
+                </div>
+
+                <div class="product-details">
+                    <!-- МОДИФИКАЦИИ -->
+                    <section class="product-section" id="product-mods" aria-labelledby="product-mods-title">
+                        <h2 class="product-section__title" id="product-mods-title">Модификации</h2>
+
+                        <div class="mods">
+                            <div class="mods__table" role="table" aria-labelledby="product-mods-title">
+                                <div class="mods__row mods__row--head" role="row">
+                                    <span class="mods__cell" role="columnheader">Код модификации</span>
+                                    <span class="mods__cell" role="columnheader">Длина, см</span>
+                                    <span class="mods__cell" role="columnheader">Внешний диаметр</span>
+                                    <span class="mods__cell" role="columnheader">Длина форм. кончика</span>
+                                    <span class="mods__cell" role="columnheader">Кол-во в упаковке</span>
+                                </div>
+
+                                <div class="mods__group" role="row"><span role="cell">Transend™. 14</span></div>
+
+                                <div class="mods__row" role="row" data-mod-row data-qty="0">
+                                    <span class="mods__cell mods__cell--code" role="cell">M001468100</span>
+                                    <span class="mods__cell" role="cell">135</span>
+                                    <span class="mods__cell" role="cell">0.014 / 0.36</span>
+                                    <span class="mods__cell" role="cell">2 мм</span>
+                                    <span class="mods__cell mods__cell--action" role="cell">
+                                        1 шт
+                                        <span class="mods__action">
+                                            <span class="btn-group mods__order" data-mod-add>
+                                                <button type="button" class="btn btn--white mods__order-btn">Заказать</button>
+                                                <button type="button" class="btn btn--white btn--round mods__order-btn" aria-label="Добавить M001468100 в корзину">
+                                                    <svg aria-hidden="true"><use href="#icon-cart"></use></svg>
+                                                </button>
+                                            </span>
+                                            <span class="cart-item__qty mods__qty">
+                                                <button type="button" class="cart-item__qty-btn cart-item__qty-btn--minus" data-qty-minus aria-label="Уменьшить количество"><svg width="18" height="18" aria-hidden="true"><use href="#icon-minus"></use></svg></button>
+                                                <span class="cart-item__qty-value" data-qty-value>1 шт</span>
+                                                <button type="button" class="cart-item__qty-btn cart-item__qty-btn--plus" data-qty-plus aria-label="Увеличить количество"><svg width="18" height="18" aria-hidden="true"><use href="#icon-plus"></use></svg></button>
+                                            </span>
+                                        </span>
+                                    </span>
+                                </div>
+
+                                <div class="mods__row is-added" role="row" data-mod-row data-qty="1">
+                                    <span class="mods__cell mods__cell--code" role="cell">M001468110</span>
+                                    <span class="mods__cell" role="cell">165</span>
+                                    <span class="mods__cell" role="cell">0.014 / 0.36</span>
+                                    <span class="mods__cell" role="cell">2 мм</span>
+                                    <span class="mods__cell mods__cell--action" role="cell">
+                                        1 шт
+                                        <span class="mods__action">
+                                            <span class="btn-group mods__order" data-mod-add>
+                                                <button type="button" class="btn btn--white mods__order-btn">Заказать</button>
+                                                <button type="button" class="btn btn--white btn--round mods__order-btn" aria-label="Добавить M001468110 в корзину">
+                                                    <svg aria-hidden="true"><use href="#icon-cart"></use></svg>
+                                                </button>
+                                            </span>
+                                            <span class="cart-item__qty mods__qty">
+                                                <button type="button" class="cart-item__qty-btn cart-item__qty-btn--minus" data-qty-minus aria-label="Уменьшить количество"><svg width="18" height="18" aria-hidden="true"><use href="#icon-minus"></use></svg></button>
+                                                <span class="cart-item__qty-value" data-qty-value>1 шт</span>
+                                                <button type="button" class="cart-item__qty-btn cart-item__qty-btn--plus" data-qty-plus aria-label="Увеличить количество"><svg width="18" height="18" aria-hidden="true"><use href="#icon-plus"></use></svg></button>
+                                            </span>
+                                        </span>
+                                    </span>
+                                </div>
+
+                                <div class="mods__row" role="row" data-mod-row data-qty="0">
+                                    <span class="mods__cell mods__cell--code" role="cell">M001468010</span>
+                                    <span class="mods__cell" role="cell">190</span>
+                                    <span class="mods__cell" role="cell">0.014 / 0.36</span>
+                                    <span class="mods__cell" role="cell">2 мм</span>
+                                    <span class="mods__cell mods__cell--action" role="cell">
+                                        1 шт
+                                        <span class="mods__action">
+                                            <span class="btn-group mods__order" data-mod-add>
+                                                <button type="button" class="btn btn--white mods__order-btn">Заказать</button>
+                                                <button type="button" class="btn btn--white btn--round mods__order-btn" aria-label="Добавить M001468010 в корзину">
+                                                    <svg aria-hidden="true"><use href="#icon-cart"></use></svg>
+                                                </button>
+                                            </span>
+                                            <span class="cart-item__qty mods__qty">
+                                                <button type="button" class="cart-item__qty-btn cart-item__qty-btn--minus" data-qty-minus aria-label="Уменьшить количество"><svg width="18" height="18" aria-hidden="true"><use href="#icon-minus"></use></svg></button>
+                                                <span class="cart-item__qty-value" data-qty-value>1 шт</span>
+                                                <button type="button" class="cart-item__qty-btn cart-item__qty-btn--plus" data-qty-plus aria-label="Увеличить количество"><svg width="18" height="18" aria-hidden="true"><use href="#icon-plus"></use></svg></button>
+                                            </span>
+                                        </span>
+                                    </span>
+                                </div>
+
+                                <div class="mods__group" role="row"><span role="cell">Transend™. 18</span></div>
+
+                                <div class="mods__row" role="row" data-mod-row data-qty="0">
+                                    <span class="mods__cell mods__cell--code" role="cell">M001468120</span>
+                                    <span class="mods__cell" role="cell">135</span>
+                                    <span class="mods__cell" role="cell">0.018 / 0.46</span>
+                                    <span class="mods__cell" role="cell">2 мм</span>
+                                    <span class="mods__cell mods__cell--action" role="cell">
+                                        1 шт
+                                        <span class="mods__action">
+                                            <span class="btn-group mods__order" data-mod-add>
+                                                <button type="button" class="btn btn--white mods__order-btn">Заказать</button>
+                                                <button type="button" class="btn btn--white btn--round mods__order-btn" aria-label="Добавить M001468120 в корзину">
+                                                    <svg aria-hidden="true"><use href="#icon-cart"></use></svg>
+                                                </button>
+                                            </span>
+                                            <span class="cart-item__qty mods__qty">
+                                                <button type="button" class="cart-item__qty-btn cart-item__qty-btn--minus" data-qty-minus aria-label="Уменьшить количество"><svg width="18" height="18" aria-hidden="true"><use href="#icon-minus"></use></svg></button>
+                                                <span class="cart-item__qty-value" data-qty-value>1 шт</span>
+                                                <button type="button" class="cart-item__qty-btn cart-item__qty-btn--plus" data-qty-plus aria-label="Увеличить количество"><svg width="18" height="18" aria-hidden="true"><use href="#icon-plus"></use></svg></button>
+                                            </span>
+                                        </span>
+                                    </span>
+                                </div>
+
+                                <div class="mods__row" role="row" data-mod-row data-qty="0">
+                                    <span class="mods__cell mods__cell--code" role="cell">M001468130</span>
+                                    <span class="mods__cell" role="cell">165</span>
+                                    <span class="mods__cell" role="cell">0.018 / 0.46</span>
+                                    <span class="mods__cell" role="cell">2 мм</span>
+                                    <span class="mods__cell mods__cell--action" role="cell">
+                                        1 шт
+                                        <span class="mods__action">
+                                            <span class="btn-group mods__order" data-mod-add>
+                                                <button type="button" class="btn btn--white mods__order-btn">Заказать</button>
+                                                <button type="button" class="btn btn--white btn--round mods__order-btn" aria-label="Добавить M001468130 в корзину">
+                                                    <svg aria-hidden="true"><use href="#icon-cart"></use></svg>
+                                                </button>
+                                            </span>
+                                            <span class="cart-item__qty mods__qty">
+                                                <button type="button" class="cart-item__qty-btn cart-item__qty-btn--minus" data-qty-minus aria-label="Уменьшить количество"><svg width="18" height="18" aria-hidden="true"><use href="#icon-minus"></use></svg></button>
+                                                <span class="cart-item__qty-value" data-qty-value>1 шт</span>
+                                                <button type="button" class="cart-item__qty-btn cart-item__qty-btn--plus" data-qty-plus aria-label="Увеличить количество"><svg width="18" height="18" aria-hidden="true"><use href="#icon-plus"></use></svg></button>
+                                            </span>
+                                        </span>
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+
+                    <!-- ОПИСАНИЕ -->
+                    <section class="product-section" id="product-description" aria-labelledby="product-description-title">
+                        <h2 class="product-section__title" id="product-description-title">Описание</h2>
+
+                        <div class="product-desc" data-collapse>
+                            <div class="product-desc__body" id="product-desc-body" data-collapse-body>
+                                <p>Микропроводники Fathom разработаны для процедуры эмболизации в&nbsp;периферических интервенциях. Используются в&nbsp;различных клинических ситуациях и&nbsp;представлены в&nbsp;особых конфигурациях специально для сложных вмешательств. Доступные на платформах 0,014" (0,38&nbsp;мм) и&nbsp;0,016" (0,41&nbsp;мм) микропроводники имеют: нитиноловую гипотрубку с&nbsp;микронасечками и&nbsp;гидрофильным покрытием в&nbsp;дистальном сегменте; революционный дизайн, который позволяет получить доступ к&nbsp;самым сложным и&nbsp;извилистым участкам сосудистой сети.</p>
+                            </div>
+
+                            <button type="button" class="product-anchor product-desc__toggle" data-collapse-toggle aria-expanded="false" aria-controls="product-desc-body">
+                                <svg width="16" height="16" aria-hidden="true"><use href="#icon-arrow-down"></use></svg>
+                                <span data-collapse-label>Развернуть</span>
+                            </button>
+                        </div>
+                    </section>
+
+                    <!-- ХАРАКТЕРИСТИКИ -->
+                    <section class="product-section" id="product-specs" aria-labelledby="product-specs-title">
+                        <h2 class="product-section__title" id="product-specs-title">Характеристики</h2>
+
+                        <dl class="product-specs">
+                            <div class="product-specs__row">
+                                <dt class="product-specs__term">Диаметр</dt>
+                                <dd class="product-specs__desc">0.014" (0.36&nbsp;мм) дистальный / 0.0155" (0.40&nbsp;мм) проксимальный</dd>
+                            </div>
+                            <div class="product-specs__row">
+                                <dt class="product-specs__term">Длина</dt>
+                                <dd class="product-specs__desc">182, 200, 205 или 300&nbsp;см (в&nbsp;зависимости от&nbsp;модели)</dd>
+                            </div>
+                            <div class="product-specs__row">
+                                <dt class="product-specs__term">Материал сердечника</dt>
+                                <dd class="product-specs__desc">Титановый сплав. Он обеспечивает прочность и&nbsp;хорошую поддержку при продвижении.</dd>
+                            </div>
+                            <div class="product-specs__row">
+                                <dt class="product-specs__term">Наконечник</dt>
+                                <dd class="product-specs__desc">Формуемый/переформуемый, ленточный (ribbon-core), 2&nbsp;см</dd>
+                            </div>
+                            <div class="product-specs__row">
+                                <dt class="product-specs__term">Покрытие</dt>
+                                <dd class="product-specs__desc">Гидрофильное ICE на дистальном участке</dd>
+                            </div>
+                            <div class="product-specs__row">
+                                <dt class="product-specs__term">Рентгеноконтрастный участок</dt>
+                                <dd class="product-specs__desc">35&nbsp;–&nbsp;39&nbsp;см</dd>
+                            </div>
+                            <div class="product-specs__row">
+                                <dt class="product-specs__term">Версии жёсткости</dt>
+                                <dd class="product-specs__desc">Standard, Soft Tip, Floppy, Platinum, Extra Support</dd>
+                            </div>
+                            <div class="product-specs__row">
+                                <dt class="product-specs__term">Назначение</dt>
+                                <dd class="product-specs__desc">Навигация в&nbsp;извитых сосудах, точная селекция сосуда</dd>
+                            </div>
+                        </dl>
+                    </section>
+
+                    <!-- ДОКУМЕНТЫ -->
+                    <section class="product-section" id="product-docs" aria-labelledby="product-docs-title">
+                        <h2 class="product-section__title" id="product-docs-title">Документы</h2>
+
+                        <div class="docs__list product-docs">
+                            <a href="/upload/documents/document-1.pdf" class="docs-item" download>
+                                <img src="local/templates/sanamedikal/images/docs/docsIcon.svg" alt="" class="docs-item__icon" width="50" height="50">
+                                <div class="docs-item__body">
+                                    <span class="docs-item__title">Инструкция – Управляемый микропроводник Boston Scientific Transend</span>
+                                    <span class="docs-item__meta">Файл PDF от 13 сен 2025 · 3,54 mb</span>
+                                </div>
+                            </a>
+                            <a href="/upload/documents/document-2.pdf" class="docs-item" download>
+                                <img src="local/templates/sanamedikal/images/docs/docsIcon.svg" alt="" class="docs-item__icon" width="50" height="50">
+                                <div class="docs-item__body">
+                                    <span class="docs-item__title">Регистрационное удостоверение – Управляемый микропроводник Boston Scientific Transend</span>
+                                    <span class="docs-item__meta">Файл PDF от 13 сен 2025 · 3,54 mb</span>
+                                </div>
+                            </a>
+                            <a href="/upload/documents/document-3.pdf" class="docs-item" download>
+                                <img src="local/templates/sanamedikal/images/docs/docsIcon.svg" alt="" class="docs-item__icon" width="50" height="50">
+                                <div class="docs-item__body">
+                                    <span class="docs-item__title">Дистрибьюторское соглашение с Boston Scientific</span>
+                                    <span class="docs-item__meta">Файл PDF от 13 сен 2025 · 3,54 mb</span>
+                                </div>
+                            </a>
+                        </div>
+                    </section>
+                </div>
+            </div>
+        </section>
+
+        <!-- ВАС МОЖЕТ ЗАИНТЕРЕСОВАТЬ -->
+        <section class="section product-related" aria-labelledby="product-related-title">
+            <div class="container product__container" data-slider>
+                <div class="section-head">
+                    <h2 class="h2 section-head__title" id="product-related-title">Вас может заинтересовать</h2>
+
+                    <div class="section-head__actions">
+                        <div class="slider-nav">
+                            <button type="button" class="btn btn--primary btn--round btn--xl" data-slider-prev aria-label="Назад">
+                                <svg class="btn__icon icon-flip" width="22" height="22" aria-hidden="true"><use href="#icon-arrow"></use></svg>
+                            </button>
+                            <button type="button" class="btn btn--primary btn--round btn--xl" data-slider-next aria-label="Вперёд">
+                                <svg class="btn__icon" width="22" height="22" aria-hidden="true"><use href="#icon-arrow"></use></svg>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <ul class="slider__track product-related__slider" data-slider-track>
+                    <li class="slider__item">
+                        <article class="product-card">
+                            <div class="product-card__media">
+                                <img src="local/templates/sanamedikal/images/catalog/catalogItem2.png" alt="Микропроводники HYBRID" loading="lazy">
+                                <a href="#" class="product-card__cart btn btn--primary btn--round" aria-label="Добавить в корзину">
+                                    <svg aria-hidden="true"><use href="#icon-cart"></use></svg>
+                                </a>
+                            </div>
+                            <p class="product-card__brand">BALT</p>
+                            <h3 class="product-card__title"><a href="#">Микропроводники HYBRID</a></h3>
+                        </article>
+                    </li>
+                    <li class="slider__item">
+                        <article class="product-card">
+                            <div class="product-card__media">
+                                <img src="local/templates/sanamedikal/images/catalog/catalogItem1.png" alt="Спирали с волокнами для эмболизации c Interlock-35" loading="lazy">
+                                <a href="#" class="product-card__cart btn btn--primary btn--round" aria-label="Добавить в корзину">
+                                    <svg aria-hidden="true"><use href="#icon-cart"></use></svg>
+                                </a>
+                            </div>
+                            <p class="product-card__brand">Boston Scientific</p>
+                            <h3 class="product-card__title"><a href="#">Спирали с волокнами для эмболизации c Interlock-35</a></h3>
+                        </article>
+                    </li>
+                    <li class="slider__item">
+                        <article class="product-card">
+                            <div class="product-card__media">
+                                <img src="local/templates/sanamedikal/images/catalog/catalogItem3.png" alt="Микрокатетеры управляемые высокопоточные Renegade Hi Flo и Renegade" loading="lazy">
+                                <a href="#" class="product-card__cart btn btn--primary btn--round" aria-label="Добавить в корзину">
+                                    <svg aria-hidden="true"><use href="#icon-cart"></use></svg>
+                                </a>
+                            </div>
+                            <p class="product-card__brand">Boston Scientific</p>
+                            <h3 class="product-card__title"><a href="#">Микрокатетеры управляемые высокопоточные Renegade Hi Flo и Renegade</a></h3>
+                        </article>
+                    </li>
+                    <li class="slider__item">
+                        <article class="product-card">
+                            <div class="product-card__media">
+                                <img src="local/templates/sanamedikal/images/catalog/catalogItem4.png" alt="Проводник Asahi Intecc Asato XS 20" loading="lazy">
+                                <a href="#" class="product-card__cart btn btn--primary btn--round" aria-label="Добавить в корзину">
+                                    <svg aria-hidden="true"><use href="#icon-cart"></use></svg>
+                                </a>
+                            </div>
+                            <p class="product-card__brand">Asahi</p>
+                            <h3 class="product-card__title"><a href="#">Проводник Asahi Intecc Asato XS 20</a></h3>
+                        </article>
+                    </li>
+                    <li class="slider__item">
+                        <article class="product-card">
+                            <div class="product-card__media">
+                                <img src="local/templates/sanamedikal/images/product/product2.jpg" alt="Проводники серии Asahi Intecc ASAHI BLACK" loading="lazy">
+                                <a href="#" class="product-card__cart btn btn--primary btn--round" aria-label="Добавить в корзину">
+                                    <svg aria-hidden="true"><use href="#icon-cart"></use></svg>
+                                </a>
+                            </div>
+                            <p class="product-card__brand">Asahi</p>
+                            <h3 class="product-card__title"><a href="#">Проводники серии Asahi Intecc ASAHI BLACK</a></h3>
+                        </article>
+                    </li>
+                    <li class="slider__item">
+                        <article class="product-card">
+                            <div class="product-card__media">
+                                <img src="local/templates/sanamedikal/images/product/product4.jpg" alt="Нейроспираль Smart Coil" loading="lazy">
+                                <a href="#" class="product-card__cart btn btn--primary btn--round" aria-label="Добавить в корзину">
+                                    <svg aria-hidden="true"><use href="#icon-cart"></use></svg>
+                                </a>
+                            </div>
+                            <p class="product-card__brand">Penumbra</p>
+                            <h3 class="product-card__title"><a href="#">Нейроспираль Smart Coil</a></h3>
+                        </article>
+                    </li>
+                    <li class="slider__item">
+                        <article class="product-card">
+                            <div class="product-card__media">
+                                <img src="local/templates/sanamedikal/images/product/product3.jpg" alt="Микропроводник Fathom" loading="lazy">
+                                <a href="#" class="product-card__cart btn btn--primary btn--round" aria-label="Добавить в корзину">
+                                    <svg aria-hidden="true"><use href="#icon-cart"></use></svg>
+                                </a>
+                            </div>
+                            <p class="product-card__brand">Boston Scientific</p>
+                            <h3 class="product-card__title"><a href="#">Микропроводник Fathom</a></h3>
+                        </article>
+                    </li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- ЗАПРОС ИНФОРМАЦИИ -->
+        <section class="cta-banner">
+            <div class="container">
+                <div class="cta-banner__content">
+                    <h2 class="h2 cta-banner__title">Хотите уточнить информацию <br>по интервенционной нейрорадиологической продукции?</h2>
+                    <p class="cta-banner__text">Свяжитесь с&nbsp;нами&nbsp;— подготовим информацию <br>по&nbsp;всем актуальным моделям и&nbsp;условиям поставки</p>
+                    <div class="btn-group">
+                        <button type="button" class="btn btn--primary js-request-btn">Оставить заявку</button>
+                        <button type="button" class="btn btn--primary btn--round js-request-btn" aria-label="Оставить заявку">
+                            <svg class="btn__icon" width="22" height="22" aria-hidden="true"><use href="#icon-arrow"></use></svg>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer__top">
+                <div class="footer__cta">
+                    <h2 class="h2 footer__title">Получите консультацию специалиста</h2>
+                    <img class="footer__icon" src="local/templates/sanamedikal/images/footer/footerIcon.svg" width="59" height="39" alt="" aria-hidden="true">
+                    <p class="footer__text">Ответим на все ваши вопросы по выбору продукции, произведем расчет стоимости</p>
+                    <div class="btn-group">
+                        <button type="button" class="btn btn--primary js-request-btn">Оставить заявку</button>
+                        <button type="button" class="btn btn--primary btn--round js-request-btn" aria-label="Оставить заявку">
+                            <svg class="btn__icon" width="22" height="22" aria-hidden="true"><use href="#icon-arrow"></use></svg>
+                        </button>
+                    </div>
+                </div>
+
+                <div class="footer__info">
+                    <div class="footer__contacts">
+                        <div class="footer__contact">
+                            <a href="tel:88003347447" class="footer__phone">8 800 334-74-47</a>
+                            <span class="footer__label">Отдел закупок</span>
+                        </div>
+                        <div class="footer__contact">
+                            <a href="mailto:info@sanamedical.ru" class="footer__email">info@sanamedical.ru</a>
+                            <span class="footer__label">Электронная почта</span>
+                        </div>
+                    </div>
+
+                    <nav class="footer__nav" aria-label="Навигация по сайту">
+                        <div class="footer__col">
+                            <h3 class="footer__col-title">
+                                <button type="button" class="footer__col-toggle" aria-controls="footer-col-catalog">
+                                    <span>Каталог</span>
+                                    <svg class="footer__col-arrow" width="22" height="22" aria-hidden="true"><use href="#icon-chevron"></use></svg>
+                                </button>
+                            </h3>
+                            <div class="footer__col-body" id="footer-col-catalog">
+                            <ul>
+                                <li><a href="/catalog/thrombectomy/" class="btn btn--link btn--link--secondary">Тромбэктомия и аспирация</a></li>
+                                <li><a href="/catalog/electrophysiology/" class="btn btn--link btn--link--secondary">Электрофизиология и абляция</a></li>
+                                <li><a href="/catalog/implantable/" class="btn btn--link btn--link--secondary">Имплантируемые устройства</a></li>
+                                <li><a href="/catalog/interventional-cardiology/" class="btn btn--link btn--link--secondary">Интервенционная кардиология</a></li>
+                                <li><a href="/catalog/angiography/" class="btn btn--link btn--link--secondary">Ангиография и визуализация</a></li>
+                                <li><a href="/catalog/drainage/" class="btn btn--link btn--link--secondary">Дренаж и биопсия</a></li>
+                                <li><a href="/catalog/arrhythmology/" class="btn btn--link btn--link--secondary">Интервенционная аритмология</a></li>
+                            </ul>
+                            </div>
+                        </div>
+                        <div class="footer__col">
+                            <h3 class="footer__col-title">
+                                <button type="button" class="footer__col-toggle" aria-controls="footer-col-brands">
+                                    <span>Производители</span>
+                                    <svg class="footer__col-arrow" width="22" height="22" aria-hidden="true"><use href="#icon-chevron"></use></svg>
+                                </button>
+                            </h3>
+                            <div class="footer__col-body" id="footer-col-brands">
+                            <ul>
+                                <li><a href="/brands/medtronic/" class="btn btn--link btn--link--secondary">Medtronic</a></li>
+                                <li><a href="/brands/abbott/" class="btn btn--link btn--link--secondary">Abbott Laboratories</a></li>
+                                <li><a href="/brands/boston/" class="btn btn--link btn--link--secondary">Boston Scientific</a></li>
+                                <li><a href="/brands/edwards/" class="btn btn--link btn--link--secondary">Edwards Lifesciences</a></li>
+                                <li><a href="/brands/terumo/" class="btn btn--link btn--link--secondary">Terumo Corporation</a></li>
+                                <li><a href="/brands/biotronik/" class="btn btn--link btn--link--secondary">Biotronik</a></li>
+                                <li><a href="/brands/" class="btn btn--link btn--link--secondary">Все</a></li>
+                            </ul>
+                            </div>
+                        </div>
+                        <div class="footer__col">
+                            <h3 class="footer__col-title">
+                                <button type="button" class="footer__col-toggle" aria-controls="footer-col-company">
+                                    <span>Санамедикал</span>
+                                    <svg class="footer__col-arrow" width="22" height="22" aria-hidden="true"><use href="#icon-chevron"></use></svg>
+                                </button>
+                            </h3>
+                            <div class="footer__col-body" id="footer-col-company">
+                            <ul>
+                                <li><a href="/company/" class="btn btn--link btn--link--secondary">О компании</a></li>
+                                <li><a href="/cooperation/" class="btn btn--link btn--link--secondary">Сотрудничество</a></li>
+                                <li><a href="/news/" class="btn btn--link btn--link--secondary">Новости и статьи</a></li>
+                                <li><a href="/documents/" class="btn btn--link btn--link--secondary">Документы</a></li>
+                                <li><a href="/contacts/" class="btn btn--link btn--link--secondary">Контакты</a></li>
+                            </ul>
+                            </div>
+                        </div>
+                    </nav>
+                </div>
+            </div>
+
+            <div class="footer__bottom">
+                <span class="footer__copy">© 2026 ООО «Санамедикал» ИНН 16123456789</span>
+                <a href="/policy/" class="btn btn--link btn--link--secondary">Политика конфиденциальности</a>
+                <a href="/agreement/" class="btn btn--link btn--link--secondary">Политика обработки данных</a>
+                <a href="https://every-tech.ru/" class="btn btn--link btn--link--secondary footer__dev" target="_blank" rel="noopener">Разработка и продвижение <img class="footer__dev-logo" src="local/templates/sanamedikal/images/footer/evritech.svg" width="105" height="12" alt="ЭВРИТЭЧ"></a>
+            </div>
+        </div>
+    </footer>
+
+    <svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+        <symbol id="icon-arrow" viewBox="0 0 22 22" fill="none">
+            <path d="M13.2266 5.43579L18.7907 11L13.2266 16.5641" stroke="currentColor" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round" />
+            <path d="M3.20703 11H18.6345" stroke="currentColor" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round" />
+        </symbol>
+        <symbol id="icon-arrow-down" viewBox="0 0 16 16" fill="none">
+            <path d="M2.72003 5.94L7.0667 10.2867C7.58003 10.8 8.42003 10.8 8.93336 10.2867L13.28 5.94" stroke="currentColor" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round" />
+        </symbol>
+        <symbol id="icon-chevron" viewBox="0 0 22 22" fill="none">
+            <path d="M5.5 8.25L11 13.75L16.5 8.25" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" />
+        </symbol>
+        <symbol id="icon-chevron-right" viewBox="0 0 10 10" fill="none">
+            <path d="M4 2.25L6.75 5.5L4 8.75" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" />
+        </symbol>
+        <symbol id="icon-cart" viewBox="0 0 22 22" fill="none">
+            <path d="M15.125 8.9375H4.46875L3.60264 2.62702C3.57384 2.46861 3.49035 2.32533 3.36674 2.22217C3.24313 2.11901 3.08723 2.0625 2.92623 2.0625H1.375" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" />
+            <path d="M6.875 19.25C7.82424 19.25 8.59375 18.4805 8.59375 17.5312C8.59375 16.582 7.82424 15.8125 6.875 15.8125C5.92576 15.8125 5.15625 16.582 5.15625 17.5312C5.15625 18.4805 5.92576 19.25 6.875 19.25Z" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" />
+            <path d="M15.8125 19.25C16.7617 19.25 17.5312 18.4805 17.5312 17.5312C17.5312 16.582 16.7617 15.8125 15.8125 15.8125C14.8633 15.8125 14.0938 16.582 14.0938 17.5312C14.0938 18.4805 14.8633 19.25 15.8125 19.25Z" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" />
+            <path d="M5.375 12.375H16.165C16.487 12.375 16.7988 12.262 17.046 12.0557C17.2932 11.8493 17.4602 11.5628 17.5178 11.246L18.5625 5.5H4.125" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" />
+        </symbol>
+        <symbol id="icon-minus" viewBox="0 0 18 18" fill="none">
+            <path d="M2.8125 9H15.1875" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" />
+        </symbol>
+        <symbol id="icon-plus" viewBox="0 0 18 18" fill="none">
+            <path d="M2.8125 9H15.1875" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" />
+            <path d="M9 2.8125V15.1875" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" />
+        </symbol>
+        <symbol id="icon-category" viewBox="0 0 12 12" fill="currentColor">
+            <path d="M3.58 1H2.63C1.54 1 1 1.54 1 2.63V3.58C1 4.67 1.54 5.21 2.63 5.21H3.58C4.67 5.21 5.21 4.67 5.21 3.58V2.63C5.21 1.54 4.67 1 3.58 1Z" />
+            <path d="M9.37 1H8.42C7.33 1 6.79 1.54 6.79 2.63V3.58C6.79 4.67 7.33 5.21 8.42 5.21H9.37C10.46 5.21 11 4.67 11 3.58V2.63C11 1.54 10.46 1 9.37 1Z" />
+            <path d="M9.37 6.79H8.42C7.33 6.79 6.79 7.33 6.79 8.42V9.37C6.79 10.46 7.33 11 8.42 11H9.37C10.46 11 11 10.46 11 9.37V8.42C11 7.33 10.46 6.79 9.37 6.79Z" />
+            <path d="M3.58 6.79H2.63C1.54 6.79 1 7.33 1 8.42V9.37C1 10.46 1.54 11 2.63 11H3.58C4.67 11 5.21 10.46 5.21 9.37V8.42C5.21 7.33 4.67 6.79 3.58 6.79Z" />
+        </symbol>
+        <symbol id="icon-check-circle" viewBox="0 0 42 42" fill="none">
+            <path d="M28.875 15.75L18.375 26.25L13.125 21" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" />
+            <path d="M36.6178 23.0541C36.2111 26.1422 34.8978 29.0403 32.844 31.3821C30.7903 33.7239 28.0883 35.4042 25.0797 36.2105C22.0711 37.0167 18.8908 36.9128 15.9414 35.9118C12.992 34.9109 10.4054 33.0578 8.50878 30.587C6.61224 28.1161 5.49097 25.1384 5.28665 22.0304C5.08234 18.9223 5.8042 15.8234 7.36094 13.1256C8.91769 10.4277 11.2394 8.252 14.0326 6.87356C16.8258 5.49512 19.9648 4.97581 23.0532 5.38132" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" />
+        </symbol>
+        <symbol id="icon-layers" viewBox="0 0 42 42" fill="none">
+            <path d="M5.25 26.25L21 35.4375L36.75 26.25" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" />
+            <path d="M5.25 18.375L21 27.5625L36.75 18.375L21 9.1875L5.25 18.375Z" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" />
+        </symbol>
+    </svg>
+    <!-- Обязательное предупреждение для медицинских и фармацевтических работников -->
+    <div class="pro-gate" id="pro-gate" role="alertdialog" aria-modal="true" aria-labelledby="pro-gate-title" aria-describedby="pro-gate-text">
+        <div class="pro-gate__dialog">
+            <h2 class="pro-gate__title" id="pro-gate-title">Внимание!</h2>
+            <p class="pro-gate__text" id="pro-gate-text">Материалы, размещенные на данном сайте, предназначены исключительно для медицинских и фармацевтических работников. В соответствии с действующим законодательством РФ, доступ к профессиональной информации о лекарственных препаратах, медицинских изделиях и методах лечения ограничен для широкого круга потребителей.</p>
+            <p class="pro-gate__question">Вы подтверждаете, что являетесь дипломированным медицинским или фармацевтическим специалистом?</p>
+            <div class="pro-gate__actions">
+                <button type="button" class="btn btn--neutral btn--xl" data-pro-gate-confirm>Да, подтверждаю</button>
+                <a href="https://yandex.ru" class="btn btn--neutral btn--xl" rel="noopener">Нет, покинуть сайт</a>
+            </div>
+        </div>
+    </div>
+
+
+    <script src="local/templates/sanamedikal/js/main.js"></script>
+</body>
+</html>

@@ -21,6 +21,10 @@ document.addEventListener('DOMContentLoaded', function () {
     initCatalogFiltersModal();
     initCustomScrollbars();
     initCartPanel();
+    initProductGallery();
+    initProductMods();
+    initProductAdd();
+    initProductCollapse();
 });
 
 /* ========================
@@ -1775,4 +1779,223 @@ function initCartPanel() {
     }
 
     updateCount();
+}
+
+/* ========================
+   ДЕТАЛЬНАЯ ТОВАРА: счётчик в шапке
+   (пока только верстка — в Bitrix количество придёт из ответа basket.add / корзины)
+======================== */
+function changeHeaderCartCount(delta) {
+    document.querySelectorAll('#cart-count, [data-cart-count]').forEach(function (el) {
+        var value = Math.max(0, (parseInt(el.textContent, 10) || 0) + delta);
+        el.textContent = value;
+
+        if (el.id === 'cart-count') {
+            el.setAttribute('aria-label', 'Товаров в корзине: ' + value);
+        }
+    });
+}
+
+/* ========================
+   ДЕТАЛЬНАЯ ТОВАРА: галерея (миниатюры, стрелки, точки, свайп)
+======================== */
+function initProductGallery() {
+    document.querySelectorAll('[data-product-gallery]').forEach(function (root) {
+        var track = root.querySelector('[data-gallery-track]');
+        var viewport = root.querySelector('[data-gallery-viewport]');
+        var slides = track ? track.children : [];
+        var thumbs = root.querySelectorAll('[data-gallery-thumb]');
+        var dots = root.querySelectorAll('[data-gallery-dot]');
+        var prev = root.querySelector('[data-gallery-prev]');
+        var next = root.querySelector('[data-gallery-next]');
+        var count = slides.length;
+        var current = 0;
+
+        if (!track || count < 2) {
+            if (prev) { prev.hidden = true; }
+            if (next) { next.hidden = true; }
+            return;
+        }
+
+        function goTo(index) {
+            current = (index + count) % count;
+            track.style.transform = 'translateX(' + (-current * 100) + '%)';
+
+            thumbs.forEach(function (thumb, i) {
+                var isActive = i === current;
+                thumb.classList.toggle('is-active', isActive);
+
+                if (isActive) {
+                    thumb.setAttribute('aria-current', 'true');
+                } else {
+                    thumb.removeAttribute('aria-current');
+                }
+            });
+
+            dots.forEach(function (dot, i) {
+                dot.classList.toggle('is-active', i === current);
+            });
+        }
+
+        thumbs.forEach(function (thumb, i) {
+            thumb.addEventListener('click', function () {
+                goTo(i);
+            });
+        });
+
+        if (prev) {
+            prev.addEventListener('click', function () {
+                goTo(current - 1);
+            });
+        }
+
+        if (next) {
+            next.addEventListener('click', function () {
+                goTo(current + 1);
+            });
+        }
+
+        // свайп пальцем / мышью
+        var startX = 0;
+        var deltaX = 0;
+        var isDragging = false;
+
+        viewport.addEventListener('pointerdown', function (e) {
+            if (e.pointerType === 'mouse' && e.button !== 0) {
+                return;
+            }
+            isDragging = true;
+            startX = e.clientX;
+            deltaX = 0;
+            track.classList.add('is-dragging');
+        });
+
+        window.addEventListener('pointermove', function (e) {
+            if (!isDragging) {
+                return;
+            }
+            deltaX = e.clientX - startX;
+            track.style.transform = 'translateX(calc(' + (-current * 100) + '% + ' + deltaX + 'px))';
+        });
+
+        function endDrag() {
+            if (!isDragging) {
+                return;
+            }
+            isDragging = false;
+            track.classList.remove('is-dragging');
+
+            var threshold = viewport.clientWidth * 0.15;
+
+            if (deltaX > threshold) {
+                goTo(current - 1);
+            } else if (deltaX < -threshold) {
+                goTo(current + 1);
+            } else {
+                goTo(current);
+            }
+        }
+
+        window.addEventListener('pointerup', endDrag);
+        window.addEventListener('pointercancel', endDrag);
+
+        root.addEventListener('keydown', function (e) {
+            if (e.key === 'ArrowLeft') {
+                goTo(current - 1);
+            } else if (e.key === 'ArrowRight') {
+                goTo(current + 1);
+            }
+        });
+
+        goTo(0);
+    });
+}
+
+/* ========================
+   ДЕТАЛЬНАЯ ТОВАРА: таблица модификаций — «Заказать» → счётчик количества
+======================== */
+function initProductMods() {
+    document.querySelectorAll('[data-mod-row]').forEach(function (row) {
+        var valueEl = row.querySelector('[data-qty-value]');
+
+        function setQty(qty) {
+            var prevQty = parseInt(row.dataset.qty, 10) || 0;
+            row.dataset.qty = qty;
+            row.classList.toggle('is-added', qty > 0);
+
+            if (valueEl) {
+                valueEl.textContent = Math.max(qty, 1) + ' шт';
+            }
+
+            changeHeaderCartCount(qty - prevQty);
+        }
+
+        row.addEventListener('click', function (e) {
+            var qty = parseInt(row.dataset.qty, 10) || 0;
+
+            if (e.target.closest('[data-mod-add]')) {
+                setQty(1);
+            } else if (e.target.closest('[data-qty-plus]')) {
+                setQty(qty + 1);
+            } else if (e.target.closest('[data-qty-minus]')) {
+                // при уменьшении с 1 позиция убирается из корзины и снова появляется «Заказать»
+                setQty(qty - 1);
+            }
+        });
+    });
+}
+
+/* ========================
+   ДЕТАЛЬНАЯ ТОВАРА: «Добавить в корзину» без выбора модификации
+   (в корзине позиция помечается «Модификацию уточним при подготовке КП»)
+======================== */
+function initProductAdd() {
+    document.querySelectorAll('[data-product-add]').forEach(function (group) {
+        var label = group.querySelector('[data-product-add-label]');
+        var initialText = label ? label.textContent : '';
+
+        group.addEventListener('click', function () {
+            var isAdded = group.classList.toggle('is-added');
+
+            if (label) {
+                label.textContent = isAdded ? 'В корзине' : initialText;
+            }
+
+            changeHeaderCartCount(isAdded ? 1 : -1);
+        });
+    });
+}
+
+/* ========================
+   ДЕТАЛЬНАЯ ТОВАРА: «Развернуть» у описания (кнопка скрывается, если текст и так помещается)
+======================== */
+function initProductCollapse() {
+    document.querySelectorAll('[data-collapse]').forEach(function (root) {
+        var body = root.querySelector('[data-collapse-body]');
+        var toggle = root.querySelector('[data-collapse-toggle]');
+        var label = root.querySelector('[data-collapse-label]');
+
+        if (!body || !toggle) {
+            return;
+        }
+
+        function sync() {
+            if (root.classList.contains('is-expanded')) {
+                return;
+            }
+            toggle.hidden = body.scrollHeight <= body.clientHeight + 1;
+        }
+
+        toggle.addEventListener('click', function () {
+            var isExpanded = root.classList.toggle('is-expanded');
+            toggle.setAttribute('aria-expanded', isExpanded ? 'true' : 'false');
+
+            if (label) {
+                label.textContent = isExpanded ? 'Свернуть' : 'Развернуть';
+            }
+        });
+
+        window.addEventListener('resize', sync);
+        sync();
+    });
 }
