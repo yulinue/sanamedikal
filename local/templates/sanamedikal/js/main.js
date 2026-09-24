@@ -10,6 +10,7 @@ document.addEventListener('DOMContentLoaded', function () {
     initFooterAccordion();
     initFixedHeader();
     initDocsFilter();
+    initNewsFilter();
     initDocsPagination();
     initCatalogSearch();
     initProGate();
@@ -19,6 +20,7 @@ document.addEventListener('DOMContentLoaded', function () {
     initCatalogQuickSearch();
     initCatalogFiltersModal();
     initCustomScrollbars();
+    initCartPanel();
 });
 
 /* ========================
@@ -206,6 +208,7 @@ function initMobileMenu() {
         } else {
             closeSearchIfOpen();
             closeRequestModalIfOpen();
+            closeCartIfOpen();
             openMobileMenu(menu, overlay, burgerBtn);
         }
     });
@@ -367,6 +370,7 @@ function initSearch() {
         } else {
             closeMobileMenuIfOpen();
             closeRequestModalIfOpen();
+            closeCartIfOpen();
             openSearch(searchBar, overlay, searchBtn, input);
         }
     });
@@ -547,6 +551,7 @@ function initRequestModal() {
         btn.addEventListener('click', function () {
             closeMobileMenuIfOpen();
             closeSearchIfOpen();
+            closeCartIfOpen();
             openRequestModal(modal, overlay);
             setRequestModalTab(modal, btn.dataset.requestTab || 'question');
         });
@@ -604,7 +609,10 @@ function closeRequestModal(modal, overlay) {
 }
 
 function resetRequestForm(modal) {
-    var form = modal.querySelector('#request-form');
+    resetForm(modal.querySelector('#request-form'));
+}
+
+function resetForm(form) {
     if (!form) {
         return;
     }
@@ -1257,10 +1265,42 @@ function initDocsFilter() {
 }
 
 /* ========================
+   НОВОСТИ: фильтр по категории (клиентская фильтрация; при выводе из Bitrix можно заменить серверной)
+======================== */
+function initNewsFilter() {
+    var grid = document.querySelector('.news-grid');
+    var tabs = document.querySelector('.news-page .tabs--filter');
+    var empty = document.querySelector('.news-page .docs__empty');
+
+    if (!grid || !tabs) {
+        return;
+    }
+
+    var items = Array.prototype.slice.call(grid.children);
+
+    tabs.querySelectorAll('.tabs__item').forEach(function (tab) {
+        tab.addEventListener('click', function () {
+            var filter = tab.dataset.filter || 'all';
+            var visible = 0;
+
+            items.forEach(function (item) {
+                var show = filter === 'all' || item.dataset.category === filter;
+                item.hidden = !show;
+                visible += show ? 1 : 0;
+            });
+
+            if (empty) {
+                empty.hidden = visible !== 0;
+            }
+        });
+    });
+}
+
+/* ========================
    ДОКУМЕНТЫ: активная страница в пагинации — подсвечиваем по параметру ?page= из адреса
 ======================== */
 function initDocsPagination() {
-    var nav = document.querySelector('.docs .pagination');
+    var nav = document.querySelector('.docs .pagination, .news-page .pagination');
 
     if (!nav) {
         return;
@@ -1596,4 +1636,143 @@ function initCustomScrollbar(area) {
     });
 
     update();
+}
+
+/* ========================
+   КОРЗИНА (боковая панель)
+======================== */
+var cartPanelCloseFn = function () {};
+
+function closeCartIfOpen() {
+    cartPanelCloseFn();
+}
+
+function initCartPanel() {
+    var panel = document.getElementById('cart-panel');
+    var overlay = document.getElementById('mobile-menu-overlay');
+    var openBtn = document.getElementById('cart-open-btn');
+
+    if (!panel || !overlay || !openBtn) {
+        return;
+    }
+
+    var closeBtns = panel.querySelectorAll('.js-close-cart');
+    var clearBtn = panel.querySelector('[data-cart-clear]');
+    var checkoutBtns = panel.querySelectorAll('[data-cart-checkout]');
+    var list = panel.querySelector('[data-cart-list]');
+    var countEls = document.querySelectorAll('#cart-count, [data-cart-count]');
+
+    function setView(view) {
+        panel.dataset.cartView = view;
+    }
+
+    function updateCount() {
+        var items = list ? list.querySelectorAll('[data-cart-item]') : [];
+        var total = 0;
+
+        items.forEach(function (item) {
+            total += parseInt(item.dataset.qty, 10) || 0;
+        });
+
+        countEls.forEach(function (el) {
+            el.textContent = total;
+        });
+
+        if (!total) {
+            setView('empty');
+        }
+
+        return total;
+    }
+
+    openBtn.addEventListener('click', function (e) {
+        e.preventDefault();
+        closeMobileMenuIfOpen();
+        closeSearchIfOpen();
+        closeRequestModalIfOpen();
+        openCartPanel();
+    });
+
+    function openCartPanel() {
+        lockBodyScroll();
+        panel.classList.add('is-open');
+        overlay.dataset.for = 'cart';
+        overlay.classList.add('is-open');
+        updateCount();
+    }
+
+    function closeCartPanel() {
+        if (!panel.classList.contains('is-open')) {
+            return;
+        }
+
+        panel.classList.remove('is-open');
+        overlay.classList.remove('is-open');
+        unlockBodyScroll();
+        resetForm(panel.querySelector('#cart-checkout-form'));
+
+        if (panel.dataset.cartView === 'checkout') {
+            setView(updateCount() ? 'items' : 'empty');
+        }
+    }
+
+    cartPanelCloseFn = closeCartPanel;
+
+    closeBtns.forEach(function (btn) {
+        btn.addEventListener('click', closeCartPanel);
+    });
+
+    overlay.addEventListener('click', closeCartPanel);
+
+    if (clearBtn) {
+        clearBtn.addEventListener('click', function () {
+            if (list) {
+                list.innerHTML = '';
+            }
+            updateCount();
+        });
+    }
+
+    checkoutBtns.forEach(function (btn) {
+        btn.addEventListener('click', function (e) {
+            if (btn.type === 'button') {
+                e.preventDefault();
+                setView('checkout');
+            }
+        });
+    });
+
+    if (list) {
+        list.addEventListener('click', function (e) {
+            var item = e.target.closest('[data-cart-item]');
+            if (!item) {
+                return;
+            }
+
+            if (e.target.closest('[data-cart-remove]')) {
+                item.remove();
+                updateCount();
+                return;
+            }
+
+            var valueEl = item.querySelector('[data-qty-value]');
+            var qty = parseInt(item.dataset.qty, 10) || 1;
+
+            if (e.target.closest('[data-qty-plus]')) {
+                qty += 1;
+            } else if (e.target.closest('[data-qty-minus]')) {
+                qty = Math.max(1, qty - 1);
+            } else {
+                return;
+            }
+
+            item.dataset.qty = qty;
+            if (valueEl) {
+                valueEl.textContent = qty + ' шт';
+            }
+            updateCount();
+        });
+    }
+
+    updateCount();
 }

@@ -41,7 +41,7 @@
 
                     <button type="button" class="btn btn--secondary js-request-btn">Оставить заявку</button>
 
-                    <a href="/cart/" class="header-actions__cart flex">
+                    <a href="#" class="header-actions__cart flex" id="cart-open-btn" aria-haspopup="dialog" aria-controls="cart-panel">
                         <button class="btn btn--neutral">Корзина</button>
                         <button class="btn btn--neutral btn--round">
                             <svg class="btn__icon" width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -66,6 +66,229 @@
     </header>
 
     <div class="mobile-menu-overlay" id="mobile-menu-overlay"></div>
+    <div class="cart-panel" id="cart-panel" data-cart-view="items" role="dialog" aria-modal="true" aria-label="Корзина">
+        <div class="cart-panel__view cart-panel__view--empty" data-cart-view-panel="empty">
+            <div class="cart-panel__bar">
+                <h2 class="h2 cart-panel__empty-title">В вашей корзине <br>пока ничего нет</h2>
+                <button type="button" class="btn btn--neutral btn--round cart-panel__close js-close-cart" aria-label="Закрыть">
+                    <svg class="btn__icon" width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M21.875 6.125L6.125 21.875" stroke="#222E59" stroke-linecap="round" stroke-linejoin="round" />
+                        <path d="M21.875 21.875L6.125 6.125" stroke="#222E59" stroke-linecap="round" stroke-linejoin="round" />
+                    </svg>
+                </button>
+            </div>
+
+            <img class="cart-panel__dec" src="local/templates/sanamedikal/images/cart/cartDec.png" alt="" aria-hidden="true">
+
+            <div class="cart-panel__empty">
+                <p class="cart-panel__empty-text">Добавьте одну или несколько позиций, чтобы перейти к оформлению заказа</p>
+
+                <div class="btn-group">
+                    <a href="/catalog/" class="btn btn--primary btn--xl">Перейти в каталог</a>
+                    <a href="/catalog/" class="btn btn--primary btn--round btn--xl" aria-label="Перейти в каталог">
+                        <svg class="btn__icon" width="22" height="22" aria-hidden="true"><use href="#icon-arrow"></use></svg>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <div class="cart-panel__view cart-panel__view--items" data-cart-view-panel="items">
+            <div class="cart-panel__header">
+                <h2 class="cart-panel__title">Корзина · <span data-cart-count>75</span></h2>
+                <div class="cart-panel__header-actions">
+                    <button type="button" class="btn btn--link cart-panel__clear" data-cart-clear>
+                        Очистить корзину
+                        <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M14 3.98667C11.78 3.76667 9.54667 3.65334 7.32 3.65334C6 3.65334 4.68 3.72 3.36 3.85334L2 3.98667" stroke="#9B9FB0" stroke-linecap="round" stroke-linejoin="round" />
+                            <path d="M5.66663 3.31334L5.81329 2.44C5.91996 1.80667 5.99996 1.33334 7.12663 1.33334H8.87329C9.99996 1.33334 10.0866 1.83334 10.1866 2.44667L10.3333 3.31334" stroke="#9B9FB0" stroke-linecap="round" stroke-linejoin="round" />
+                            <path d="M12.5667 6.09333L12.1334 12.8067C12.06 13.8533 12 14.6667 10.14 14.6667H5.86002C4.00002 14.6667 3.94002 13.8533 3.86668 12.8067L3.43335 6.09333" stroke="#9B9FB0" stroke-linecap="round" stroke-linejoin="round" />
+                            <path d="M6.88672 11H9.10672" stroke="#9B9FB0" stroke-linecap="round" stroke-linejoin="round" />
+                            <path d="M6.33337 8.33334H9.66671" stroke="#9B9FB0" stroke-linecap="round" stroke-linejoin="round" />
+                        </svg>
+                    </button>
+                    <button type="button" class="btn btn--neutral btn--round cart-panel__close js-close-cart" aria-label="Закрыть">
+                        <svg class="btn__icon" width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M21.875 6.125L6.125 21.875" stroke="#222E59" stroke-linecap="round" stroke-linejoin="round" />
+                            <path d="M21.875 21.875L6.125 6.125" stroke="#222E59" stroke-linecap="round" stroke-linejoin="round" />
+                        </svg>
+                    </button>
+                </div>
+            </div>
+
+            <div class="cart-panel__body">
+                <ul class="cart-list" data-cart-list>
+                <li class="cart-item" data-cart-item data-qty="30">
+                    <img class="cart-item__media" src="local/templates/sanamedikal/images/catalog/catalogItem3.png" alt="Спирали для эмболизации Terumo Hyper 3D Soft">
+                    <div class="cart-item__body">
+                        <p class="cart-item__brand">Terumo</p>
+                        <p class="cart-item__title">Спирали для эмболизации Terumo Hyper 3D Soft</p>
+                        <span class="cart-item__model">Model: Transend™ - <span class="cart-item__model-code">M001468010</span></span>
+                    </div>
+                    <div class="cart-item__qty">
+                        <button type="button" class="cart-item__qty-btn cart-item__qty-btn--minus" data-qty-minus aria-label="Уменьшить количество"><svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M2.8125 9H15.1875" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" /></svg></button>
+                        <span class="cart-item__qty-value" data-qty-value>30 шт</span>
+                        <button type="button" class="cart-item__qty-btn cart-item__qty-btn--plus" data-qty-plus aria-label="Увеличить количество"><svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M2.8125 9H15.1875" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" /><path d="M9 2.8125V15.1875" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" /></svg></button>
+                    </div>
+                    <button type="button" class="cart-item__remove" data-cart-remove aria-label="Удалить товар">
+                        <svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M17.1875 4.8125L4.8125 17.1875" stroke="#9B9FB0" stroke-linecap="round" stroke-linejoin="round" />
+                            <path d="M17.1875 17.1875L4.8125 4.8125" stroke="#9B9FB0" stroke-linecap="round" stroke-linejoin="round" />
+                        </svg>
+                    </button>
+                </li>
+                <li class="cart-item" data-cart-item data-qty="14">
+                    <img class="cart-item__media" src="local/templates/sanamedikal/images/catalog/catalogItem2.png" alt="Микрокатетеры управляемые высокопоточные Renegade Hi Flo и Renegade">
+                    <div class="cart-item__body">
+                        <p class="cart-item__brand">Boston Scientific</p>
+                        <p class="cart-item__title">Микрокатетеры управляемые высокопоточные Renegade Hi Flo и Renegade</p>
+                        <span class="cart-item__model">Model: Renegade - <span class="cart-item__model-code">L438899042</span></span>
+                    </div>
+                    <div class="cart-item__qty">
+                        <button type="button" class="cart-item__qty-btn cart-item__qty-btn--minus" data-qty-minus aria-label="Уменьшить количество"><svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M2.8125 9H15.1875" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" /></svg></button>
+                        <span class="cart-item__qty-value" data-qty-value>14 шт</span>
+                        <button type="button" class="cart-item__qty-btn cart-item__qty-btn--plus" data-qty-plus aria-label="Увеличить количество"><svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M2.8125 9H15.1875" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" /><path d="M9 2.8125V15.1875" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" /></svg></button>
+                    </div>
+                    <button type="button" class="cart-item__remove" data-cart-remove aria-label="Удалить товар">
+                        <svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M17.1875 4.8125L4.8125 17.1875" stroke="#9B9FB0" stroke-linecap="round" stroke-linejoin="round" />
+                            <path d="M17.1875 17.1875L4.8125 4.8125" stroke="#9B9FB0" stroke-linecap="round" stroke-linejoin="round" />
+                        </svg>
+                    </button>
+                </li>
+                <li class="cart-item cart-item--locked" data-cart-item data-qty="1">
+                    <img class="cart-item__media" src="local/templates/sanamedikal/images/catalog/catalogItem4.png" alt="Баллонный катетер Abbot (MINI) TREK">
+                    <div class="cart-item__body">
+                        <p class="cart-item__brand">Abbot</p>
+                        <p class="cart-item__title">Баллонный катетер Abbot (MINI) TREK</p>
+                        <span class="cart-item__model">Модификацию уточним при подготовке КП</span>
+                    </div>
+                    <div class="cart-item__qty">
+                        <button type="button" class="cart-item__qty-btn cart-item__qty-btn--minus" data-qty-minus aria-label="Уменьшить количество" disabled><svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M2.8125 9H15.1875" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" /></svg></button>
+                        <span class="cart-item__qty-value" data-qty-value>1 шт</span>
+                        <button type="button" class="cart-item__qty-btn cart-item__qty-btn--plus" data-qty-plus aria-label="Увеличить количество" disabled><svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M2.8125 9H15.1875" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" /><path d="M9 2.8125V15.1875" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" /></svg></button>
+                    </div>
+                    <button type="button" class="cart-item__remove" data-cart-remove aria-label="Удалить товар">
+                        <svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M17.1875 4.8125L4.8125 17.1875" stroke="#9B9FB0" stroke-linecap="round" stroke-linejoin="round" />
+                            <path d="M17.1875 17.1875L4.8125 4.8125" stroke="#9B9FB0" stroke-linecap="round" stroke-linejoin="round" />
+                        </svg>
+                    </button>
+                </li>
+                <li class="cart-item" data-cart-item data-qty="30">
+                    <img class="cart-item__media" src="local/templates/sanamedikal/images/catalog/catalogItem1.png" alt="Спирали с волокнами для эмболизации с Interlock-35">
+                    <div class="cart-item__body">
+                        <p class="cart-item__brand">Boston Scientific</p>
+                        <p class="cart-item__title">Спирали с волокнами для эмболизации с Interlock-35</p>
+                        <span class="cart-item__model">Model: Transend™ - <span class="cart-item__model-code">M001468010</span></span>
+                    </div>
+                    <div class="cart-item__qty">
+                        <button type="button" class="cart-item__qty-btn cart-item__qty-btn--minus" data-qty-minus aria-label="Уменьшить количество"><svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M2.8125 9H15.1875" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" /></svg></button>
+                        <span class="cart-item__qty-value" data-qty-value>30 шт</span>
+                        <button type="button" class="cart-item__qty-btn cart-item__qty-btn--plus" data-qty-plus aria-label="Увеличить количество"><svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M2.8125 9H15.1875" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" /><path d="M9 2.8125V15.1875" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" /></svg></button>
+                    </div>
+                    <button type="button" class="cart-item__remove" data-cart-remove aria-label="Удалить товар">
+                        <svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M17.1875 4.8125L4.8125 17.1875" stroke="#9B9FB0" stroke-linecap="round" stroke-linejoin="round" />
+                            <path d="M17.1875 17.1875L4.8125 4.8125" stroke="#9B9FB0" stroke-linecap="round" stroke-linejoin="round" />
+                        </svg>
+                    </button>
+                </li>
+            </ul>
+
+            </div>
+
+            <div class="cart-panel__footer">
+                <button type="button" class="btn btn--primary cart-panel__submit" data-cart-checkout>Оформить заказ</button>
+            </div>
+        </div>
+
+        <div class="cart-panel__view cart-panel__view--checkout" data-cart-view-panel="checkout">
+            <div class="cart-panel__header">
+                <h2 class="cart-panel__title">Оформить заказ</h2>
+                <button type="button" class="btn btn--neutral btn--round cart-panel__close js-close-cart" aria-label="Закрыть">
+                    <svg class="btn__icon" width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M21.875 6.125L6.125 21.875" stroke="#222E59" stroke-linecap="round" stroke-linejoin="round" />
+                        <path d="M21.875 21.875L6.125 6.125" stroke="#222E59" stroke-linecap="round" stroke-linejoin="round" />
+                    </svg>
+                </button>
+            </div>
+
+            <div class="cart-panel__body">
+
+                <div class="tabs" role="tablist">
+                <button type="button" class="tabs__item is-active" role="tab" aria-selected="true" data-tab="price">Запрос цены</button>
+                <button type="button" class="tabs__item" role="tab" aria-selected="false" data-tab="stock">Запрос наличия</button>
+                <button type="button" class="tabs__item" role="tab" aria-selected="false" data-tab="offer">Запросить КП</button>
+            </div>
+
+            <form class="modal__form cart-panel__form js-validate-form" id="cart-checkout-form" novalidate>
+                <div class="modal__row">
+                    <div class="field">
+                        <label class="field__label" for="cart-org">Название организации</label>
+                        <input type="text" class="input" id="cart-org" name="org" placeholder="ООО..." required>
+                        <span class="field__line"></span>
+                    </div>
+
+                    <div class="field">
+                        <label class="field__label" for="cart-inn">ИНН организации</label>
+                        <input type="text" class="input" id="cart-inn" name="inn" inputmode="numeric" placeholder="4392004106" required data-validate="inn">
+                        <span class="field__line"></span>
+                    </div>
+                </div>
+
+                <div class="field">
+                    <label class="field__label" for="cart-name">ФИО контактного лица</label>
+                    <input type="text" class="input" id="cart-name" name="name" autocomplete="name" placeholder="Иванов Иван Иванович" required data-validate="name">
+                    <span class="field__line"></span>
+                </div>
+
+                <div class="field">
+                    <label class="field__label" for="cart-hospital">Название ЛПУ и города</label>
+                    <input type="text" class="input" id="cart-hospital" name="hospital" placeholder="ГБУЗ «Морозовская ДГКБ ДЗМ», Москва" required>
+                    <span class="field__line"></span>
+                </div>
+
+                <div class="modal__row">
+                    <div class="field">
+                        <label class="field__label" for="cart-phone">Номер телефона</label>
+                        <input type="tel" class="input" id="cart-phone" name="phone" autocomplete="tel" placeholder="+7" required data-validate="phone">
+                        <span class="field__line"></span>
+                    </div>
+
+                    <div class="field">
+                        <label class="field__label" for="cart-email">Электронная почта</label>
+                        <input type="email" class="input" id="cart-email" name="email" autocomplete="email" placeholder="company@mail.ru" required data-validate="email">
+                        <span class="field__line"></span>
+                    </div>
+                </div>
+
+                <div class="field">
+                    <label class="field__label" for="cart-comment">Ваш комментарий</label>
+                    <input type="text" class="input" id="cart-comment" name="comment" placeholder="Необходимо...">
+                    <span class="field__line"></span>
+                </div>
+
+                <div class="checkbox-row">
+                    <input type="checkbox" class="checkbox" id="cart-agree" name="agree" required>
+                    <label class="checkbox-label" for="cart-agree">
+                        <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M6.75 16.5H11.25C15 16.5 16.5 15 16.5 11.25V6.75C16.5 3 15 1.5 11.25 1.5H6.75C3 1.5 1.5 3 1.5 6.75V11.25C1.5 15 3 16.5 6.75 16.5Z" fill="#222E59" />
+                            <path d="M6.75 16.5H11.25C15 16.5 16.5 15 16.5 11.25V6.75C16.5 3 15 1.5 11.25 1.5H6.75C3 1.5 1.5 3 1.5 6.75V11.25C1.5 15 3 16.5 6.75 16.5Z" stroke="#9B9FB0" stroke-linecap="round" stroke-linejoin="round" />
+                        </svg>
+                        <svg width="8" height="6" viewBox="0 0 8 6" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M0.75 2.8725L2.8725 4.995L7.125 0.75" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                        </svg>
+                    </label>
+                    <div class="checkbox-text">Принимаю <a href="/policy/">условия обработки</a> персональных данных</div>
+                </div>
+            </form>
+            </div>
+
+            <div class="cart-panel__footer">
+                <button type="submit" form="cart-checkout-form" class="btn btn--primary cart-panel__submit">Оформить заказ</button>
+            </div>
+        </div>
+    </div>
 
     <div class="mobile-menu" id="mobile-menu" role="dialog" aria-modal="true" aria-label="Меню">
         <div class="mobile-menu__header">
